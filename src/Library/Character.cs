@@ -1,6 +1,3 @@
-using System.Dynamic;
-using System.Net.Http.Headers;
-using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
@@ -30,14 +27,33 @@ namespace RPG
 
         public void Defend(Item item)
         {
-            int defenseLevel = item.DefenseValue * strength * intelligence ;
-            healthPoint + = defenseLevel ;
+            if (HealthPoint <  100)
+            {
+                int defenseLevel = item.DefenseValue * strength * intelligence ;
+                healthPoint + = defenseLevel ;
+            }
         }
 
         public void Heal (Item item, Character target)
         {
-            int healingLevel = item.HealingValue * strength * intelligence ;
-            target,HealthPoint + = healingLevel ; 
+            if (target.HealthPoint <  100)
+            {
+                int healingLevel = item.HealingValue * strength * intelligence ;
+                target.HealthPoint + = healingLevel ; 
+            }
+        }
+
+        public void Die (List<Item> Inventory)
+        {
+            if (HealthPoint == 0 && !(Inventory.Contains(resurrectionRing)))
+            {
+                no se como darle fin al personaje aca lol
+            }
+
+            if (HealthPoint == 0 && Inventory.Contains(resurrectionRing))
+            {
+                HealthPoint = 50 ; (o menos? lo recargamos a la mitad?)
+            }
         }
         
         */
