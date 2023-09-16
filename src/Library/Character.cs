@@ -21,7 +21,13 @@ namespace RPG
         /*public void Attack(Item item, Character target )
         {
             int attackLevel = item.AttackValue * strength * intelligence ;
-            target.HealthPoint - = attackLevel ;
+
+            if (attackLevel > target.HealthPoint)
+            {
+                target.HealthPoint = 0;
+            } else {
+                target.HealthPoint - = attackLevel ;
+            }
 
         }
 
@@ -31,6 +37,11 @@ namespace RPG
             {
                 int defenseLevel = item.DefenseValue * strength * intelligence ;
                 healthPoint + = defenseLevel ;
+
+                if (healthPoint > 100)
+                {
+                    target.HealthPoint = 100 ;
+                }
             }
         }
 
@@ -39,8 +50,14 @@ namespace RPG
             if (target.HealthPoint <  100)
             {
                 int healingLevel = item.HealingValue * strength * intelligence ;
-                target.HealthPoint + = healingLevel ; 
+                target.HealthPoint + = healingLevel ;
+
+                if (target.HealthPoint > 100)
+                {
+                    target.HealthPoint = 100 ;
+                }
             }
+
         }
 
         public void Die (List<Item> Inventory)
