@@ -101,6 +101,18 @@ namespace RPG.Tests
             // Assert
             Assert.GreaterOrEqual(output, expected); 
         }
+
+        //test Dwarf
+
+        [Test]
+        public void ResistanceOutOfParameters()
+        {
+            int input = 80;
+            int expected = "";
+            int output = setResistance(input);
+
+            Assert.AreEqual(expected, output);
+        }
     }
 }
 
