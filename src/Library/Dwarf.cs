@@ -4,7 +4,24 @@ namespace RPG
 {
     public class Dwarf : Character
     {
-        public int Resistance {get; set;}
+        private int Resistance;
+
+        public void setResistance (int resistanceValue)
+        {
+            if ((resistanceValue <= 50) && (resistanceValue >= 10))
+            {
+                this.Resistance = resistanceValue;
+            }
+            else
+            {
+                this.Resistance = "";
+            }
+        }
+
+        public int getResistance ()
+        {
+            return this.Resistance;
+        }
 
         public Dwarf (string name, int healthPoint, string basicItem, int strength, int intelligence, int Resistance) : base (name, healthPoint, basicItem, strength, intelligence)
         {
