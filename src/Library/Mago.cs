@@ -12,6 +12,4 @@ namespace RPG
             Spell.AddSpell(spell);
         }
     }
-
-
 }
