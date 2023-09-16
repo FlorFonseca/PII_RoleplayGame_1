@@ -22,7 +22,7 @@ namespace RPG
         public void Attack(Item item, Character target )
         {
             int attackLevel = item.AttackValue * this.Strength * this.Intelligence ;
-            target.HealthPoint -= attackLevel ;
+            target.HealthPoint -= attackLevel;
 
         }
 
