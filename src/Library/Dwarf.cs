@@ -17,7 +17,7 @@ namespace RPG
                 {
                     target.HealthPoint = 0;
                 } else {
-                    target.HealthPoint -= attackLevel + Resistance;
+                    target.HealthPoint -= attackLevel + this.Resistance;
                 }
 
 
