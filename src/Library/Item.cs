@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using static RPG;
+
 namespace RPG
 {
     public class Item
@@ -14,7 +14,7 @@ namespace RPG
             this.Nombre=nombre;
             this.AttackValue=attackvalue;
             this.DefenseValue=defensevalue;
-            this.HealingValue=healingvalue
+            this.HealingValue=healingvalue;
         } 
 
     }
