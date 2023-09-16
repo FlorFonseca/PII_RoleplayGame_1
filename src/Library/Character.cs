@@ -23,19 +23,18 @@ namespace RPG
         {
 
             int attackLevel = item.AttackValue * this.Strength * this.Intelligence ;
-<<<<<<< HEAD
-            target.HealthPoint -= attackLevel;
-=======
-            target.HealthPoint -= attackLevel ;
-          
+
+            
+
+   
             if (attackLevel > target.HealthPoint)
             {
                 target.HealthPoint = 0;
             } else {
-                target.HealthPoint - = attackLevel ;
+                target.HealthPoint -= attackLevel ;
             }
 
->>>>>>> 24726e2059f13e0895754d6a9302cf5cf85dc36c
+
 
         }
 
