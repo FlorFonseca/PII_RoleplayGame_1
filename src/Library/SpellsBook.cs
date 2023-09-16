@@ -4,9 +4,9 @@ namespace RPG
 {
     public class SpellsBook
     {
-        List <Spell> spellsBook = new List <Spell>() ;
+        public List <Spell> spellsBook = new List <Spell>();
 
-        public void AddSpell (Spell spell)
+        public void AddSpell ( Spell spell)
         {
             if (!spellsBook.Contains(spell))
             {
@@ -14,7 +14,7 @@ namespace RPG
             }
         }
 
-        public void RemoveSpell(Spell spell)
+        public void RemoveSpell( Spell spell)
         {
             if (spellsBook.Contains(spell))
             {

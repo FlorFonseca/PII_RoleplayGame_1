@@ -1,13 +1,14 @@
+using System.Collections.Generic;
 
 namespace RPG
 {
     public class Character
     {
-        string Name {get; set;}
-        int  HealthPoint {get; set;}
-        string BasicItem {get; set;}
-        int Strength {get; set;}
-        int Intelligence{get; set;}
+        public string Name {get; set;}
+        public int  HealthPoint {get; set;}
+        public string BasicItem {get; set;}
+        public int Strength {get; set;}
+        public int Intelligence{get; set;}
 
         public Character(string name, int healthPoint, string basicItem, int strength, int intelligence) // constructor method
         {
@@ -18,36 +19,36 @@ namespace RPG
             this.Intelligence = intelligence ;
         }
 
-        /*public void Attack(Item item, Character target )
+        public void Attack(Item item, Character target )
         {
-            int attackLevel = item.AttackValue * strength * intelligence ;
-            target.HealthPoint - = attackLevel ;
+            int attackLevel = item.AttackValue * this.Strength * this.Intelligence ;
+            target.HealthPoint -= attackLevel ;
 
         }
 
-        public void Defend(Item item)
+        public void Defend( Item item)
         {
             if (HealthPoint <  100)
             {
-                int defenseLevel = item.DefenseValue * strength * intelligence ;
-                healthPoint + = defenseLevel ;
+                int defenseLevel = item.DefenseValue * this.Strength * this.Intelligence ;
+                this.HealthPoint += defenseLevel ;
             }
         }
 
-        public void Heal (Item item, Character target)
+        public void Heal ( Item item, Character target)
         {
             if (target.HealthPoint <  100)
             {
-                int healingLevel = item.HealingValue * strength * intelligence ;
-                target.HealthPoint + = healingLevel ; 
+                int healingLevel = item.HealingValue * this.Strength * this.Intelligence ;
+                target.HealthPoint += healingLevel ; 
             }
         }
 
-        public void Die (List<Item> Inventory)
+       /* public void Die (List<class Item> Inventory)
         {
             if (HealthPoint == 0 && !(Inventory.Contains(resurrectionRing)))
             {
-                no se como darle fin al personaje aca lol
+             //   no se como darle fin al personaje aca lol
             }
 
             if (HealthPoint == 0 && Inventory.Contains(resurrectionRing))
@@ -55,9 +56,7 @@ namespace RPG
                 HealthPoint = 50 ; (o menos? lo recargamos a la mitad?)
             }
         }
-        
         */
-
 
     }
 }
