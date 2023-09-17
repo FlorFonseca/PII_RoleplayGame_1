@@ -5,10 +5,59 @@ namespace RPG
     public class Character
     {
         public string Name {get; set;}
-        public int  HealthPoint {get; set;}
+        private int  HealthPoint;
+        public void setHealthPoint(int healthPointValue)
+        {
+            if ((healthPointValue >= 0) && (healthPointValue <= 100))
+            {
+                this.HealthPoint = healthPointValue;
+            }
+            else
+            {
+                this.HealthPoint = 0;
+            }
+        }
+        public int getHealthPoint()
+        {
+            return this.HealthPoint;
+        }
         public Item BasicItem {get; set;}
-        public int Strength {get; set;}
-        public int Intelligence{get; set;}
+        private int Strength;
+
+        public void setStrength(int strengthValue)
+        {
+            if ((strengthValue >= 0) && (strengthValue <= 10))
+            {
+                this.Strength = strengthValue;
+            }
+            else
+            {
+                this.Strength = 0;
+            }
+        }
+        public int getStrength()
+        {
+            return this.Strength;
+        }
+        private int Intelligence;
+
+        public void setIntelligence(int intelligenceValue)
+        {
+            if ((intelligenceValue >= 0) && (intelligenceValue <= 10))
+            {
+                this.Intelligence = intelligenceValue;
+            }
+            else
+            {
+                this.Intelligence = 0;
+            }
+        }
+
+        public int getIntelligence()
+        {
+            return this.Intelligence;
+        }
+
 
         public Character(string name, int healthPoint, Item basicItem, int strength, int intelligence) // constructor method
         {
@@ -22,7 +71,7 @@ namespace RPG
         public void Attack(Item item, Character target )
         {
 
-            int attackLevel = item.AttackValue * this.Strength * this.Intelligence ;
+            int attackLevel = item.AttackValue + this.Strength + this.Intelligence ;
 
    
             if (attackLevel > target.HealthPoint)
@@ -32,16 +81,14 @@ namespace RPG
                 target.HealthPoint -= attackLevel ;
             }
 
-
-
         }
 
         public void Defend( Item item, Character target)
         {
-            if (target.HealthPoint <  100)
+            if (target.HealthPoint <=  100)
             {
 
-                int defenseLevel = item.DefenseValue * this.Strength * this.Intelligence ;
+                int defenseLevel = item.DefenseValue + this.Strength + this.Intelligence ;
                 target.HealthPoint += defenseLevel ;
 
 
@@ -54,10 +101,10 @@ namespace RPG
 
         public void Heal ( Item item, Character target)
         {
-            if (target.HealthPoint <  100)
+            if (target.HealthPoint <=  100)
             {
 
-                int healingLevel = item.HealingValue * this.Strength * this.Intelligence ;
+                int healingLevel = item.HealingValue + this.Strength + this.Intelligence ;
                 target.HealthPoint += healingLevel ; 
 
 
@@ -67,12 +114,9 @@ namespace RPG
                 }
             }
         }
-        public void Print ()
-        {
-            Console.WriteLine ("" + this.)
-        }
 
-       /* public void Die (List<class Item> Inventory)
+/*
+        public void Die (List<class Item> Inventory)
         {
             if (HealthPoint == 0 && !(Inventory.Contains(resurrectionRing)))
             {
@@ -84,7 +128,6 @@ namespace RPG
                 HealthPoint = 50 ; (o menos? lo recargamos a la mitad?)
             }
         }
-        */
-
+*/
     }
 }
