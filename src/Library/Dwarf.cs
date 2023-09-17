@@ -29,6 +29,7 @@ recuperación.
             : base (name, healthPoint, item, strength, intelligence)
         {
             public void Defend( Item item, Character target)
+
             {
                 if (this.getHealthPoint() <=  100)
                 {
@@ -37,7 +38,6 @@ recuperación.
                     int lasthealthpoint = this.getHealthPoint();
                     int newhealthpoint = lasthealthpoint + defenseLevel + this.Resistance;
                     this.setHealthPoint(newhealthpoint);
-
                 }
                 if (this.getHealthPoint() > 100)
                 {
