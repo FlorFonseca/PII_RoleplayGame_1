@@ -43,52 +43,54 @@ namespace RPG
         public Elf(string name, int healthPoint, Item item, int strength, int intelligence, int healingPower, int natureKnowledge)
             : base(name, healthPoint, item, strength, intelligence)
         {
-            public void Attack(Item item, Character target )
+
+        }
+        public void Attack(Item item, Character target)
+        {
+            int attackLevel = item.AttackValue + this.getStrength() + this.getIntelligence();
+            int lasthealthpoint = target.getHealthPoint();
+            int newhealthpoint = lasthealthpoint - (attackLevel + this.NatureKnowledge);
+
+            if (attackLevel > target.getHealthPoint())
             {
-                int attackLevel = item.AttackValue + this.getStrength() + this.getIntelligence() ;
-                int lasthealthpoint = target.getHealthPoint();
-                int newhealthpoint = lasthealthpoint - (attackLevel + this.NatureKnowledge);
-          
-                if (attackLevel > target.getHealthPoint())
-                {
-                    target.setHealthPoint(0);
-                }   
-                else 
-                {
-                    target.setHealthPoint(newhealthpoint);
-                }
+                target.setHealthPoint(0);
             }
-
-            public void Defend( Item item, Character target)
+            else
             {
-                if (this.getHealthPoint() <=  100)
-                {
-                    int defenseLevel = item.DefenseValue + this.getStrength() + this.getIntelligence() ;
-                    int lasthealingpoint = target.getHealthPoint();
-                    int newhealingpoint = lasthealingpoint + defenseLevel + this.getNatureKnowledge() ;
-                    this.setHealthPoint(newhealingpoint);
-                }
-                if (this.getHealthPoint() > 100)
-                {
-                    target.setHealthPoint(100);
-                }
+                target.setHealthPoint(newhealthpoint);
             }
+        }
 
-            public void Heal ( Item item, Character target)
+        public void Defend(Item item, Character target)
+        {
+            if (this.getHealthPoint() <= 100)
             {
-                if (target.getHealthPoint() <=  100)
-                {
-                    int healingLevel = item.HealingValue + this.getStrength() + this.getIntelligence() ;
-                    int lastheathvalue= target.getHealthPoint();
-                    int newhealthvalue = lastheathvalue + healingLevel + this.getHealingPower() ;
-                    this.setHealthPoint(newhealthvalue);
-                }
-                if (target.getHealthPoint() > 100)
-                {
-                    target.setHealthPoint(100) ;
+                int defenseLevel = item.DefenseValue + this.getStrength() + this.getIntelligence();
+                int lasthealingpoint = target.getHealthPoint();
+                int newhealingpoint = lasthealingpoint + defenseLevel + this.getNatureKnowledge();
+                this.setHealthPoint(newhealingpoint);
+            }
+            if (this.getHealthPoint() > 100)
+            {
+                target.setHealthPoint(100);
+            }
+        }
 
-                }
+        public void Heal(Item item, Character target)
+        {
+            if (target.getHealthPoint() <= 100)
+            {
+                int healingLevel = item.HealingValue + this.getStrength() + this.getIntelligence();
+                int lastheathvalue = target.getHealthPoint();
+                int newhealthvalue = lastheathvalue + healingLevel + this.getHealingPower();
+                this.setHealthPoint(newhealthvalue);
+            }
+            if (target.getHealthPoint() > 100)
+            {
+                target.setHealthPoint(100);
+
             }
         }
     }
 }
+
