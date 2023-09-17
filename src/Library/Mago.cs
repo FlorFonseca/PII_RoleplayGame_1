@@ -6,8 +6,8 @@ namespace RPG
     {
         public  SpellsBook Spell {get; set;}
 
-        public Mago(string name, int healthPoint, string basicItem, int strength, int intelligence, Spell spell)
-         : base(name, healthPoint, basicItem, strength, intelligence)
+        public Mago(string name, int healthPoint, Item item, int strength, int intelligence, Spell spell)
+         : base(name, healthPoint, item, strength, intelligence)
         {
             Spell.AddSpell(spell);
         }

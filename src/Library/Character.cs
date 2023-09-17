@@ -6,11 +6,11 @@ namespace RPG
     {
         public string Name {get; set;}
         public int  HealthPoint {get; set;}
-        public string BasicItem {get; set;}
+        public Item BasicItem {get; set;}
         public int Strength {get; set;}
         public int Intelligence{get; set;}
 
-        public Character(string name, int healthPoint, string basicItem, int strength, int intelligence) // constructor method
+        public Character(string name, int healthPoint, Item basicItem, int strength, int intelligence) // constructor method
         {
             this.Name = name ;
             this.HealthPoint = healthPoint ;
@@ -24,8 +24,6 @@ namespace RPG
 
             int attackLevel = item.AttackValue * this.Strength * this.Intelligence ;
 
-            
-
    
             if (attackLevel > target.HealthPoint)
             {
@@ -38,16 +36,16 @@ namespace RPG
 
         }
 
-        public void Defend( Item item)
+        public void Defend( Item item, Character target)
         {
-            if (HealthPoint <  100)
+            if (target.HealthPoint <  100)
             {
 
                 int defenseLevel = item.DefenseValue * this.Strength * this.Intelligence ;
-                this.HealthPoint += defenseLevel ;
+                target.HealthPoint += defenseLevel ;
 
 
-                if (healthPoint > 100)
+                if (target.HealthPoint > 100)
                 {
                     target.HealthPoint = 100 ;
                 }
@@ -68,7 +66,10 @@ namespace RPG
                     target.HealthPoint = 100 ;
                 }
             }
-
+        }
+        public void Print ()
+        {
+            Console.WriteLine ("" + this.)
         }
 
        /* public void Die (List<class Item> Inventory)
