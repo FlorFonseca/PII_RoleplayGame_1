@@ -26,13 +26,11 @@ namespace RPG
         public Dwarf (string name, int healthPoint, Item item, int strength, int intelligence, int Resistance) : base (name, healthPoint, item, strength, intelligence)
         {
             public void Defend( Item item, Character target)
-            {
+            { 
                 if (target.HealthPoint <=  100)
                 {
-
                     int defenseLevel = item.DefenseValue + this.Strength + this.Intelligence ;
                     target.HealthPoint += defenseLevel + this.Resistance;
-
                 }
                 if (target.HealthPoint > 100)
                 {

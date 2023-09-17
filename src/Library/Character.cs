@@ -77,7 +77,9 @@ namespace RPG
             if (attackLevel > target.HealthPoint)
             {
                 target.HealthPoint = 0;
-            } else {
+            } 
+            else
+            {
                 target.HealthPoint -= attackLevel ;
             }
 
