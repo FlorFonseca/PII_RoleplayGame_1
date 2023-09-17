@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace RPG
@@ -116,7 +117,7 @@ namespace RPG
 
             if (target.HealthPoint <= 0)
             {
-                Console.WriteLine($"El personaje {target} ha muerto.")
+                Console.WriteLine($"El personaje {target} ha muerto.");
                 
             }
         }

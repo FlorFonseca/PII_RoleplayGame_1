@@ -10,7 +10,7 @@ namespace RPG
 
             if (attacker is Mago magoAttacker)
             {
-                int attackvalue= item.AttackValue + magoAttacker.getStrength() + magoAttacker.getIntelligence() + magoAttacker.Spell.attackPower;
+                int attackvalue= item.AttackValue + magoAttacker.getStrength() + magoAttacker.getIntelligence() + magoAttacker.Spell.AttackPower;
                 attackvalue_tostring = Convert.ToString(attackvalue);
             }
 
