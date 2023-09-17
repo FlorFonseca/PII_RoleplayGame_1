@@ -5,7 +5,7 @@ namespace RPG
     public class Dwarf : Character
     {
         private int Resistance;
-
+        
         public void setResistance (int resistanceValue)
         {
             if ((resistanceValue <= 50) && (resistanceValue >= 10))
