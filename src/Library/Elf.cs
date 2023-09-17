@@ -43,9 +43,8 @@ namespace RPG
         public Elf(string name, int healthPoint, Item item, int strength, int intelligence, int healingPower, int natureKnowledge)
             : base(name, healthPoint, item, strength, intelligence)
         {
-            void Attack(Item item, Character target )
+            public void Attack(Item item, Character target )
             {
-
                 int attackLevel = item.AttackValue + this.getStrength() + this.getIntelligence() ;
                 int lasthealthpoint = target.getHealthPoint();
                 int newhealthpoint = lasthealthpoint - (attackLevel + this.NatureKnowledge);
@@ -58,6 +57,7 @@ namespace RPG
                 {
                     target.setHealthPoint(newhealthpoint);
                 }
+            }
 
             public void Defend( Item item, Character target)
             {
@@ -72,7 +72,7 @@ namespace RPG
                 {
                     target.setHealthPoint(100);
                 }
-             }
+            }
 
             public void Heal ( Item item, Character target)
             {
@@ -91,5 +91,4 @@ namespace RPG
             }
         }
     }
-}
 }
