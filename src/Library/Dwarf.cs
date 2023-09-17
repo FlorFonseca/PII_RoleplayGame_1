@@ -23,7 +23,7 @@ namespace RPG
             return this.Resistance;
         }
 
-        public Dwarf (string name, int healthPoint, string basicItem, int strength, int intelligence, int Resistance) : base (name, healthPoint, basicItem, strength, intelligence)
+        public Dwarf (string name, int healthPoint, Item item, int strength, int intelligence, int Resistance) : base (name, healthPoint, item, strength, intelligence)
         {
             public void Attack(Item item, Character target )
             {
