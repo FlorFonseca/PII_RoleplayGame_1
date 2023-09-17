@@ -5,6 +5,7 @@ namespace RPG
     public class SpellsBook
     {
         public List <Spell> spellsBook = new List <Spell>();
+        internal int attackPower;
 
         public void AddSpell ( Spell spell)
         {
