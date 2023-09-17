@@ -1,7 +1,7 @@
-using NUnit.Framework ;
-using RPG ;
+using NUnit.Framework;
+using RPG;
 
-namespace RPG.Tests
+namespace RPG.Test
 {
     public class CharacterTest
     {
@@ -9,10 +9,10 @@ namespace RPG.Tests
         public void ValidHealthPoint()
         {
             //Arrange
-            Character testCharacter = new Character ("Test Character", 100, "example Basic Item", 3, 1 );
-            
-            int input = testingCharacter.HealthPoint ;
-            int expected = 100 ;
+            Character testCharacter = new Character("Test Character", 100, "example Basic Item", 3, 1);
+
+            int input = testingCharacter.HealthPoint;
+            int expected = 100;
 
             //Assert
             Assert.Equals(input, expected);
@@ -28,11 +28,11 @@ namespace RPG.Tests
             // Act
             character.Defend(exampleItem);
 
-            int output = testCharacter.HealthPoint ;
+            int output = testCharacter.HealthPoint;
 
             // Assert
-            Assert.GreaterOrEqual(output, 80); 
-            Assert.LessOrEqual(output, 100);   
+            Assert.GreaterOrEqual(output, 80);
+            Assert.LessOrEqual(output, 100);
         }
 
         [Test]
@@ -45,11 +45,11 @@ namespace RPG.Tests
             // Act
             character.Defend(exampleItem);
 
-            int output = testCharacter.HealthPoint ;
-            int expected = 100 ;
+            int output = testCharacter.HealthPoint;
+            int expected = 100;
 
             // Assert
-            Assert.AreEqual(output, expected); 
+            Assert.AreEqual(output, expected);
         }
 
         [Test]
@@ -62,11 +62,11 @@ namespace RPG.Tests
             // Act
             testCharacter.Heal(exampleItem);
 
-            int output = testCharacter.HealthPoint ;
+            int output = testCharacter.HealthPoint;
 
             // Assert
             Assert.GreaterOrEqual(output, 80); // check
-            Assert.LessOrEqual(output, 100);   
+            Assert.LessOrEqual(output, 100);
         }
 
         [Test]
@@ -78,10 +78,10 @@ namespace RPG.Tests
 
             // Act
             int output = testCharacter.Heal(exampleItem);
-            int expected = 100 ;
+            int expected = 100;
 
             // Assert
-            Assert.AreEqual(output, expected); 
+            Assert.AreEqual(output, expected);
         }
 
         [Test]
@@ -95,11 +95,11 @@ namespace RPG.Tests
             // Act
             testCharacter.Attack(exampleItem, exampleTarget);
 
-            int output = exampleTarget.HealthPoint ;
-            int expected = 0 ;
+            int output = exampleTarget.HealthPoint;
+            int expected = 0;
 
             // Assert
-            Assert.GreaterOrEqual(output, expected); 
+            Assert.GreaterOrEqual(output, expected);
         }
 
         //test Dwarf
