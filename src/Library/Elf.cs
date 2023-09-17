@@ -10,7 +10,7 @@ namespace RPG
         public Elf(string name, int healthPoint, Item item, int strength, int intelligence, int healingPower, int natureKnowledge)
             : base(name, healthPoint, item, strength, intelligence)
         {
-            public void Attack(Item item, Character target )
+            void Attack(Item item, Character target )
             {
 
                 int attackLevel = item.AttackValue * this.Strength * this.Intelligence ;
@@ -18,11 +18,14 @@ namespace RPG
                 if (attackLevel > target.HealthPoint)
                 {
                     target.HealthPoint = 0;
-                }   else {
-                target.HealthPoint -= attackLevel + this.NatureKnowledge;
+                }   
+                else 
+                {
+                    target.HealthPoint -= attackLevel + this.NatureKnowledge;
                 }
 
             }
+
             public void Defend( Item item, Character target)
             {
                 if (HealthPoint <  100)
@@ -30,7 +33,6 @@ namespace RPG
 
                     int defenseLevel = item.DefenseValue * this.Strength * this.Intelligence ;
                     this.HealthPoint += defenseLevel + this.NatureKnowledge ;
-
 
                     if (healthPoint > 100)
                     {
@@ -43,19 +45,15 @@ namespace RPG
             {
                 if (target.HealthPoint <  100)
                 {
-
                     int healingLevel = item.HealingValue * this.Strength * this.Intelligence ;
                     target.HealthPoint += healingLevel + this.HealingPower ; 
-
 
                     if (target.HealthPoint > 100)
                     {
                         target.HealthPoint = 100 ;
                     }
                 }
-
             }
-            
         }
     }
 }
