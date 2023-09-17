@@ -5,13 +5,13 @@ namespace RPG
     public class SpellsBook
     {
         public List <Spell> spellsBook = new List <Spell>();
-        internal int attackPower;
+        
 
         public void AddSpell ( Spell spell)
         {
             if (!spellsBook.Contains(spell))
             {
-                spellsBook.Add(spell);
+                this.spellsBook.Add(spell);
             }
         }
 
@@ -19,7 +19,7 @@ namespace RPG
         {
             if (spellsBook.Contains(spell))
             {
-                spellsBook.Remove(spell);
+                this.spellsBook.Remove(spell);
             }
         }
 

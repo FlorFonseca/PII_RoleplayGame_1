@@ -30,7 +30,7 @@ namespace RPG
         {
 
         }
-        public void Defend(Item item, Character target)
+        public new void Defend(Item item, Character target)
 
         {
             if (this.getHealthPoint() <= 100)
@@ -48,7 +48,7 @@ namespace RPG
 
         }
 
-        public void Heal(Item item, Character target)
+        public new void Heal(Item item, Character target)
         {
             if (this.getHealthPoint() <= 100)
             {
