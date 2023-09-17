@@ -16,18 +16,18 @@ namespace Program
             inventary.AddItem(baston);
             Item escopeta = new Item("escopeta",3,2,0);
 
-            /*SpellsBook spellsBook= new SpellsBook();
+            SpellsBook spellsBook= new SpellsBook();
             Spell congelar = new Spell("congelar",10,2,0);
-            spellsBook.AddSpell(congelar);*/
+            spellsBook.AddSpell(congelar);
             
-            //Mago maguito = new Mago("Alberto",100,espada,5,1,congelar);
+            Mago maguito = new Mago("Alberto",100,espada,5,1,congelar);
 
             Elf duendecito = new Elf("Alisaia",100,baston,2,7,9,10);
 
             Dwarf enanito = new Dwarf("Anacleto",100,escopeta,8,1,7);
 
-            //maguito.Attack(espada,duendecito);
-            //enanito.Attack(escopeta,maguito); 
+            maguito.Attack(espada,congelar,duendecito);
+            enanito.Attack(escopeta,maguito); 
             duendecito.Attack(baston,enanito);
 
             valoresdeataque.PrintAttackValue(duendecito, baston);
