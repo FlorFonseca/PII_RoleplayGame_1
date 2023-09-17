@@ -5,16 +5,16 @@ namespace RPG
     public class Dwarf : Character
     {
         private int Resistance;
-        
+
         public void setResistance (int resistanceValue)
         {
-            if ((resistanceValue <= 50) && (resistanceValue >= 10))
+            if ((resistanceValue <= 10) && (resistanceValue >= 0))
             {
                 this.Resistance = resistanceValue;
             }
             else
             {
-                this.Resistance = "";
+                this.Resistance = 0;
             }
         }
 
@@ -25,19 +25,34 @@ namespace RPG
 
         public Dwarf (string name, int healthPoint, Item item, int strength, int intelligence, int Resistance) : base (name, healthPoint, item, strength, intelligence)
         {
-            public void Attack(Item item, Character target )
-            {
-                int attackLevel = item.AttackValue * this.Strength * this.Intelligence ;
-            
-                if (attackLevel > target.HealthPoint)
+            public void Defend( Item item, Character target)
+            { 
+                if (target.HealthPoint <=  100)
                 {
-                    target.HealthPoint = 0;
-                } else {
-                    target.HealthPoint -= attackLevel + this.Resistance;
+                    int defenseLevel = item.DefenseValue + this.Strength + this.Intelligence ;
+                    target.HealthPoint += defenseLevel + this.Resistance;
                 }
-
-
+                if (target.HealthPoint > 100)
+                {
+                    target.HealthPoint = 100 ;
+                }
+                
             }
-        }
+
+            public void Heal ( Item item, Character target)
+            {
+                if (target.HealthPoint <=  100)
+                {
+
+                    int healingLevel = item.HealingValue + this.Strength + this.Intelligence ;
+                    target.HealthPoint += healingLevel + this.Resistance; 
+
+                }
+                if (target.HealthPoint > 100)
+                {
+                    target.HealthPoint = 100 ;
+                }
+            }
+            }
     }
 }
