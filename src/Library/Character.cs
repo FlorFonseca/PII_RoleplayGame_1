@@ -6,6 +6,7 @@ namespace RPG
     {
         public string Name {get; set;}
         private int  HealthPoint;
+        
         public void setHealthPoint(int healthPointValue)
         {
             if ((healthPointValue >= 0) && (healthPointValue <= 100))
