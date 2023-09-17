@@ -50,7 +50,7 @@ namespace RPG
                 defensevalue_tostring = Convert.ToString(defensevalue);
             }
 
-            Console.WriteLine($"El personaje {defender} tiene un valor de defensa de {defensevalue_tostring}")
+            Console.WriteLine($"El personaje {defender} tiene un valor de defensa de {defensevalue_tostring}");
         }
 
         public void PrintHealingValue(Character healer, Item item)
@@ -75,7 +75,7 @@ namespace RPG
                 healingvalue_tostring = Convert.ToString(healingvalue);
             }
 
-            Console.WriteLine($"El personaje {healer} tiene un valor de curación de {healingvalue_tostring}.")
+            Console.WriteLine($"El personaje {healer} tiene un valor de curación de {healingvalue_tostring}.");
         }
     }
 }
