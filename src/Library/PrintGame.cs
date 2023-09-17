@@ -75,7 +75,7 @@ namespace RPG
                 healingvalue_tostring = Convert.ToString(healingvalue);
             }
 
-            Console.WriteLine($"El personaje {healer} tiene un valor de curación de {healingvalue_tostring}.")
+            Console.WriteLine($"El personaje {healer} tiene un valor de curación de {healingvalue_tostring}.");
         }
     }
 }
