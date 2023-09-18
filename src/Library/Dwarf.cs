@@ -25,8 +25,8 @@ namespace RPG
         Como los Enanos tienen una gran resistencia, creamos el atributo Resistance para que pueda influir en su defensa y a su vez en la 
         recuperación.
         */
-        public Dwarf(string name, int healthPoint, Item item, int strength, int intelligence, int Resistance)
-            : base(name, healthPoint, item, strength, intelligence)
+        public Dwarf(string name, int healthPoint, Inventary inventary, int strength, int intelligence, int Resistance)
+            : base(name, healthPoint, inventary, strength, intelligence)
         {
 
         }

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace RPG
 {
@@ -6,13 +8,18 @@ namespace RPG
     {
         public  SpellsBook Spell {get; set;}
 
-        public Mago(string name, int healthPoint, Item item, int strength, int intelligence, Spell spell)
-         : base(name, healthPoint, item, strength, intelligence)
+        public Mago(string name, int healthPoint, Inventary inventary, int strength, int intelligence, Spell spell)
+         : base(name, healthPoint, inventary, strength, intelligence)
         {
             Spell.AddSpell(spell);
         }
-         public void Attack(Item item, Spell spell, Character target)
+         public void Attack(Inventary inventary,Item item, Spell spell, Character target)
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
             int attackLevel = item.AttackValue + spell.AttackPower + this.getStrength() + this.getIntelligence();
             int lasthealthpoint = target.getHealthPoint();
             int newhealthpoint = lasthealthpoint - attackLevel;
@@ -25,6 +32,7 @@ namespace RPG
             {
                 target.setHealthPoint(newhealthpoint);
             }
+
         }
 
         public void Defend(Item item, Spell spell, Character target)

@@ -22,7 +22,7 @@ namespace RPG
         {
             return this.HealthPoint;
         }
-        public Item BasicItem {get; set;}
+        public Inventary Basicinventary {get; set;}
         private int Strength;
 
         public void setStrength(int strengthValue)
@@ -60,11 +60,11 @@ namespace RPG
         }
 
 
-        public Character(string name, int healthPoint, Item basicItem, int strength, int intelligence) // constructor method
+        public Character(string name, int healthPoint, Inventary basicInventary, int strength, int intelligence) // constructor method
         {
             this.Name = name ;
             this.HealthPoint = healthPoint ;
-            this.BasicItem = basicItem ;
+            this.Basicinventary = basicInventary ;
             this.Strength = strength ;
             this.Intelligence = intelligence ;
         }
