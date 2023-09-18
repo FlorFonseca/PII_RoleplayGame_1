@@ -4,17 +4,17 @@ namespace RPG
 {
     public class Item
     {
-        public string Nombre {get; set;}
+        public string Name {get; set;}
         public int AttackValue {get; set;}
         public int DefenseValue {get; set;}
         public int HealingValue {get; set;}
-        public string Pertenencia;
-        public Item (string nombre, int attackvalue, int defensevalue, int healingvalue)
+        public string Belonging;
+        public Item (string name, int attackValue, int defenseValue, int healingValue)
         {
-            this.Nombre=nombre;
-            this.AttackValue=attackvalue;
-            this.DefenseValue=defensevalue;
-            this.HealingValue=healingvalue;
+            this.Name = name;
+            this.AttackValue= attackValue;
+            this.DefenseValue = defenseValue;
+            this.HealingValue = healingValue;
         } 
     }
 }
