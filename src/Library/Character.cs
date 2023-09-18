@@ -54,7 +54,7 @@ namespace RPG
                 this.Intelligence = 0;
             }
         }
-
+        
         public int getIntelligence()
         {
             return this.Intelligence;
