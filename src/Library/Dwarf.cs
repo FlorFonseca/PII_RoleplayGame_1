@@ -21,16 +21,20 @@ namespace RPG
         {
             return this.Resistance;
         }
-        /*
+/*
         Como los Enanos tienen una gran resistencia, creamos el atributo Resistance para que pueda influir en su defensa y a su vez en la 
         recuperación.
-        */
-        public Dwarf(string name, int healthPoint, Inventary inventary, int strength, int intelligence, int Resistance)
+*/
+
+    //  CONSTRUCTOR: Como Dwarf es hija de Character, usamos el : base
+        public Dwarf(string name, int healthPoint, Inventory inventary, int strength, int intelligence, int Resistance)
             : base(name, healthPoint, inventary, strength, intelligence)
         {
 
         }
-        public new void Defend(Inventary inventary,Item item, Character target)
+    
+    //  MÉTODOS
+        public new void Defend(Inventory inventary,Item item, Character target)
         {
             if (!inventary.Contains(item))
             {
@@ -39,7 +43,6 @@ namespace RPG
             }
             if (this.getHealthPoint() <= 100)
             {
-
                 int defenseLevel = item.DefenseValue + this.getStrength() + this.getIntelligence();
                 int lasthealthpoint = this.getHealthPoint();
                 int newhealthpoint = lasthealthpoint + defenseLevel + this.Resistance;
@@ -51,8 +54,7 @@ namespace RPG
             }
 
         }
-
-        public new void Heal(Inventary inventary,Item item, Character target)
+        public new void Heal(Inventory inventary,Item item, Character target)
         {
             if (!inventary.Contains(item))
             {

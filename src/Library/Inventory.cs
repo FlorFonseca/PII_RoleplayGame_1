@@ -26,3 +26,7 @@ namespace RPG
         }
     }
 }
+/*
+    En el inventario podemos ir almacenando items de los personajes, esto nos va a permitir
+    tener un inventario para cada personaje creado (ver en program)
+*/
