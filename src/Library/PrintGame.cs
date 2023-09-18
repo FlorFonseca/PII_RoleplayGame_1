@@ -28,7 +28,7 @@ namespace RPG
                 int attackValue= item.AttackValue + dwarfAttacker.getStrength() + dwarfAttacker.getIntelligence();
                 attackValue_toString = Convert.ToString(attackValue);
             }
-            Console.WriteLine($"El personaje {attacker} tiene un valor de ataque de {attackvalue_tostring}");
+            Console.WriteLine($"El personaje {attacker} tiene un valor de ataque de {attackValue_toString}");
         }
 
     //  DEFENSE VALUE
