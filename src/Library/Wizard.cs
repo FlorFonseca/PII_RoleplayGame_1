@@ -9,12 +9,14 @@ namespace RPG
         public  Spell Spell {get; set;}
         public SpellsBook Spells {get; set;}
 
+    //  CONSTRUCTOR
         public Wizard(string name, int healthPoint, Inventory inventory, int strength, int intelligence, Spell spell)
         : base(name, healthPoint, inventory, strength, intelligence)
         {
             Spells.AddSpell(spell);
         }
 
+    //  MÉTODOS
         public void Attack(Inventory inventory,Item item, Spell spell, Character target)
         {
             if (!inventory.Contains(item))
@@ -41,7 +43,7 @@ namespace RPG
         {
             if (!inventory.Contains(item))
             {
-                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                Console.WriteLine("No tienes el item necesario en tu inventario para defenderte.");
                 return;
             }
             if (this.getHealthPoint() <= 100)
@@ -61,7 +63,7 @@ namespace RPG
         {
             if (!inventory.Contains(item))
             {
-                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                Console.WriteLine("No tienes el item necesario en tu inventario para curar.");
                 return;
             }
             if (target.getHealthPoint() <= 100)
@@ -78,3 +80,8 @@ namespace RPG
         }
     }
 }
+/*
+    Wizard funciona de manera similar a Dwarf y Elf, solo que este adquiere Spells (hechizos) que guarda en su SpellsBook (libro de Hechizos).
+    Como se vió en la clase Spell, los hechizo proporcionan valores que pueden incrementar o no los valores de ataque, defensa y curación.
+    (depense de cómo se cree el hechizo)
+*/

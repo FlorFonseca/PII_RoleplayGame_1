@@ -4,11 +4,12 @@ namespace RPG
 {
     public class PrintGame
     {
+    //  ATTACK VALUE
         public void PrintAttackValue(Character attacker, Item item)
         {
             string attackvalue_tostring = "";
 
-            if (attacker is Mago magoAttacker)
+            if (attacker is Wizard magoAttacker)
             {
                 int attackvalue= item.AttackValue + magoAttacker.getStrength() + magoAttacker.getIntelligence() + magoAttacker.Spell.AttackPower;
                 attackvalue_tostring = Convert.ToString(attackvalue);
@@ -28,11 +29,12 @@ namespace RPG
             Console.WriteLine($"El personaje {attacker} tiene un valor de ataque de {attackvalue_tostring}");
         }
 
+    //  DEFENSE VALUE
         public void PrintDefenseValue(Character defender, Item item)
         {
             string defensevalue_tostring = "";
 
-            if (defender is Mago magoDefender)
+            if (defender is Wizard magoDefender)
             {
                 int defensevalue= item.DefenseValue + magoDefender.getStrength() + magoDefender.getIntelligence() + magoDefender.Spell.DefensePower;
                 defensevalue_tostring = Convert.ToString(defensevalue);
@@ -53,11 +55,12 @@ namespace RPG
             Console.WriteLine($"El personaje {defender} tiene un valor de defensa de {defensevalue_tostring}");
         }
 
+    //  HELING VALUE
         public void PrintHealingValue(Character healer, Item item)
         {
             string healingvalue_tostring = "";
 
-            if (healer is Mago magoHealer)
+            if (healer is Wizard magoHealer)
             {
                 int healingvalue= item.HealingValue + magoHealer.getStrength() + magoHealer.getIntelligence() + magoHealer.Spell.HealingPower;
                 healingvalue_tostring = Convert.ToString(healingvalue);
@@ -79,3 +82,9 @@ namespace RPG
         }
     }
 }
+/*
+    En esta clase nos encargamos de imprimir tanto el valor de ataque y defensa de un personaje, como su valor de curación.
+    Aquí tomamos un personaje x y evaluamos a qué especie de personaje pertenece (Wizard, Dwarf or Elf), esto debemos hacerlo
+    ya que para cada especie deterinadas propiedades que son particulares de la especie.
+    Los hechizos infuyen en los magos, el conocimiento de la naturaleza en los elfos y la resistencia en los enanos (por ejemplo)
+*/

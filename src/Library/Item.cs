@@ -16,6 +16,10 @@ namespace RPG
             this.DefenseValue=defensevalue;
             this.HealingValue=healingvalue;
         } 
-
     }
 }
+/*
+    Item permite crear elementos con determinadas características para desenvolverse en el juego. 
+    Como se ha visto en clases anteriores, los items tienen determinados atributos que influyen 
+    en diferentes comportamientos de los personajes, por ejemplo, aumentan el valor de ataque o defensa.
+*/
