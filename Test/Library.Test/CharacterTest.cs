@@ -9,7 +9,7 @@ namespace RPG.Tests
         public void ValidHealthPoint()
         {
             //Arrange
-            Character testCharacter = new Character ("Test Character", 100, "example Basic Item", 3, 1 );
+            Character testCharacter = new Character ("Test Character", 100, inventory, 3, 1 );
             
             int input = testingCharacter.HealthPoint ;
             int expected = 100 ;
@@ -22,8 +22,8 @@ namespace RPG.Tests
         public void Defend_WhenHealthIsLessThan100_ShouldIncreaseHealth()
         {
             // Arrange
-            Character testCharacter = new Character("Test Character", 80, "Example Basic Item", 3, 1);
-            Item exampleItem = new Item(); // needs to be configured
+            Character testCharacter = new Character("Test Character", 80, inventory , 3, 1);
+            Item exampleItem = new Item("Example Item ", 6 , 5 , 4); 
 
             // Act
             character.Defend(exampleItem);
@@ -39,8 +39,8 @@ namespace RPG.Tests
         public void Defend_WhenHealthIs100_ShouldNotIncreaseHealth()
         {
             // Arrange
-            Character testCharacter = new Character("Test Character", 100, "Example Basic Item", 1, 3);
-            Item exampleItem = new Item(); // needs to be configured
+            Character testCharacter = new Character("Test Character", 100, inventory, 1, 3);
+            Item exampleItem = new Item("Example Item ", 6 , 5 , 4); 
 
             // Act
             character.Defend(exampleItem);
@@ -56,8 +56,8 @@ namespace RPG.Tests
         public void Heal_WhenHealthIsLessThan100_ShouldIncreaseHealth()
         {
             // Arrange
-            Character testCharacter = new Character("Test Character", 80, "Example Basic Item", 1, 3);
-            Item exampleItem = new Item(); // needs to be configured
+            Character testCharacter = new Character("Test Character", 80, inventory, 1, 3);
+            Item exampleItem = new Item("Example Item ", 6 , 5 , 4); 
 
             // Act
             testCharacter.Heal(exampleItem);
@@ -73,8 +73,8 @@ namespace RPG.Tests
         public void Heal_WhenHealthIs100_ShouldNotIncreaseHealth()
         {
             // Arrange
-            Character testCharacter = new Character("Test Character", 100, "Example Basic Item", 2, 2);
-            Item exampleItem = new Item(); // needs to be configured
+            Character testCharacter = new Character("Test Character", 100, inventory, 2, 2);
+            Item exampleItem = new Item("Example Item ", 6 , 5 , 4); 
 
             // Act
             int output = testCharacter.Heal(exampleItem);
@@ -88,9 +88,9 @@ namespace RPG.Tests
         public void Attack_ShouldNotReduceHealthBelowZero()
         {
             // Arrange
-            Character testCharacter = new Character("Test Attacker", 10, "Example Basic Item", 2, 2);
-            Character exampleTarget = new Character("example Target", 5, "Example Basic Item", 3, 1);
-            Item exampleItem = new Item(); // needs to be configured
+            Character testCharacter = new Character("Test Attacker", 10, inventory , 2, 2);
+            Character exampleTarget = new Character("example Target", 5, inventory , 3, 1);
+            Item exampleItem = new Item("Example Item ", 6 , 5 , 4); 
 
             // Act
             testCharacter.Attack(exampleItem, exampleTarget);
