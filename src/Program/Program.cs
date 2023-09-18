@@ -52,8 +52,15 @@ namespace Program
             duendecito.Attack(duendecitoinventary,baston,enanito);
 
         // VALOR DE ATAQUE: Imprimimos el valor de ataque del personaje especificado, con el item que utiliza
-            valoresdeataque.PrintAttackValue(duendecito, baston);
+        
+            valoresdeataque.PrintAttackValue(duendecito,enanito, baston);
+            valoresdeataque.PrintAttackValue(maguito,duendecito,espada);
+            valoresdeataque.PrintAttackValue(enanito,maguito,escopeta);
 
+            duendecito.Heal(duendecitoinventary,baston,duendecito);
+
+            valoresdeataque.PrintHealingValue(duendecito,baston);
+        
         }
     }
 }
