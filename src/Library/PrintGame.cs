@@ -5,13 +5,12 @@ namespace RPG
     public class PrintGame
     {
     //  ATTACK VALUE
-        public void PrintAttackValue(Character attacker, Item item)
+        public void PrintAttackValue(Character attacker,Character target, Item item)
         {
             string attackValue_toString = "";
 
 
             if (attacker is Wizard wizardAttacker)
-
             {
                 int attackValue= item.AttackValue + wizardAttacker.getStrength() + wizardAttacker.getIntelligence() + wizardAttacker.Spell.AttackPower;
                 attackValue_toString = Convert.ToString(attackValue);
@@ -28,14 +27,15 @@ namespace RPG
                 int attackValue= item.AttackValue + dwarfAttacker.getStrength() + dwarfAttacker.getIntelligence();
                 attackValue_toString = Convert.ToString(attackValue);
             }
-            Console.WriteLine($"El personaje {attacker} tiene un valor de ataque de {attackValue_toString}");
+            Console.WriteLine($"El personaje {attacker.Name} ataco a {target.Name} con un valor de ataque de {attackValue_toString}");
+            Console.WriteLine($"El personaje {target.Name} tiene {target.getHealthPoint()} puntos de vida restante\n");
         }
 
     //  DEFENSE VALUE
-        public void PrintDefenseValue(Character defender, Item item)
+        public void PrintDefenseValue(Character defender,Character target, Item item)
         {
-            string defenseValue_toString = "";
 
+            string defenseValue_toString = "";
 
             if (defender is Wizard wizardDefender)
 
@@ -56,7 +56,8 @@ namespace RPG
                 defenseValue_toString = Convert.ToString(defenseValue);
             }
 
-            Console.WriteLine($"El personaje {defender} tiene un valor de defensa de {defenseValue_toString}");
+            Console.WriteLine($"El personaje {defender.Name} se defendio de {target.Name} tiene un valor de defensa de {defenseValue_toString}");
+            Console.WriteLine($"El personaje {defender.Name} tiene {defender.getHealthPoint()} puntos de vida restante\n");
         }
 
     //  HELING VALUE
@@ -84,8 +85,10 @@ namespace RPG
                 healingValue_toString = Convert.ToString(healingValue);
             }
 
-            Console.WriteLine($"El personaje {healer} tiene un valor de curación de {healingValue_toString}.");
+            Console.WriteLine($"El personaje {healer.Name} se curo con un valor de curación de {healingValue_toString}.");
+            Console.WriteLine($"El personaje {healer.Name} tiene {healer.getHealthPoint()} puntos de vida restante\n");
         }
+
     }
 }
 /*
