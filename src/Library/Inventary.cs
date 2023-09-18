@@ -20,5 +20,9 @@ namespace RPG
                 inventary.Remove(item);
             }
         }
+         public bool Contains(Item item)
+        {
+            return inventary.Contains(item);
+        }
     }
 }

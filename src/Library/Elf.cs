@@ -40,8 +40,8 @@ namespace RPG
 
 
 
-        public Elf(string name, int healthPoint, Item item, int strength, int intelligence, int healingPower, int natureKnowledge)
-            : base(name, healthPoint, item, strength, intelligence)
+        public Elf(string name, int healthPoint, Inventary inventary, int strength, int intelligence, int healingPower, int natureKnowledge)
+            : base(name, healthPoint, inventary, strength, intelligence)
         {
 
         }
