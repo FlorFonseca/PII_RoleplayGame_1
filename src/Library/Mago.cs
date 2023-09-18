@@ -68,3 +68,7 @@ namespace RPG
         }
     }
 }
+/*
+Le agregamos al mago el SpellsBook ya qu ees característico del personaje, los métodos funcionan de manera similar a los de 
+las clases Dwarf y Elf, se le agregó los atributos del hechizo (spell) utilizado.
+*/

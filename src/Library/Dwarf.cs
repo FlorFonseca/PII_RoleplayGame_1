@@ -30,6 +30,10 @@ namespace RPG
         {
 
         }
+        /*
+        Aquí creamos el constructor para el objeto Dwarf, el :base (...) refiere a la clase Character, es por eso que tenemos el Dwarf : Character
+        Dwarf es hija de Character
+        */
         public new void Defend(Item item, Character target)
 
         {
@@ -47,6 +51,10 @@ namespace RPG
             }
 
         }
+        /*
+        Similar a su funcionamiento en la clase Character, El poder de defensa del enano se ve afectado por el valor de su resistencia a
+        los ataques
+        */
 
         public new void Heal(Item item, Character target)
         {
@@ -65,10 +73,10 @@ namespace RPG
             }
         }
     }
-    /*
-        Hacemos el constructor del enano, como es hija de Character, invocamos los metodos de la misma.
-        Defend: acá indicamos el item con el cual el personaje se defiende y el personaje del cual se defiende.
-                El this.getHealthpoint hace referencia a la vida del Dwarf
-        Heal: sigue la misma lógica que el Defend.
-    */
+        /*
+            Hacemos el constructor del enano, como es hija de Character, invocamos los metodos de la misma.
+            Defend: acá indicamos el item con el cual el personaje se defiende y el personaje del cual se defiende.
+                    El this.getHealthpoint hace referencia a la vida del Dwarf
+            Heal: sigue la misma lógica que el Defend.
+        */
 }

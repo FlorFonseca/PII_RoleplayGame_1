@@ -23,6 +23,10 @@ namespace RPG
         {
             return this.HealthPoint;
         }
+        /*
+        HealthPoint sería la vida del personaje, aquí evaluamos que su valor sea hasta 100 y no menor a 0. 
+        Como es un atributo privado, recurrimos a getters y setters para poder trabajar mejor.
+        */
         public Inventary Basicinventary {get; set;}
         private int Strength;
 
@@ -41,6 +45,10 @@ namespace RPG
         {
             return this.Strength;
         }
+        /*
+        Strength es la fuerza por defecto que tiene el personaje, va a influir en el valor de su ataque y su defensa, 
+        así como también en su curación.
+        */
         private int Intelligence;
 
         public void setIntelligence(int intelligenceValue)
@@ -59,7 +67,9 @@ namespace RPG
         {
             return this.Intelligence;
         }
-
+        /*
+        Al igual que Strength, Intelligence va a influir en los mismos aspectos.
+        */
 
         public Character(string name, int healthPoint, Inventary basicInventary, int strength, int intelligence) // constructor method
         {
@@ -84,8 +94,11 @@ namespace RPG
             {
                 target.HealthPoint -= attackLevel ;
             }
-
         }
+        /*
+        Attack requiere del item con el cual el personaje1 ataca y el personaje2 atacado.
+        Aquí se puede ver la colaboración entre Strength e Intelligence, además del aporte del valor de ataque del item utilizado.
+        */
 
         public void Defend( Item item, Character target)
         {
@@ -101,6 +114,9 @@ namespace RPG
                 target.HealthPoint = 100 ;
             }
         }
+        /*
+        Defend requiere del item que defiende al personaje1 y el personaje2 del cual el personaje1 se defeinde.
+        */
 
         public void Heal ( Item item, Character target)
         {
@@ -122,19 +138,13 @@ namespace RPG
             }
         }
 
-/*
-        public void Die (List<class Item> Inventory)
-        {
-            if (HealthPoint == 0 && !(Inventory.Contains(resurrectionRing)))
-            {
-             //   no se como darle fin al personaje aca lol
-            }
-
-            if (HealthPoint == 0 && Inventory.Contains(resurrectionRing))
-            {
-                HealthPoint = 50 ; (o menos? lo recargamos a la mitad?)
-            }
-        }
-*/
+        /*
+        Heal funciona con una lógica similar a los aneteriores, además se le agrega la evaluación para cuando el personaje ha muerto
+        */
     }
 }
+
+/*
+En esta clase Character definimos un molde para la creación de un personaje x. Cada atributo son las acciones que va a poder hacer
+ese personaje x. Character pasará a ser la clase padre de las clases MAgo, Dwarf y Elf.
+*/

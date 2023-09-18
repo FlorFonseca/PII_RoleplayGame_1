@@ -22,6 +22,8 @@ namespace RPG
                 this.spellsBook.Remove(spell);
             }
         }
-
     }
 }
+/*
+El SpellsBook es un item que utiliza solo el mago, aquí almacenamos todos los hechizos que el mismo pueda legar a utilizar.
+*/

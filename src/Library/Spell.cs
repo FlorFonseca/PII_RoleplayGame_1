@@ -16,5 +16,7 @@ namespace RPG
             this.HealingPower = healingPower ;
         }
     }
-
 }
+/*
+Similar a Item, se crea un hechizo con determinados atributos que influirán en el objeto Mago
+*/

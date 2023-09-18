@@ -37,7 +37,11 @@ namespace RPG
         {
             return this.HealingPower;
         }
-
+/*
+Como los Elfos tienen gran conocimiento de la naturaleza siendo así que su magia está muy ligada a la misma, decidimos crear
+el atributo Nature Knowledge para poder reflejar ese poder.
+Además son buenos sanadores, por lo que decidimos ponerles un Healing Power que les sirve tanto para ellos mismos como para algún ersonaje aliado. 
+*/
 
 
         public Elf(string name, int healthPoint, Inventary inventary, int strength, int intelligence, int healingPower, int natureKnowledge)
@@ -45,6 +49,9 @@ namespace RPG
         {
 
         }
+/*
+Elf es hija de Character
+*/
         public new void Attack(Item item, Character target)
         {
             int attackLevel = item.AttackValue + this.getStrength() + this.getIntelligence();

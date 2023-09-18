@@ -26,3 +26,9 @@ namespace RPG
         }
     }
 }
+
+/*
+Inventary es donde guardamos todos los items que usamos para un personaje, de esta manera podremos 
+hacer que un personaje cuente con un inventario de elementos específicos para su tipo y tambien 
+evaluar si el item que va a usar se encuentra en el mismo.
+*/

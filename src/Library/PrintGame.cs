@@ -79,3 +79,7 @@ namespace RPG
         }
     }
 }
+
+/*
+Esta clase PrintGame, está destinada a mostrar el valor de ataque, defensa y curación de cada personaje segpun pertenezca al tipo Mago, Elfo o Enano.
+*/
