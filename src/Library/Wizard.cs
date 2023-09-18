@@ -8,12 +8,17 @@ namespace RPG
     {
         public  Spell Spell {get; set;}
         public SpellsBook Spells {get; set;}
+        public Inventory WizardInventory {get; set;}
 
     //  CONSTRUCTOR
-        public Wizard(string name, int healthPoint, Inventory inventory, int strength, int intelligence, Spell spell)
-        : base(name, healthPoint, inventory, strength, intelligence)
+        public Wizard(string name, int healthPoint, Inventory WizardInventory, int strength, int intelligence, Spell spell)
+        : base(name, healthPoint, WizardInventory, strength, intelligence)
         {
+            Spells= new SpellsBook();
             Spells.AddSpell(spell);
+            Inventory wizardInventory = new Inventory();
+            Spell = spell;
+            WizardInventory = wizardInventory;
         }
 
     //  MÉTODOS
