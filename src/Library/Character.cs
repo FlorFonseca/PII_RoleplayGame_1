@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace RPG
@@ -94,11 +95,10 @@ namespace RPG
                 int defenseLevel = item.DefenseValue + this.Strength + this.Intelligence ;
                 target.HealthPoint += defenseLevel ;
 
-
-                if (target.HealthPoint > 100)
-                {
-                    target.HealthPoint = 100 ;
-                }
+            }
+            if (target.HealthPoint > 100)
+            {
+                target.HealthPoint = 100 ;
             }
         }
 
@@ -106,15 +106,19 @@ namespace RPG
         {
             if (target.HealthPoint <=  100)
             {
-
                 int healingLevel = item.HealingValue + this.Strength + this.Intelligence ;
                 target.HealthPoint += healingLevel ; 
+            }
 
+            if (target.HealthPoint > 100)
+            {
+                target.HealthPoint = 100 ;
+            }
 
-                if (target.HealthPoint > 100)
-                {
-                    target.HealthPoint = 100 ;
-                }
+            if (target.HealthPoint <= 0)
+            {
+                Console.WriteLine($"El personaje {target} ha muerto.");
+                
             }
         }
 

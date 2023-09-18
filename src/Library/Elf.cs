@@ -45,7 +45,7 @@ namespace RPG
         {
 
         }
-        public void Attack(Item item, Character target)
+        public new void Attack(Item item, Character target)
         {
             int attackLevel = item.AttackValue + this.getStrength() + this.getIntelligence();
             int lasthealthpoint = target.getHealthPoint();
@@ -61,7 +61,7 @@ namespace RPG
             }
         }
 
-        public void Defend(Item item, Character target)
+        public new void Defend(Item item, Character target)
         {
             if (this.getHealthPoint() <= 100)
             {
@@ -76,7 +76,7 @@ namespace RPG
             }
         }
 
-        public void Heal(Item item, Character target)
+        public new void Heal(Item item, Character target)
         {
             if (target.getHealthPoint() <= 100)
             {

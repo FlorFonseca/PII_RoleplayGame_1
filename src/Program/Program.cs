@@ -30,13 +30,15 @@ namespace Program
             Spell congelar = new Spell("congelar",10,2,0);
             spellsBook.AddSpell(congelar);
 
+
             Mago maguito = new Mago("Alberto",100,maguitoinventary,5,1,congelar);
 
             Elf duendecito = new Elf("Alisaia",100,duendecitoinventary,2,7,9,10);
 
             Dwarf enanito = new Dwarf("Anacleto",100,enanitoinventary,8,1,7);
 
-            maguito.Attack(espada,duendecito);
+
+            maguito.Attack(espada,congelar,duendecito);
             enanito.Attack(escopeta,maguito); 
             duendecito.Attack(baston,enanito);
 

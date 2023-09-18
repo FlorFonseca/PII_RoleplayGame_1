@@ -6,13 +6,15 @@ namespace RPG
 {
     public class Mago : Character
     {
-        public  SpellsBook Spell {get; set;}
+        public  Spell Spell {get; set;}
+        public SpellsBook Spells {get; set;}
 
         public Mago(string name, int healthPoint, Inventary inventary, int strength, int intelligence, Spell spell)
          : base(name, healthPoint, inventary, strength, intelligence)
         {
-            Spell.AddSpell(spell);
+            Spells.AddSpell(spell);
         }
+
          public void Attack(Inventary inventary,Item item, Spell spell, Character target)
         {
             if (!inventary.Contains(item))
@@ -35,7 +37,7 @@ namespace RPG
 
         }
 
-        public void Defend(Item item, Spell spell, Character target)
+        public new void Defend(Item item, Spell spell, Character target)
         {
             if (this.getHealthPoint() <= 100)
             {
@@ -50,7 +52,7 @@ namespace RPG
             }
         }
     
-        public void Heal(Item item, Spell spell, Character target)
+        public new void Heal(Item item, Spell spell, Character target)
         {
             if (target.getHealthPoint() <= 100)
             {
