@@ -1,4 +1,5 @@
 using System.Security.Cryptography.X509Certificates;
+using System;
 
 namespace RPG
 {
@@ -45,8 +46,13 @@ namespace RPG
         {
 
         }
-        public new void Attack(Item item, Character target)
+        public new void Attack(Inventary inventary,Item item, Character target)
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
             int attackLevel = item.AttackValue + this.getStrength() + this.getIntelligence();
             int lasthealthpoint = target.getHealthPoint();
             int newhealthpoint = lasthealthpoint - (attackLevel + this.NatureKnowledge);
@@ -61,8 +67,13 @@ namespace RPG
             }
         }
 
-        public new void Defend(Item item, Character target)
+        public new void Defend(Inventary inventary,Item item, Character target)
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
             if (this.getHealthPoint() <= 100)
             {
                 int defenseLevel = item.DefenseValue + this.getStrength() + this.getIntelligence();
@@ -76,8 +87,13 @@ namespace RPG
             }
         }
 
-        public new void Heal(Item item, Character target)
+        public new void Heal(Inventary inventary,Item item, Character target)
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
             if (target.getHealthPoint() <= 100)
             {
                 int healingLevel = item.HealingValue + this.getStrength() + this.getIntelligence();

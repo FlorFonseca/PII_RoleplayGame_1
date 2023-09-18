@@ -37,8 +37,13 @@ namespace RPG
 
         }
 
-        public new void Defend(Item item, Spell spell, Character target)
+        public void Defend(Inventary inventary,Item item, Spell spell, Character target)
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
             if (this.getHealthPoint() <= 100)
             {
                 int defenseLevel = item.DefenseValue + spell.DefensePower + this.getStrength() + this.getIntelligence();
@@ -52,8 +57,13 @@ namespace RPG
             }
         }
     
-        public new void Heal(Item item, Spell spell, Character target)
+        public void Heal(Inventary inventary,Item item, Spell spell, Character target)
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
             if (target.getHealthPoint() <= 100)
             {
                 int healingLevel = item.HealingValue + spell.HealingPower + this.getStrength() + this.getIntelligence();

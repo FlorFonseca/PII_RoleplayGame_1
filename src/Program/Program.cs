@@ -38,7 +38,7 @@ namespace Program
             Dwarf enanito = new Dwarf("Anacleto",100,enanitoinventary,8,1,7);
 
 
-            maguito.Attack(espada,congelar,duendecito);
+            maguito.Attack(maguitoinventary,espada,congelar,duendecito);
             enanito.Attack(escopeta,maguito); 
             duendecito.Attack(baston,enanito);
 
