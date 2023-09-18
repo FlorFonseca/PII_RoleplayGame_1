@@ -85,6 +85,11 @@ namespace RPG
                 target.HealthPoint -= attackLevel ;
             }
 
+            if (target.HealthPoint <= 0)
+            {
+                Console.WriteLine($"El personaje {target} ha muerto.");
+                
+            }
         }
 
         public void Defend( Item item, Character target)
@@ -99,6 +104,12 @@ namespace RPG
             if (target.HealthPoint > 100)
             {
                 target.HealthPoint = 100 ;
+            }
+
+            if (target.HealthPoint <= 0)
+            {
+                Console.WriteLine($"El personaje {target} ha muerto.");
+                
             }
         }
 
@@ -122,19 +133,5 @@ namespace RPG
             }
         }
 
-/*
-        public void Die (List<class Item> Inventory)
-        {
-            if (HealthPoint == 0 && !(Inventory.Contains(resurrectionRing)))
-            {
-             //   no se como darle fin al personaje aca lol
-            }
-
-            if (HealthPoint == 0 && Inventory.Contains(resurrectionRing))
-            {
-                HealthPoint = 50 ; (o menos? lo recargamos a la mitad?)
-            }
-        }
-*/
     }
 }
