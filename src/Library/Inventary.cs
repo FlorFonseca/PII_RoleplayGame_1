@@ -2,27 +2,27 @@ using System.Collections.Generic;
 
 namespace RPG
 {
-    public class Inventary
+    public class Inventory
     {
-        List <Item> inventary = new List<Item>();
+        List <Item> inventory = new List<Item>();
 
         public void AddItem(Item item)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
-                inventary.Add(item);
+                inventory.Add(item);
             }
         }
         public void RemoveItem(Item item)
         {
-            if (inventary.Contains(item))
+            if (inventory.Contains(item))
             {
-                inventary.Remove(item);
+                inventory.Remove(item);
             }
         }
-         public bool Contains(Item item)
+        public bool Contains(Item item)
         {
-            return inventary.Contains(item);
+            return inventory.Contains(item);
         }
     }
 }

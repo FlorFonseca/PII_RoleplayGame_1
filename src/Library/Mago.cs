@@ -4,27 +4,27 @@ using System;
 
 namespace RPG
 {
-    public class Mago : Character
+    public class Wizard : Character
     {
         public  Spell Spell {get; set;}
         public SpellsBook Spells {get; set;}
 
-        public Mago(string name, int healthPoint, Inventary inventary, int strength, int intelligence, Spell spell)
-         : base(name, healthPoint, inventary, strength, intelligence)
+        public Wizard(string name, int healthPoint, Inventory inventory, int strength, int intelligence, Spell spell)
+        : base(name, healthPoint, inventory, strength, intelligence)
         {
             Spells.AddSpell(spell);
         }
 
-         public void Attack(Inventary inventary,Item item, Spell spell, Character target)
+        public void Attack(Inventory inventory,Item item, Spell spell, Character target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
             }
             int attackLevel = item.AttackValue + spell.AttackPower + this.getStrength() + this.getIntelligence();
-            int lasthealthpoint = target.getHealthPoint();
-            int newhealthpoint = lasthealthpoint - attackLevel;
+            int lastHealthPoint = target.getHealthPoint();
+            int newHealthPoint = lastHealthPoint - attackLevel;
 
             if (attackLevel > target.getHealthPoint())
             {
@@ -32,14 +32,14 @@ namespace RPG
             }
             else
             {
-                target.setHealthPoint(newhealthpoint);
+                target.setHealthPoint(newHealthPoint);
             }
 
         }
 
-        public void Defend(Inventary inventary,Item item, Spell spell, Character target)
+        public void Defend(Inventory inventory,Item item, Spell spell, Character target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
@@ -47,9 +47,9 @@ namespace RPG
             if (this.getHealthPoint() <= 100)
             {
                 int defenseLevel = item.DefenseValue + spell.DefensePower + this.getStrength() + this.getIntelligence();
-                int lasthealingpoint = this.getHealthPoint();
-                int newhealingpoint = lasthealingpoint + defenseLevel;
-                this.setHealthPoint(newhealingpoint);
+                int lastHealingPoint = this.getHealthPoint();
+                int newHealingPoint = lastHealingPoint + defenseLevel;
+                this.setHealthPoint(newHealingPoint);
             }
             if (this.getHealthPoint() > 100)
             {
@@ -57,9 +57,9 @@ namespace RPG
             }
         }
     
-        public void Heal(Inventary inventary,Item item, Spell spell, Character target)
+        public void Heal(Inventory inventory,Item item, Spell spell, Character target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
@@ -67,9 +67,9 @@ namespace RPG
             if (target.getHealthPoint() <= 100)
             {
                 int healingLevel = item.HealingValue + spell.HealingPower + this.getStrength() + this.getIntelligence();
-                int lasthealthvalue = target.getHealthPoint();
-                int newhealthvalue = lasthealthvalue + healingLevel;
-                target.setHealthPoint(newhealthvalue);
+                int lastHealthValue = target.getHealthPoint();
+                int newHealthValue = lastHealthValue + healingLevel;
+                target.setHealthPoint(newHealthValue);
             }
             if (target.getHealthPoint() > 100)
             {

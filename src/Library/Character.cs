@@ -23,7 +23,7 @@ namespace RPG
         {
             return this.HealthPoint;
         }
-        public Inventary Basicinventary {get; set;}
+        public Inventory BasicInventory {get; set;}
         private int Strength;
 
         public void setStrength(int strengthValue)
@@ -61,18 +61,18 @@ namespace RPG
         }
 
 
-        public Character(string name, int healthPoint, Inventary basicInventary, int strength, int intelligence) // constructor method
+        public Character(string name, int healthPoint, Inventory basicInventory, int strength, int intelligence) // constructor method
         {
             this.Name = name ;
             this.HealthPoint = healthPoint ;
-            this.Basicinventary = basicInventary ;
+            this.BasicInventory = basicInventory ;
             this.Strength = strength ;
             this.Intelligence = intelligence ;
         }
 
-        public void Attack(Inventary inventary,Item item, Character target )
+        public void Attack(Inventory inventory,Item item, Character target )
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
@@ -80,7 +80,7 @@ namespace RPG
 
             int attackLevel = item.AttackValue + this.Strength + this.Intelligence ;
 
-   
+
             if (attackLevel > target.HealthPoint)
             {
                 target.HealthPoint = 0;
@@ -97,9 +97,9 @@ namespace RPG
             }
         }
 
-        public void Defend(Inventary inventary,Item item, Character target)
+        public void Defend(Inventory inventory,Item item, Character target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
@@ -124,9 +124,9 @@ namespace RPG
             }
         }
 
-        public void Heal (Inventary inventary,Item item, Character target)
+        public void Heal (Inventory inventory,Item item, Character target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
