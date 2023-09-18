@@ -70,8 +70,13 @@ namespace RPG
             this.Intelligence = intelligence ;
         }
 
-        public void Attack(Item item, Character target )
+        public void Attack(Inventary inventary,Item item, Character target )
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
 
             int attackLevel = item.AttackValue + this.Strength + this.Intelligence ;
 
@@ -92,8 +97,14 @@ namespace RPG
             }
         }
 
-        public void Defend( Item item, Character target)
+        public void Defend(Inventary inventary,Item item, Character target)
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
+
             if (target.HealthPoint <=  100)
             {
 
@@ -113,8 +124,13 @@ namespace RPG
             }
         }
 
-        public void Heal ( Item item, Character target)
+        public void Heal (Inventary inventary,Item item, Character target)
         {
+            if (!inventary.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
             if (target.HealthPoint <=  100)
             {
                 int healingLevel = item.HealingValue + this.Strength + this.Intelligence ;

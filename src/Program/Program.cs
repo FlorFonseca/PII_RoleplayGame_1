@@ -39,8 +39,8 @@ namespace Program
 
 
             maguito.Attack(maguitoinventary,espada,congelar,duendecito);
-            enanito.Attack(escopeta,maguito); 
-            duendecito.Attack(baston,enanito);
+            enanito.Attack(enanitoinventary,escopeta,maguito); 
+            duendecito.Attack(duendecitoinventary,baston,enanito);
 
             valoresdeataque.PrintAttackValue(duendecito, baston);
 
