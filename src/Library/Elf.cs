@@ -12,6 +12,7 @@ namespace RPG
         private int HealthPoint;
         private int HealingPower;
         private int NatureKnowledge;
+        public Inventory BasicInventary {get;set;}
 
         //  HEALINGPOWER
         public void setHealingPower(int healingPowerValue)
@@ -53,9 +54,10 @@ namespace RPG
             this.Name=name;
             this.Strength=strength;
             this.Intelligence=intelligence;
-            this.HealthPoint=getHealthPoint();
-            this.HealingPower= getHealingPower();
-            this.NatureKnowledge= getNatureKnowledge();
+            this.HealthPoint=healthPoint;
+            this.HealingPower= healingPower;
+            this.NatureKnowledge= natureKnowledge;
+            this.BasicInventary.inventary
 
         }
 
