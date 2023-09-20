@@ -3,7 +3,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Dwarf : ICharacter
+    public class Dwarf : INoMagicCharacter
     {
         public string Name { get; set; }
         public int Strength { get; set; }
@@ -53,7 +53,7 @@ namespace RPG
         {
             return this.Resistance;
         }
-        public void Attack(Inventory inventory, Item item, ICharacter target)
+        public void Attack(Inventory inventory, Item item, INoMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
@@ -73,7 +73,7 @@ namespace RPG
                 target.setHealthPoint(newhealthpoint);
             };
         }
-        public new void Defend(Inventory inventory,Item item, Character target)
+        public new void Defend(Inventory inventory,Item item, INoMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
@@ -82,7 +82,7 @@ namespace RPG
             }
             if (this.getHealthPoint() <= 100)
             {
-                int defenseLevel = item.DefenseValue + this.getStrength() + this.getIntelligence();
+                int defenseLevel = item.DefenseValue + this.Strength + this.Intelligence;
                 int lasthealthpoint = this.getHealthPoint();
                 int newhealthpoint = lasthealthpoint + defenseLevel + this.Resistance;
                 this.setHealthPoint(newhealthpoint);
@@ -93,7 +93,7 @@ namespace RPG
             }
 
         }
-        public new void Heal(Inventory inventory,Item item, Character target)
+        public new void Heal(Inventory inventory,Item item, INoMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
@@ -103,7 +103,7 @@ namespace RPG
             if (this.getHealthPoint() <= 100)
             {
 
-                int healingLevel = item.HealingValue + this.getStrength() + this.getIntelligence();
+                int healingLevel = item.HealingValue + this.Strength + this.Intelligence;
                 int lasthealingpoint = this.getHealthPoint();
                 int newhealingpoint = lasthealingpoint + healingLevel + this.Resistance;
                 this.setHealthPoint(newhealingpoint);

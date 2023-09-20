@@ -4,7 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Elf : ICharacter
+    public class Elf : INoMagicCharacter
     {
         public string Name { get; set; }
         public int Strength { get; set; }
@@ -12,7 +12,7 @@ namespace RPG
         private int HealthPoint;
         private int HealingPower;
         private int NatureKnowledge;
-        public Inventory BasicInventary {get;set;}
+        public Inventory BasicInventory {get;set;}
 
         //  HEALINGPOWER
         public void setHealingPower(int healingPowerValue)
@@ -49,7 +49,7 @@ namespace RPG
         }
 
         //  CONSTRUCTOR: Elf es hija de Character
-        public Elf(string name, int healthPoint, Inventory inventary, int strength, int intelligence, int healingPower, int natureKnowledge)
+        public Elf(string name, int healthPoint, Inventory inventory, int strength, int intelligence, int healingPower, int natureKnowledge)
         {
             this.Name=name;
             this.Strength=strength;
@@ -57,7 +57,7 @@ namespace RPG
             this.HealthPoint=healthPoint;
             this.HealingPower= healingPower;
             this.NatureKnowledge= natureKnowledge;
-            this.BasicInventary.inventary
+            this.BasicInventory=inventory;
 
         }
 
@@ -71,7 +71,7 @@ namespace RPG
             return HealthPoint;
         }
 
-        public void Attack(Inventory inventory, Item item, ICharacter target)
+        public void Attack(Inventory inventory, Item item, INoMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
@@ -92,7 +92,7 @@ namespace RPG
             };
         }
 
-        public void Defend(Inventory inventory, Item item, ICharacter target)
+        public void Defend(Inventory inventory, Item item, INoMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
@@ -112,7 +112,7 @@ namespace RPG
             }
         }
 
-        public void Heal(Inventory inventory, Item item, ICharacter target)
+        public void Heal(Inventory inventory, Item item, INoMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
