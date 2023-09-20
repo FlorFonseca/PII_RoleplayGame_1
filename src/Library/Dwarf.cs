@@ -5,9 +5,38 @@ namespace RPG
 {
     public class Dwarf : ICharacter
     {
+        public string Name { get; set; }
+        public int Strength { get; set; }
+        public int Intelligence { get; set; }
+        private int HealthPoint;
         private int Resistance;
-        private string Name;
 
+
+        
+/*
+        Como los Enanos tienen una gran resistencia, creamos el atributo Resistance para que pueda influir en su defensa y a su vez en la 
+        recuperación.
+*/
+
+    //  CONSTRUCTOR: Como Dwarf es hija de Character, usamos el : base
+        public Dwarf(string name, int healthPoint, Inventory inventary, int strength, int intelligence, int Resistance)
+        {
+            this.Name = name;
+            this.Strength = strength;
+            this.Intelligence = intelligence;
+            this.HealthPoint = getHealthPoint();
+            this.Resistance = getResistance();
+        }
+    
+    //  MÉTODOS
+        public void setHealthPoint(int healthPointValue)
+        {
+            this.HealthPoint = healthPointValue;
+        }
+        public int getHealthPoint()
+        {
+            return HealthPoint;
+        }
 
         public void setResistance(int resistanceValue)
         {
@@ -24,22 +53,29 @@ namespace RPG
         {
             return this.Resistance;
         }
-/*
-        Como los Enanos tienen una gran resistencia, creamos el atributo Resistance para que pueda influir en su defensa y a su vez en la 
-        recuperación.
-*/
-
-    //  CONSTRUCTOR: Como Dwarf es hija de Character, usamos el : base
-        public Dwarf(string name, int healthPoint, Inventory inventary, int strength, int intelligence, int Resistance)
-            : base(name, healthPoint, inventary, strength, intelligence)
+        public void Attack(Inventory inventory, Item item, ICharacter target)
         {
+            if (!inventory.Contains(item))
+            {
+                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
+                return;
+            }
+            int attackLevel = item.AttackValue + this.Strength + this.Intelligence;
+            int lasthealthpoint = target.getHealthPoint();
+            int newhealthpoint = lasthealthpoint - (attackLevel);
 
+            if (attackLevel > target.getHealthPoint())
+            {
+                target.setHealthPoint(0);
+            }
+            else
+            {
+                target.setHealthPoint(newhealthpoint);
+            };
         }
-    
-    //  MÉTODOS
-        public new void Defend(Inventory inventary,Item item, Character target)
+        public new void Defend(Inventory inventory,Item item, Character target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
@@ -57,9 +93,9 @@ namespace RPG
             }
 
         }
-        public new void Heal(Inventory inventary,Item item, Character target)
+        public new void Heal(Inventory inventory,Item item, Character target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
