@@ -4,32 +4,51 @@ using System;
 
 namespace RPG
 {
-    public class Wizard : ICharacter
+    public class Wizard : IMagicCharacter
     {
         public  Spell Spell {get; set;}
         public SpellsBook Spells {get; set;}
         public Inventory WizardInventory {get; set;}
+        public string Name {get; set;}
+        public int Strength { get; set; }
+        public int Intelligence { get; set; }
+        private int HealthPoint;
+
 
     //  CONSTRUCTOR
         public Wizard(string name, int healthPoint, Inventory WizardInventory, int strength, int intelligence, Spell spell)
-        : base(name, healthPoint, WizardInventory, strength, intelligence)
         {
+            Name = name;
+            HealthPoint= getHealthPoint();
+            Spell = spell;
             Spells= new SpellsBook();
             Spells.AddSpell(spell);
             Inventory wizardInventory = new Inventory();
-            Spell = spell;
             WizardInventory = wizardInventory;
+            Strength= strength;
+            Intelligence=intelligence;
         }
 
     //  MÉTODOS
-        public void Attack(Inventory inventory,Item item, Spell spell, Character target)
+
+        public void setHealthPoint(int healthPointValue)
+        {
+            HealthPoint=healthPointValue;
+        }
+
+        public int getHealthPoint()
+        {
+            return HealthPoint;
+        }
+
+        public void Attack(Inventory inventory, Item item, Spell spell,IMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
             }
-            int attackLevel = item.AttackValue + spell.AttackPower + this.getStrength() + this.getIntelligence();
+            int attackLevel = item.AttackValue + spell.AttackPower + this.Strength + this.Intelligence;
             int lastHealthPoint = target.getHealthPoint();
             int newHealthPoint = lastHealthPoint - attackLevel;
 
@@ -41,10 +60,9 @@ namespace RPG
             {
                 target.setHealthPoint(newHealthPoint);
             }
-
         }
 
-        public void Defend(Inventory inventory,Item item, Spell spell, Character target)
+        public void Defend(Inventory inventory, Item item,Spell spell, IMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
@@ -53,7 +71,7 @@ namespace RPG
             }
             if (this.getHealthPoint() <= 100)
             {
-                int defenseLevel = item.DefenseValue + spell.DefensePower + this.getStrength() + this.getIntelligence();
+                int defenseLevel = item.DefenseValue + spell.DefensePower + this.Strength + this.Intelligence;
                 int lastHealingPoint = this.getHealthPoint();
                 int newHealingPoint = lastHealingPoint + defenseLevel;
                 this.setHealthPoint(newHealingPoint);
@@ -63,8 +81,8 @@ namespace RPG
                 this.setHealthPoint(100);
             }
         }
-    
-        public void Heal(Inventory inventory,Item item, Spell spell, Character target)
+
+        public void Heal(Inventory inventory, Item item,Spell spell, IMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
@@ -73,7 +91,7 @@ namespace RPG
             }
             if (target.getHealthPoint() <= 100)
             {
-                int healingLevel = item.HealingValue + spell.HealingPower + this.getStrength() + this.getIntelligence();
+                int healingLevel = item.HealingValue + spell.HealingPower + this.Strength + this.Intelligence;
                 int lastHealthValue = target.getHealthPoint();
                 int newHealthValue = lastHealthValue + healingLevel;
                 target.setHealthPoint(newHealthValue);
