@@ -41,7 +41,7 @@ namespace RPG
             return HealthPoint;
         }
 
-        public void Attack(Inventory inventory, Item item, Spell spell,IMagicCharacter target)
+        public void Attack(Inventory inventory, IAttackItem item, Spell spell,IMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
