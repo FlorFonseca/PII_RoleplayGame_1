@@ -1,10 +1,13 @@
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Dwarf : Character
+    public class Dwarf : ICharacter
     {
         private int Resistance;
+        private string Name;
+
 
         public void setResistance(int resistanceValue)
         {

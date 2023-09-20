@@ -4,7 +4,7 @@ using System;
 
 namespace RPG
 {
-    public class Wizard : Character
+    public class Wizard : ICharacter
     {
         public  Spell Spell {get; set;}
         public SpellsBook Spells {get; set;}

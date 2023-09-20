@@ -1,14 +1,19 @@
 using System.Security.Cryptography.X509Certificates;
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Elf : Character
+    public class Elf : ICharacter
     {
+        public string Name { get; set; }
+        public int Strength { get; set; }
+        public int Intelligence { get; set; }
+        private int HealthPoint;
         private int HealingPower;
         private int NatureKnowledge;
 
-    //  HEALINGPOWER
+        //  HEALINGPOWER
         public void setHealingPower(int healingPowerValue)
         {
             if ((healingPowerValue >= 0) && (healingPowerValue <= 10))
@@ -25,7 +30,7 @@ namespace RPG
             return this.HealingPower;
         }
 
-    //  NATUREKNOWLEDGE
+        //  NATUREKNOWLEDGE
         public void setNatureKnowledge(int natureKnowledgeValue)
         {
             if ((natureKnowledgeValue >= 0) && (natureKnowledgeValue <= 10))
@@ -39,25 +44,39 @@ namespace RPG
         }
         public int getNatureKnowledge()
         {
-            return this.HealingPower;
+            return this.NatureKnowledge;
         }
 
-    //  CONSTRUCTOR: Elf es hija de Character
+        //  CONSTRUCTOR: Elf es hija de Character
         public Elf(string name, int healthPoint, Inventory inventary, int strength, int intelligence, int healingPower, int natureKnowledge)
-            : base(name, healthPoint, inventary, strength, intelligence)
         {
+            this.Name=name;
+            this.Strength=strength;
+            this.Intelligence=intelligence;
+            this.HealthPoint=getHealthPoint();
+            this.HealingPower= getHealingPower();
+            this.NatureKnowledge= getNatureKnowledge();
 
         }
 
-    //  MÉTODOS
-        public new void Attack(Inventory inventary,Item item, Character target)
+        //  MÉTODOS
+        public void setHealthPoint(int healthPointValue)
         {
-            if (!inventary.Contains(item))
+            this.HealthPoint = healthPointValue;
+        }
+        public int getHealthPoint()
+        {
+            return HealthPoint;
+        }
+
+        public void Attack(Inventory inventory, Item item, ICharacter target)
+        {
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
             }
-            int attackLevel = item.AttackValue + this.getStrength() + this.getIntelligence();
+            int attackLevel = item.AttackValue + this.Strength + this.Intelligence;
             int lasthealthpoint = target.getHealthPoint();
             int newhealthpoint = lasthealthpoint - (attackLevel + this.NatureKnowledge);
 
@@ -68,19 +87,19 @@ namespace RPG
             else
             {
                 target.setHealthPoint(newhealthpoint);
-            }
+            };
         }
 
-        public new void Defend(Inventory inventary,Item item, Character target)
+        public void Defend(Inventory inventory, Item item, ICharacter target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para defenderte.");
                 return;
             }
             if (this.getHealthPoint() <= 100)
             {
-                int defenseLevel = item.DefenseValue + this.getStrength() + this.getIntelligence();
+                int defenseLevel = item.DefenseValue + this.Strength + this.Intelligence;
                 int lasthealingpoint = target.getHealthPoint();
                 int newhealingpoint = lasthealingpoint + defenseLevel + this.getNatureKnowledge();
                 this.setHealthPoint(newhealingpoint);
@@ -91,16 +110,16 @@ namespace RPG
             }
         }
 
-        public new void Heal(Inventory inventary,Item item, Character target)
+        public void Heal(Inventory inventory, Item item, ICharacter target)
         {
-            if (!inventary.Contains(item))
+            if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para curar.");
                 return;
             }
             if (target.getHealthPoint() <= 100)
             {
-                int healingLevel = item.HealingValue + this.getStrength() + this.getIntelligence();
+                int healingLevel = item.HealingValue + this.Strength + this.Intelligence;
                 int lastheathvalue = target.getHealthPoint();
                 int newhealthvalue = lastheathvalue + healingLevel + this.getHealingPower();
                 this.setHealthPoint(newhealthvalue);
@@ -108,7 +127,6 @@ namespace RPG
             if (target.getHealthPoint() > 100)
             {
                 target.setHealthPoint(100);
-
             }
         }
     }
