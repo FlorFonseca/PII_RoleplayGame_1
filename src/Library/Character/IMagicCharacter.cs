@@ -13,19 +13,19 @@ namespace RPG
 
 
 //      MÉTODOS: Son las acciones que va a realizar el personaje 
-        public void Attack(Inventory inventory, IAttackItem item,Spell spell, IMagicCharacter target);
+        public void Attack(IAttackItem item,Spell spell, IMagicCharacter target);
 
     /*  En Attack, queremos atacar a otro personaje con un item determinado. Combinamos el valor de ataque del item con la fuerza
         y la inteligencia para poder obtener un valor para descontar en la el Healthpoint de nuestro oponente (target).
     */
 
-        public void Defend(Inventory inventory, IDefendItem item,Spell spell, IMagicCharacter target);
+        public void Defend(IDefendItem item,Spell spell, IMagicCharacter target);
 
     /*  Similar a Attack, en Defend tenemos un valor de defensa del item utilizado que colabora con strength e intelligence
         para obtener un defence level
 
     */
-        public void Heal (Inventory inventory, IHealItem item, Spell spell,IMagicCharacter target);
+        public void Heal (IHealItem item, Spell spell,IMagicCharacter target);
     }
 
 }

@@ -6,9 +6,11 @@ namespace RPG
 {
     public class Wizard : IMagicCharacter
     {
-        public  Spell Spell {get; set;}
-        public SpellsBook Spells {get; set;}
-        public Inventory WizardInventory {get; set;}
+
+
+        //public  Spell Spell {get; set;}
+        //public SpellsBook Spells {get; set;}
+        //public Inventory WizardInventory {get; set;}
         public string Name {get; set;}
         public int Strength { get; set; }
         public int Intelligence { get; set; }
@@ -16,39 +18,35 @@ namespace RPG
 
 
     //  CONSTRUCTOR
-        public Wizard(string name, int healthPoint, Inventory WizardInventory, int strength, int intelligence, Spell spell)
+        public Wizard(string name, int healthPoint, int strength, int intelligence)
         {
-            Name = name;
-            HealthPoint= getHealthPoint();
-            Spell = spell;
-            Spells= new SpellsBook();
-            Spells.AddSpell(spell);
-            Inventory wizardInventory = new Inventory();
-            WizardInventory = wizardInventory;
-            Strength= strength;
-            Intelligence=intelligence;
+            this.Name = name;
+            this.HealthPoint = healthPoint;
+            this.Strength = strength;
+            this.Intelligence = intelligence;
+            
         }
 
     //  MÉTODOS
 
         public void setHealthPoint(int healthPointValue)
         {
-            HealthPoint=healthPointValue;
+            this.HealthPoint = healthPointValue;
         }
 
         public int getHealthPoint()
         {
-            return HealthPoint;
+            return this.HealthPoint;
         }
 
-        public void Attack(Inventory inventory, IAttackItem item, Spell spell,IMagicCharacter target)
+        public void Attack(IAttackItem item, Spell spell,IMagicCharacter target)
         {
-            if (!inventory.Contains(item))
+            /*if (!inventory.Contains(item))
             {
                 Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
                 return;
-            }
-            int attackLevel = item.AttackValue + spell.AttackPower + this.Strength + this.Intelligence;
+            }*/
+            int attackLevel = item.attackValue + spell.AttackPower + this.Strength + this.Intelligence;
             int lastHealthPoint = target.getHealthPoint();
             int newHealthPoint = lastHealthPoint - attackLevel;
 
