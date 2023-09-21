@@ -12,7 +12,6 @@ namespace RPG
         private int HealthPoint;
         private int HealingPower;
         private int NatureKnowledge;
-        public Inventory BasicInventory {get;set;}
 
         //  HEALINGPOWER
         public void setHealingPower(int healingPowerValue)
@@ -48,8 +47,7 @@ namespace RPG
             return this.NatureKnowledge;
         }
 
-        //  CONSTRUCTOR: Elf es hija de Character
-        public Elf(string name, int healthPoint, Inventory inventory, int strength, int intelligence, int healingPower, int natureKnowledge)
+        public Elf(string name, int healthPoint,int strength, int intelligence, int healingPower, int natureKnowledge)
         {
             this.Name=name;
             this.Strength=strength;
@@ -57,11 +55,9 @@ namespace RPG
             this.HealthPoint=healthPoint;
             this.HealingPower= healingPower;
             this.NatureKnowledge= natureKnowledge;
-            this.BasicInventory=inventory;
-
         }
 
-        //  MÉTODOS
+
         public void setHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
@@ -132,6 +128,7 @@ namespace RPG
             }
         }
     }
+    
 }
 /*
     Los Elfos al ser criaturas mágicas también manejan la magia, sinembargo buscamos que fuera diferente a la
