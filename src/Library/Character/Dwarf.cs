@@ -19,13 +19,14 @@ namespace RPG
 */
 
     //  CONSTRUCTOR: Como Dwarf es hija de Character, usamos el : base
-        public Dwarf(string name, int healthPoint, Inventory inventary, int strength, int intelligence, int Resistance)
+        public Dwarf(string name, int healthPoint, Inventory inventary, int strength, int intelligence, int resistance)
         {
             this.Name = name;
             this.Strength = strength;
             this.Intelligence = intelligence;
-            this.HealthPoint = getHealthPoint();
-            this.Resistance = getResistance();
+            this.HealthPoint = healthPoint;
+            this.Resistance = resistance;
+            Inventory inventary = new Inventory();
         }
     
     //  MÉTODOS
@@ -53,7 +54,7 @@ namespace RPG
         {
             return this.Resistance;
         }
-        public void Attack(Inventory inventory, Item item, INoMagicCharacter target)
+        public void Attack(Inventory inventory, IAttackItem item, INoMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {
@@ -73,7 +74,7 @@ namespace RPG
                 target.setHealthPoint(newhealthpoint);
             };
         }
-        public new void Defend(Inventory inventory,Item item, INoMagicCharacter target)
+        public new void Defend(Inventory inventory,IDefendItem item, INoMagicCharacter target)
         {
             if (!inventory.Contains(item))
             {

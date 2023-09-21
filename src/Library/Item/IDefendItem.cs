@@ -3,15 +3,9 @@ using System.Collections.Generic;
 namespace RPG
 {
     public interface IDefendItem
-    
     {
-        void setName (string name)
-
-        string getName ()
-
-        void setDefenseValue (int defenseValue)
-
-        string getDefenseValue ()
+        void setDefenseValue (int defenseValue);
+        int getDefenseValue ();
     }
 }
 /*
