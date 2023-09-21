@@ -19,7 +19,7 @@ namespace RPG
         y la inteligencia para poder obtener un valor para descontar en la el Healthpoint de nuestro oponente (target).
     */
 
-        public void Defend(Inventory inventory, Item item,Spell spell, IMagicCharacter target);
+        public void Defend(Inventory inventory, IDefendItem item,Spell spell, IMagicCharacter target);
 
     /*  Similar a Attack, en Defend tenemos un valor de defensa del item utilizado que colabora con strength e intelligence
         para obtener un defence level
