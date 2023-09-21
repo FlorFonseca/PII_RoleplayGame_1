@@ -13,7 +13,7 @@ namespace RPG
 
 
 //      MÉTODOS: Son las acciones que va a realizar el personaje 
-        public void Attack(Inventory inventory, Item item, INoMagicCharacter target);
+        public void Attack(Inventory inventory, IAttackItem item, INoMagicCharacter target);
 
     /*  En Attack, queremos atacar a otro personaje con un item determinado. Combinamos el valor de ataque del item con la fuerza
         y la inteligencia para poder obtener un valor para descontar en la el Healthpoint de nuestro oponente (target).

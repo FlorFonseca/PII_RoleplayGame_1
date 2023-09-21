@@ -7,7 +7,7 @@ namespace RPG
         public string Name {get; set;}
         public int AttackValue {get; set;}
 
-        public IAttacktem (string name, int attackValue)
+        public IAttackItem (string name, int attackValue)
         {
             this.Name = name;
             this.AttackValue= attackValue;
