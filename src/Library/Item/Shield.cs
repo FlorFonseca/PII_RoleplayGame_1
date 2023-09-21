@@ -3,31 +3,19 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class Shield: IAttackItem, IDefendItem
+    public class Shield: IDefenseItem
     {
         public string Name {get;set;}
-        public int AttackValue {get;set;}
-        public int DefenseValue{get;set;}
-
-        public Shield(string name, int attackValue, int defenseValue)
+        public int DefenseValue
+        {
+            get
+            {
+                return 25;
+            }
+        }
+        public Shield(string name, int defenseValue)
         {
             this.Name=name;
-            this.AttackValue=attackValue;
-            this.DefenseValue=defenseValue;
-        }
-
-        public void setAttackValue(int attackValue)
-        {
-            this.AttackValue=attackValue;
-        }
-
-        public int getAttackValue()
-        {
-            return AttackValue;
-        }
-
-        public void setDefenseValue(int defenseValue)
-        {
             this.DefenseValue=defenseValue;
         }
 

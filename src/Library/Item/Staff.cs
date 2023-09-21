@@ -1,23 +1,24 @@
 namespace RPG
 {
-    public class Staff : IDefendItem
+    public class Staff : IAttackItem
     {
         public string Name {get; set;}
-        public int DefenseValue {get; set;}
-        public Staff (string name, int defenseValue)
+        public int AttackValue 
+        {
+            get
+            {
+                return 25;
+            }
+        }
+        public Staff (string name, int attackValue)
         {
             this.Name = name ;
-            this.DefenseValue = defenseValue ;
+            this.AttackValue = attackValue ;
         }
 
-        public void getDefenseValue (int defenseValue)
+        public int setAttackValue ()
         {
-            this.DefenseValue = defenseValue 
-        }
-
-        public int setDefenseValue ()
-        {
-            return DefenseValue ;
+            return AttackValue ;
         }
     }
 }

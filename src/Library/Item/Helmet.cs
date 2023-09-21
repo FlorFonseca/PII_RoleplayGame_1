@@ -1,9 +1,6 @@
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-
 namespace RPG
 {
-    public class BulletProofVest : IDefenseItem
+    public class Helmet : IDefenseItem
     {
         public string Name {get; set;}
         public int DefenseValue
@@ -13,7 +10,7 @@ namespace RPG
                 return 25;
             }
         }
-        public BulletProofVest (string name, int defenseValue)
+        public Helmet (string name, int defenseValue)
         {
             this.Name = name;
             this.DefenseValue = defenseValue;

@@ -3,9 +3,9 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class Sword: IAttackItem
+    public class Axe : IAttackItem
     {
-        public string Name {get;set;}
+        public string Name {get; set;}
         public int AttackValue 
         {
             get
@@ -13,11 +13,10 @@ namespace RPG
                 return 25;
             }
         }
-
-        public Sword (string name, int attackValue)
+        public Axe (string name, int attackValue)
         {
-            this.Name=name;
-            this.AttackValue=attackValue;
+            this.Name = name;
+            this.AttackValue = attackValue;
         }
 
         public int getAttackValue()

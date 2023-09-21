@@ -3,21 +3,20 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class BowAndArrow: IAttackItem, IDefendItem
+    public class BowAndArrow: IAttackItem
     {
         public string Name {get;set;}
-        public int AttackValue {get;set;}
-        public int DefenseValue{get;set;}
-
-        public BowAndArrow (string name, int attackValue, int defenseValue)
+        public int AttackValue
         {
-            this.Name=name;
-            this.AttackValue=attackValue;
-            this.DefenseValue=defenseValue;
+            get
+            {
+                return 25;
+            }
         }
 
-        public void setAttackValue(int attackValue)
+        public BowAndArrow (string name, int attackValue)
         {
+            this.Name=name;
             this.AttackValue=attackValue;
         }
 
@@ -26,14 +25,4 @@ namespace RPG
             return AttackValue;
         }
 
-        public void setDefenseValue(int defenseValue)
-        {
-            this.DefenseValue=defenseValue;
-        }
-
-        public int getDefenseValue()
-        {
-            return DefenseValue;
-        }
-    }
 }
