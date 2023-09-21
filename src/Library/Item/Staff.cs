@@ -10,14 +10,15 @@ namespace RPG
             this.DefenseValue = defenseValue ;
         }
 
-        public void getDefenseValue (int defenseValue)
+        public void setDefenseValue (int defenseValue)
         {
-            this.DefenseValue = defenseValue 
+            this.DefenseValue = defenseValue;
         }
 
-        public int setDefenseValue ()
+        public int getDefenseValue ()
         {
-            return DefenseValue ;
+            return DefenseValue;
         }
+
     }
 }

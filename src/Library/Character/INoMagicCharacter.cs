@@ -4,14 +4,10 @@ using System.Reflection.PortableExecutable;
 
 namespace RPG
 {
-    public interface INoMagicCharacter
+    public interface INoMagicCharacter : ICharacter
     {
-
-        public void setHealthPoint(int healthPointValue);
-        public int getHealthPoint();
-
-        public void Attack(Inventory inventory, IAttackItem item, INoMagicCharacter target);
-        public void Defend(Inventory inventory, IDefendItem item, INoMagicCharacter target);
-        public void Heal (Inventory inventory, IHealItem item, INoMagicCharacter target);
+        public void Attack(IAttackItem item, ICharacter target);
+        public void Defend(IDefendItem item, ICharacter target);
+        public void Heal (IHealItem item, ICharacter target);
     }
 }

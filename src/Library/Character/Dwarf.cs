@@ -53,16 +53,11 @@ namespace RPG
         {
             return this.Resistance;
         }
-        public void Attack(Inventory inventory, IAttackItem item, INoMagicCharacter target)
+        public void Attack(IAttackItem item, ICharacter target)
         {
-            if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
-                return;
-            }
-            int attackLevel = item.AttackValue + this.Strength + this.Intelligence;
+            int attackLevel = item.getAttackValue() + this.Strength + this.Intelligence;
             int lasthealthpoint = target.getHealthPoint();
-            int newhealthpoint = lasthealthpoint - (attackLevel);
+            int newhealthpoint = lasthealthpoint - attackLevel;
 
             if (attackLevel > target.getHealthPoint())
             {
@@ -73,16 +68,11 @@ namespace RPG
                 target.setHealthPoint(newhealthpoint);
             };
         }
-        public new void Defend(Inventory inventory,IDefendItem item, INoMagicCharacter target)
+        public void Defend(IDefendItem item, ICharacter target)
         {
-            if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
-                return;
-            }
             if (this.getHealthPoint() <= 100)
             {
-                int defenseLevel = item.DefenseValue + this.Strength + this.Intelligence;
+                int defenseLevel = item.getDefenseValue() + this.Strength + this.Intelligence;
                 int lasthealthpoint = this.getHealthPoint();
                 int newhealthpoint = lasthealthpoint + defenseLevel + this.Resistance;
                 this.setHealthPoint(newhealthpoint);
@@ -93,17 +83,12 @@ namespace RPG
             }
 
         }
-        public new void Heal(Inventory inventory,Item item, INoMagicCharacter target)
+        public void Heal(IHealItem item, ICharacter target)
         {
-            if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
-                return;
-            }
             if (this.getHealthPoint() <= 100)
             {
 
-                int healingLevel = item.HealingValue + this.Strength + this.Intelligence;
+                int healingLevel = item.getHealValue() + this.Strength + this.Intelligence;
                 int lasthealingpoint = this.getHealthPoint();
                 int newhealingpoint = lasthealingpoint + healingLevel + this.Resistance;
                 this.setHealthPoint(newhealingpoint);

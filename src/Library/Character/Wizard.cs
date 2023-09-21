@@ -28,28 +28,26 @@ namespace RPG
             this.Intelligence = intelligence;
             
         }
-
         public void setHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
         }
-
         public int getHealthPoint()
         {
             return this.HealthPoint;
         }
 
-        public void Attack(IAttackItem item, Spell spell, IMagicCharacter target)
+        public void Attack(IAttackItem item, Spell spell, ICharacter target)
         {
             throw new NotImplementedException();
         }
 
-        public void Defend(IDefendItem item, Spell spell, IMagicCharacter target)
+        public void Defend(IDefendItem item, Spell spell, ICharacter target)
         {
             throw new NotImplementedException();
         }
 
-        public void Heal(IHealItem item, Spell spell, IMagicCharacter target)
+        public void Heal(IHealItem item, Spell spell, ICharacter target)
         {
             throw new NotImplementedException();
         }
