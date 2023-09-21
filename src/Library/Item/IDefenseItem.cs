@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace RPG
 {
-    public interface IDefendItem
+    public interface IDefenseItem
     {
         int getDefenseValue ();
     }

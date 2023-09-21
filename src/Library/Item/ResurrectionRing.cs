@@ -1,6 +1,6 @@
 namespace RPG
 {
-    public class ResurrectionRing : IHealItem
+    public class ResurrectionRing : IHealingItem
     {
         public string Name {get; set;}
 
@@ -18,7 +18,7 @@ namespace RPG
             this.HealingValue = healingValue ;
         }
 
-        public int getHealValue ()
+        public int getHealingValue ()
         {
             return HealingValue ;
         }

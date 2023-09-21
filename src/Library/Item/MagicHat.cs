@@ -3,21 +3,19 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class MagicHat : IDefendItem, IHealItem
+    public class MagicHat : IDefenseItem
     {
         public string Name {get;set;}
-        public int HealValue {get;set;}
-        public int DefenseValue{get;set;}
-
-        public MagicHat (string name, int healValue, int defenseValue)
+        public int DefenseValue
+        {
+            get
+            {
+                return 25;
+            }
+        }
+        public MagicHat (string name, int defenseValue)
         {
             this.Name=name;
-            this.HealValue=healValue;
-            this.DefenseValue=defenseValue;
-        }
-
-        public void setDefenseValue(int defenseValue)
-        {
             this.DefenseValue=defenseValue;
         }
 
@@ -26,14 +24,5 @@ namespace RPG
             return DefenseValue;
         }
 
-        public void setHealValue(int healvalue)
-        {
-            this.HealValue=healvalue;
-        }
-
-        public int getHealValue()
-        {
-            return HealValue;
-        }
     }
 }

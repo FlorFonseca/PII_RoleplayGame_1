@@ -3,23 +3,27 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class BandAid : IHealItem
+    public class BandAid : IHealingItem
     {
         public string Name {get; set;}
-        public int HealValue {get; set;}
-        public BandAid (string name, int healValue)
+
+        public int HealingValue
         {
-            this.Name = name;
-            this.HealValue = healValue;
+            get
+            {
+                return 25;
+            }
         }
 
-        public void setHealValue(int healValue)
+        public BandAid (string name, int healingValue)
         {
-            this.HealValue = healValue;
+            this.Name = name ;
+            this.HealingValue = healingValue ;
         }
-        public int getHealValue()
+
+        public int getHealingValue ()
         {
-            return HealValue;
+            return HealingValue ;
         }
     }
 }
