@@ -4,9 +4,6 @@ namespace RPG
     public class Spell
     {
         public string Name {get; set; }
-        public int AttackPower {get; set; }
-        public int DefensePower {get; set; }
-        public int HealingPower {get; set; }
 
         public Spell (string name, int attackPower, int defensePower, int healingPower) //constructor method
         {
@@ -15,6 +12,31 @@ namespace RPG
             this.DefensePower = defensePower ;
             this.HealingPower = healingPower ;
         }
+
+        public int AttackPower
+        {
+            get
+            {
+                return 70;
+            }
+        }
+
+        public int DefensePower
+        {
+            get
+            {
+                return 70;
+            }
+        }
+
+        public int HealingPower
+        {
+            get
+            {
+                return 70;
+            }
+        }
+
     }
 }
 /*

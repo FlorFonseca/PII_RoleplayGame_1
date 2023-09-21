@@ -4,7 +4,6 @@ namespace RPG
 {
     public interface IDefendItem
     {
-        void setDefenseValue (int defenseValue);
         int getDefenseValue ();
     }
 }

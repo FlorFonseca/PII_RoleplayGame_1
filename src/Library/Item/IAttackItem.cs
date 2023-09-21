@@ -4,7 +4,6 @@ namespace RPG
 {
     public interface IAttackItem
     {
-        void setAttackValue (int attackValue);
         int getAttackValue ();
     }
 }
