@@ -3,11 +3,11 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class Curita : IHealItem
+    public class BandAid : IHealItem
     {
         public string Name {get; set;}
         public int HealValue {get; set;}
-        public Curita (string name, int healValue)
+        public BandAid (string name, int healValue)
         {
             this.Name = name;
             this.HealValue = healValue;
