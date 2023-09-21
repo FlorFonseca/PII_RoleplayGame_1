@@ -1,9 +1,6 @@
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-
 namespace RPG
 {
-    public class HealingNectar: IHealingItem
+    public class Ragweed: IHealingItem
         {
         public string Name {get; set;}
 
@@ -15,7 +12,7 @@ namespace RPG
             }
         }
 
-        public HealingNectar (string name, int healingValue)
+        public Ragweed (string name, int healingValue)
         {
             this.Name = name ;
             this.HealingValue = healingValue ;

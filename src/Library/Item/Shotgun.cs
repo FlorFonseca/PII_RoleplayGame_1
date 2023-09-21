@@ -3,37 +3,26 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class Shotgun: IAttackItem, IDefendItem
+    public class Shotgun: IAttackItem
     {
         public string Name {get;set;}
-        public int AttackValue {get;set;}
-        public int DefenseValue{get;set;}
-
-        public Shotgun (string name, int attackValue, int defenseValue)
+        public int AttackValue 
         {
-            this.Name=name;
-            this.AttackValue=attackValue;
-            this.DefenseValue=defenseValue;
+            get
+            {
+                return 25;
+            }
         }
 
-        public void setAttackValue(int attackValue)
+        public Shotgun (string name, int attackValue)
         {
-            this.AttackValue=attackValue;
+            this.Name = name;
+            this.AttackValue = attackValue;
         }
-
         public int getAttackValue()
         {
             return AttackValue;
         }
 
-        public void setDefenseValue(int defenseValue)
-        {
-            this.DefenseValue=defenseValue;
-        }
-
-        public int getDefenseValue()
-        {
-            return DefenseValue;
-        }
     }
 }
