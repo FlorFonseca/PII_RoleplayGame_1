@@ -19,14 +19,13 @@ namespace RPG
 */
 
     //  CONSTRUCTOR: Como Dwarf es hija de Character, usamos el : base
-        public Dwarf(string name, int healthPoint, Inventory inventary, int strength, int intelligence, int resistance)
+        public Dwarf(string name, int healthPoint,int strength, int intelligence, int resistance)
         {
             this.Name = name;
             this.Strength = strength;
             this.Intelligence = intelligence;
             this.HealthPoint = healthPoint;
             this.Resistance = resistance;
-            Inventory inventary = new Inventory();
         }
     
     //  MÉTODOS
