@@ -31,7 +31,7 @@ namespace RPG
             this.HealValue=healvalue;
         }
 
-        public int getHealvalue()
+        public int getHealValue()
         {
             return HealValue;
         }
