@@ -2,12 +2,9 @@ using System.Collections.Generic;
 
 namespace RPG
 {
-    public class IHealItem
+    public interface IHealItem
     {
-        public int HealValue {get; set;}
-        public IHealItem (int healValue)
-        {
-            this.HealValue= healValue;
-        } 
+        void setHealValue (int healvalue);
+        int getHealvalue ();
     }
 }
