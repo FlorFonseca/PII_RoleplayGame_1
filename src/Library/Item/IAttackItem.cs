@@ -2,16 +2,10 @@ using System.Collections.Generic;
 
 namespace RPG
 {
-    public class IAttackItem
+    public interface IAttackItem
     {
-        public string Name {get; set;}
-        public int AttackValue {get; set;}
-
-        public IAttackItem (string name, int attackValue)
-        {
-            this.Name = name;
-            this.AttackValue= attackValue;
-        } 
+        void setAttackValue (int attackValue);
+        int getAttackValue ();
     }
 }
 /*
