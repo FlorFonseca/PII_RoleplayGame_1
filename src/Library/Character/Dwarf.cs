@@ -11,14 +11,10 @@ namespace RPG
         private int HealthPoint;
         private int Resistance;
 
-
-        
 /*
         Como los Enanos tienen una gran resistencia, creamos el atributo Resistance para que pueda influir en su defensa y a su vez en la 
         recuperación.
 */
-
-    //  CONSTRUCTOR: Como Dwarf es hija de Character, usamos el : base
         public Dwarf(string name, int healthPoint,int strength, int intelligence, int resistance)
         {
             this.Name = name;
@@ -28,7 +24,6 @@ namespace RPG
             this.Resistance = resistance;
         }
     
-    //  MÉTODOS
         public void setHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
@@ -68,7 +63,7 @@ namespace RPG
                 target.setHealthPoint(newhealthpoint);
             };
         }
-        public void Defend(IDefendItem item, ICharacter target)
+        public void Defend(IDefenseItem item, ICharacter target)
         {
             if (this.getHealthPoint() <= 100)
             {
@@ -83,12 +78,12 @@ namespace RPG
             }
 
         }
-        public void Heal(IHealItem item, ICharacter target)
+        public void Heal(IHealingItem item, ICharacter target)
         {
             if (this.getHealthPoint() <= 100)
             {
 
-                int healingLevel = item.getHealValue() + this.Strength + this.Intelligence;
+                int healingLevel = item.getHealingValue() + this.Strength + this.Intelligence;
                 int lasthealingpoint = this.getHealthPoint();
                 int newhealingpoint = lasthealingpoint + healingLevel + this.Resistance;
                 this.setHealthPoint(newhealingpoint);
@@ -100,10 +95,8 @@ namespace RPG
             }
         }
     }
-    /*
-        Hacemos el constructor del enano, como es hija de Character, invocamos los metodos de la misma.
-        Defend: acá indicamos el item con el cual el personaje se defiende y el personaje del cual se defiende.
-                El this.getHealthpoint hace referencia a la vida del Dwarf
-        Heal: sigue la misma lógica que el Defend.
-    */
 }
+/*
+Dwarf es una clase para crear un tipo de personaje (enano), utiliza la interfaz de INoMagicCharacter ya que no es
+un personaje mágico (no es un mago). 
+*/

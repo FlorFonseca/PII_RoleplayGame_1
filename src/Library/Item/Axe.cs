@@ -13,10 +13,9 @@ namespace RPG
                 return 25;
             }
         }
-        public Axe (string name, int attackValue)
+        public Axe (string name)
         {
             this.Name = name;
-            this.AttackValue = attackValue;
         }
 
         public int getAttackValue()

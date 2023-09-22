@@ -13,10 +13,9 @@ namespace RPG
                 return 25;
             }
         }
-        public Shield(string name, int defenseValue)
+        public Shield(string name)
         {
             this.Name=name;
-            this.DefenseValue=defenseValue;
         }
 
         public int getDefenseValue()

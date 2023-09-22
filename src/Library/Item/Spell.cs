@@ -12,7 +12,6 @@ namespace RPG
                 return 70;
             }
         }
-
         public int DefensePower
         {
             get
@@ -28,32 +27,29 @@ namespace RPG
                 return 70;
             }
         }
-
-        public Spell (string name, int attackPower, int defensePower, int healingPower) //constructor method
+        public Spell (string name) //constructor method
         {
             this.Name = name ;
-            this.AttackPower = attackPower ;
-            this.DefensePower = defensePower ;
-            this.HealingPower = healingPower ;
         }
 
         public int getHealingValue ()
         {
-            return HealingValue ;
+            return HealingPower;
         }
 
         public int getDefenseValue()
         {
-            return DefenseValue;
+            return DefensePower;
         }
 
         public int getAttackValue()
         {
-            return AttackValue;
+            return AttackPower;
         }
     }
 }
 /*
     Spell permite crear un hechizo con sus atributos, esto influirá, por ejemplo, en el valor de ataque de un personaje que
     utilice el spell creado.
+    Colabora con IAttackItem, IHealingItem y IDefenseItem.
 */

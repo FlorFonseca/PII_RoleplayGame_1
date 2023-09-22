@@ -83,7 +83,7 @@ namespace RPG
             };
         }
 
-        public void Defend(IDefendItem item, ICharacter target)
+        public void Defend(IDefenseItem item, ICharacter target)
         {
             if (this.getHealthPoint() <= 100)
             {
@@ -98,11 +98,11 @@ namespace RPG
             }
         }
 
-        public void Heal(IHealItem item, ICharacter target)
+        public void Heal(IHealingItem item, ICharacter target)
         {
             if (target.getHealthPoint() <= 100)
             {
-                int healingLevel = item.getHealValue() + this.Strength + this.Intelligence;
+                int healingLevel = item.getHealingValue() + this.Strength + this.Intelligence;
                 int lastheathvalue = target.getHealthPoint();
                 int newhealthvalue = lastheathvalue + healingLevel + this.getHealingPower();
                 this.setHealthPoint(newhealthvalue);
@@ -121,5 +121,6 @@ namespace RPG
     en los métodos anteriores, su nivel de natural knowledge influye en su ataque y defensa.
     Por otro lado, como son grandes curadores, su magia de Helaling Power influirá en su curación, así como la de otro 
     personaje aliado.
+    Funciona similar al Dwarf, como no es un mago, colabora con la interfaz de INoMagicCharacter.
 */
 

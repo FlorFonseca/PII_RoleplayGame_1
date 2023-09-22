@@ -15,10 +15,9 @@ namespace RPG
             }
         }
 
-        public BandAid (string name, int healingValue)
+        public BandAid (string name)
         {
             this.Name = name ;
-            this.HealingValue = healingValue ;
         }
 
         public int getHealingValue ()

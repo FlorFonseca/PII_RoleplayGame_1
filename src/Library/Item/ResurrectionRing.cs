@@ -8,14 +8,13 @@ namespace RPG
         {
             get
             {
-                return 25;
+                return 100;
             }
         }
 
-        public ResurrectionRing (string name, int healingValue)
+        public ResurrectionRing (string name)
         {
             this.Name = name ;
-            this.HealingValue = healingValue ;
         }
 
         public int getHealingValue ()
