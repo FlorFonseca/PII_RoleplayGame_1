@@ -6,9 +6,9 @@ namespace RPG
 {
     public interface IMagicCharacter : ICharacter
     {
-        public void Attack(IAttackItem item,Spell spell, ICharacter target);
+        public void Attack(IAttackItem item, Spell spell, ICharacter target);
 
-        public void Defend(IDefenseItem item,Spell spell, ICharacter target);
+        public void Defend(IDefenseItem item, Spell spell, ICharacter target);
 
         public void Heal (IHealingItem item, Spell spell,ICharacter target);
     }
