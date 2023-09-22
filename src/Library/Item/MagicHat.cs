@@ -13,10 +13,9 @@ namespace RPG
                 return 25;
             }
         }
-        public MagicHat (string name, int defenseValue)
+        public MagicHat (string name)
         {
             this.Name=name;
-            this.DefenseValue=defenseValue;
         }
 
         public int getDefenseValue()

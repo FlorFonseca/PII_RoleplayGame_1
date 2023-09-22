@@ -8,7 +8,6 @@ namespace RPG
     }
 }
 /*
-    Item permite crear elementos con determinadas características para desenvolverse en el juego. 
-    Como se ha visto en clases anteriores, los items tienen determinados atributos que influyen 
-    en diferentes comportamientos de los personajes, por ejemplo, aumentan el valor de ataque o defensa.
+La interfaz IAttackItem se encarga de tomar el valor de ataque del item que 
+maneja el personaje. Decidimos darle ya un valor predeterminado a cada item.
 */

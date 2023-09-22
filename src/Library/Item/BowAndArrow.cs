@@ -14,15 +14,14 @@ namespace RPG
             }
         }
 
-        public BowAndArrow (string name, int attackValue)
+        public BowAndArrow (string name)
         {
             this.Name=name;
-            this.AttackValue=attackValue;
         }
 
         public int getAttackValue()
         {
             return AttackValue;
         }
-
+    }
 }

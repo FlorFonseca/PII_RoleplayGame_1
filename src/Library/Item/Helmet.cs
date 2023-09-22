@@ -10,10 +10,9 @@ namespace RPG
                 return 25;
             }
         }
-        public Helmet (string name, int defenseValue)
+        public Helmet (string name)
         {
             this.Name = name;
-            this.DefenseValue = defenseValue;
         }
         public int getDefenseValue()
         {

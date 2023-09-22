@@ -12,10 +12,9 @@ namespace RPG
             }
         }
 
-        public Ragweed (string name, int healingValue)
+        public Ragweed (string name)
         {
             this.Name = name ;
-            this.HealingValue = healingValue ;
         }
 
         public int getHealingValue ()

@@ -15,10 +15,9 @@ namespace RPG
             }
         }
 
-        public HealingNectar (string name, int healingValue)
+        public HealingNectar (string name)
         {
-            this.Name = name ;
-            this.HealingValue = healingValue ;
+            this.Name = name;
         }
 
         public int getHealingValue ()

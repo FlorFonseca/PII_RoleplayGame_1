@@ -10,18 +10,14 @@ namespace RPG
                 return 25;
             }
         }
-
-
-        public void setDefenseValue (int defenseValue)
+        public Staff (string name)
         {
-            this.DefenseValue = defenseValue;
+            this.Name = name ;
         }
 
-        public int getDefenseValue ()
+        public int getAttackValue ()
         {
-            return DefenseValue;
-
+            return AttackValue;
         }
-
     }
 }

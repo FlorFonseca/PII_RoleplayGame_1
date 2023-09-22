@@ -14,10 +14,9 @@ namespace RPG
             }
         }
 
-        public Shotgun (string name, int attackValue)
+        public Shotgun (string name)
         {
             this.Name = name;
-            this.AttackValue = attackValue;
         }
         public int getAttackValue()
         {

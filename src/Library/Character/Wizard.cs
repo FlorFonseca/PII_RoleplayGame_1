@@ -39,22 +39,55 @@ namespace RPG
 
         public void Attack(IAttackItem item, Spell spell, ICharacter target)
         {
-            throw new NotImplementedException();
+            spellsBook.AddSpell(spell);
+            int attackLevel = item.getAttackValue() + this.Strength + this.Intelligence + spell.AttackPower;
+            int lasthealthpoint = target.getHealthPoint();
+            int newhealthpoint = lasthealthpoint - attackLevel;
+
+            if (attackLevel > target.getHealthPoint())
+            {
+                target.setHealthPoint(0);
+            }
+            else
+            {
+                target.setHealthPoint(newhealthpoint);
+            }
         }
 
-        public void Defend(IDefendItem item, Spell spell, ICharacter target)
+        public void Defend(IDefenseItem item, Spell spell, ICharacter target)
         {
-            throw new NotImplementedException();
+            spellsBook.AddSpell(spell);
+            if (this.getHealthPoint() <= 100)
+            {
+                int defenseLevel = item.getDefenseValue() + this.Strength + this.Intelligence + spell.DefensePower;
+                int lasthealthpoint = this.getHealthPoint();
+                int newhealthpoint = lasthealthpoint + defenseLevel;
+                this.setHealthPoint(newhealthpoint);
+            }
+            if (this.getHealthPoint() > 100)
+            {
+                this.setHealthPoint(100);
+            }
         }
 
-        public void Heal(IHealItem item, Spell spell, ICharacter target)
+        public void Heal(IHealingItem item, Spell spell, ICharacter target)
         {
-            throw new NotImplementedException();
+            spellsBook.AddSpell(spell);
+            if (target.getHealthPoint() <= 100)
+            {
+                int healingLevel = item.getHealingValue() + this.Strength + this.Intelligence + spell.HealingPower;
+                int lastheathvalue = target.getHealthPoint();
+                int newhealthvalue = lastheathvalue + healingLevel;
+                this.setHealthPoint(newhealthvalue);
+            }
+            if (target.getHealthPoint() > 100)
+            {
+                target.setHealthPoint(100);
+            }
         }
     }
 }
 /*
     Wizard funciona de manera similar a Dwarf y Elf, solo que este adquiere Spells (hechizos) que guarda en su SpellsBook (libro de Hechizos).
     Como se vió en la clase Spell, los hechizo proporcionan valores que pueden incrementar o no los valores de ataque, defensa y curación.
-    (depense de cómo se cree el hechizo)
 */

@@ -13,10 +13,9 @@ namespace RPG
                 return 25;
             }
         }
-        public BulletProofVest (string name, int defenseValue)
+        public BulletProofVest (string name)
         {
             this.Name = name;
-            this.DefenseValue = defenseValue;
         }
         public int getDefenseValue()
         {
