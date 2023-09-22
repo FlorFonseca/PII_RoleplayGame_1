@@ -7,79 +7,88 @@ namespace RPG
     public class Elf : INoMagicCharacter
     {
         public string Name { get; set; }
-        public int Strength { get; set; }
-        public int Intelligence { get; set; }
+        public int Strength 
+        {
+            get
+            {
+                return 2;
+            }
+        }
+        public int Intelligence 
+        {
+            get
+            {
+                return 2;
+            }
+        }
         private int HealthPoint;
-        private int HealingPower;
-        private int NatureKnowledge;
-
-        //  HEALINGPOWER
-        public void setHealingPower(int healingPowerValue)
+        public int HealingPower
         {
-            if ((healingPowerValue >= 0) && (healingPowerValue <= 10))
+            get
             {
-                this.HealingPower = healingPowerValue;
-            }
-            else
-            {
-                this.HealingPower = 0;
+                return 10;
             }
         }
-        public int getHealingPower()
+        public int NatureKnowledge
         {
-            return this.HealingPower;
+            get
+            {
+                return 10;
+            }
         }
 
-        //  NATUREKNOWLEDGE
-        public void setNatureKnowledge(int natureKnowledgeValue)
+        public int GetIntelligence()
         {
-            if ((natureKnowledgeValue >= 0) && (natureKnowledgeValue <= 10))
-            {
-                this.NatureKnowledge = natureKnowledgeValue;
-            }
-            else
-            {
-                this.NatureKnowledge = 0;
-            }
-        }
-        public int getNatureKnowledge()
-        {
-            return this.NatureKnowledge;
+            return Intelligence;
         }
 
-        public Elf(string name, int healthPoint,int strength, int intelligence, int healingPower, int natureKnowledge)
+        public int GetStrength()
+        {
+            return Strength;
+        }
+        //  HEALING POWER
+
+        public int GetHealingPower()
+        {
+            return HealingPower;
+        }
+
+        //  NATURE KNOWLEDGE
+
+        public int GetNatureKnowledge()
+        {
+            return NatureKnowledge;
+        }
+
+        public Elf(string name, int healthPoint)
         {
             this.Name=name;
-            this.Strength=strength;
-            this.Intelligence=intelligence;
             this.HealthPoint=healthPoint;
-            this.HealingPower= healingPower;
-            this.NatureKnowledge= natureKnowledge;
         }
 
 
-        public void setHealthPoint(int healthPointValue)
+        public void SetHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
         }
-        public int getHealthPoint()
+        public int GetHealthPoint()
         {
-            return HealthPoint;
+            return this.HealthPoint;
         }
 
         public void Attack(IAttackItem item, ICharacter target)
         {
-            int attackLevel = item.getAttackValue() + this.Strength + this.Intelligence;
-            int lasthealthpoint = target.getHealthPoint();
-            int newhealthpoint = lasthealthpoint - (attackLevel + this.NatureKnowledge);
+            int attackLevel = item.getAttackValue() + GetStrength()+ GetIntelligence();
+            int lastHealthPoint = target.GetHealthPoint();
+            int currentHealthPoint = lastHealthPoint - (attackLevel + GetNatureKnowledge());
 
-            if (attackLevel > target.getHealthPoint())
+            if (attackLevel > target.GetHealthPoint())
             {
-                target.setHealthPoint(0);
+                target.SetHealthPoint(0);
             }
             else
             {
-                target.setHealthPoint(newhealthpoint);
+                target.SetHealthPoint(currentHealthPoint);
             };
         }
 
@@ -87,14 +96,14 @@ namespace RPG
         {
             if (this.getHealthPoint() <= 100)
             {
-                int defenseLevel = item.getDefenseValue() + this.Strength + this.Intelligence;
-                int lasthealingpoint = target.getHealthPoint();
-                int newhealingpoint = lasthealingpoint + defenseLevel + this.getNatureKnowledge();
-                this.setHealthPoint(newhealingpoint);
+                int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
+                int lastHealingPoint = target.GetHealthPoint();
+                int currentHealingPoint = lastHealingPoint + defenseLevel + GetNatureKnowledge();
+                this.SetHealthPoint(currentHealingPoint);
             }
-            if (this.getHealthPoint() > 100)
+            if (this.GetHealthPoint() > 100)
             {
-                target.setHealthPoint(100);
+                target.SetHealthPoint(100);
             }
         }
 
@@ -102,14 +111,14 @@ namespace RPG
         {
             if (target.getHealthPoint() <= 100)
             {
-                int healingLevel = item.getHealingValue() + this.Strength + this.Intelligence;
-                int lastheathvalue = target.getHealthPoint();
-                int newhealthvalue = lastheathvalue + healingLevel + this.getHealingPower();
-                this.setHealthPoint(newhealthvalue);
+                int healingLevel = item.GetHealingValue() + GetStrength() + GetIntelligence();
+                int lastHeathValue = target.GetHealthPoint();
+                int currentHealthValue = lastHeathValue + healingLevel + GetHealingPower();
+                this.SetHealthPoint(currentHealthValue);
             }
-            if (target.getHealthPoint() > 100)
+            if (target.GetHealthPoint() > 100)
             {
-                target.setHealthPoint(100);
+                target.SetHealthPoint(100);
             }
         }
     }

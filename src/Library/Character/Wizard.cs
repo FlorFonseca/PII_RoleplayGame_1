@@ -7,82 +7,101 @@ namespace RPG
     public class Wizard : IMagicCharacter
     {
 
-
         //public  Spell Spell {get; set;}
         //public SpellsBook Spells {get; set;}
         //public Inventory WizardInventory {get; set;}
         public string Name {get; set;}
-        public int Strength { get; set; }
-        public int Intelligence { get; set; }
+        public int Strength 
+        {
+            get
+            {
+                return 1;
+            }
+        }
+        public int Intelligence 
+        {
+            get
+            {
+                return 3;
+            }
+        }
         private int HealthPoint;
         public MagicHat magicHat {get;set;}
         public Staff staff {get;set;}
         public SpellsBook spellsBook {get;set;}
 
 
-        public Wizard(string name, int healthPoint, int strength, int intelligence)
+        public Wizard(string name, int healthPoint)
         {
             this.Name = name;
             this.HealthPoint = healthPoint;
-            this.Strength = strength;
-            this.Intelligence = intelligence;
             
         }
-        public void setHealthPoint(int healthPointValue)
+        public void SetHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
         }
-        public int getHealthPoint()
+        public int GetHealthPoint()
         {
             return this.HealthPoint;
+        }
+
+        public int GetStrength ()
+        {
+            return Strength;
+        }
+
+        public int GetIntelligence ()
+        {
+            return Intelligence;
         }
 
         public void Attack(IAttackItem item, Spell spell, ICharacter target)
         {
             spellsBook.AddSpell(spell);
-            int attackLevel = item.getAttackValue() + this.Strength + this.Intelligence + spell.AttackPower;
-            int lasthealthpoint = target.getHealthPoint();
-            int newhealthpoint = lasthealthpoint - attackLevel;
+            int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence() + spell.AttackPower;
+            int lastHealthPoint = target.GetHealthPoint();
+            int currentHealthPoint = lastHealthPoint - attackLevel;
 
-            if (attackLevel > target.getHealthPoint())
+            if (attackLevel > target.GetHealthPoint())
             {
-                target.setHealthPoint(0);
+                target.SetHealthPoint(0);
             }
             else
             {
-                target.setHealthPoint(newhealthpoint);
+                target.SetHealthPoint(currentHealthPoint);
             }
         }
 
         public void Defend(IDefenseItem item, Spell spell, ICharacter target)
         {
             spellsBook.AddSpell(spell);
-            if (this.getHealthPoint() <= 100)
+            if (this.GetHealthPoint() <= 100)
             {
-                int defenseLevel = item.getDefenseValue() + this.Strength + this.Intelligence + spell.DefensePower;
-                int lasthealthpoint = this.getHealthPoint();
-                int newhealthpoint = lasthealthpoint + defenseLevel;
-                this.setHealthPoint(newhealthpoint);
+                int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence() + spell.DefensePower;
+                int lastHealthPoint = this.GetHealthPoint();
+                int currentHealthPoint = lastHealthPoint + defenseLevel;
+                this.SetHealthPoint(currentHealthPoint);
             }
-            if (this.getHealthPoint() > 100)
+            if (this.GetHealthPoint() > 100)
             {
-                this.setHealthPoint(100);
+                this.SetHealthPoint(100);
             }
         }
 
         public void Heal(IHealingItem item, Spell spell, ICharacter target)
         {
             spellsBook.AddSpell(spell);
-            if (target.getHealthPoint() <= 100)
+            if (target.GetHealthPoint() <= 100)
             {
-                int healingLevel = item.getHealingValue() + this.Strength + this.Intelligence + spell.HealingPower;
-                int lastheathvalue = target.getHealthPoint();
-                int newhealthvalue = lastheathvalue + healingLevel;
-                this.setHealthPoint(newhealthvalue);
+                int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence() + spell.HealingPower;
+                int lastHeathValue = target.GetHealthPoint();
+                int currentHealthValue = lastHeathValue + healingLevel;
+                this.SetHealthPoint(currentHealthValue);
             }
-            if (target.getHealthPoint() > 100)
+            if (target.GetHealthPoint() > 100)
             {
-                target.setHealthPoint(100);
+                target.SetHealthPoint(100);
             }
         }
     }

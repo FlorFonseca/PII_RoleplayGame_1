@@ -6,92 +6,107 @@ namespace RPG
     public class Dwarf : INoMagicCharacter
     {
         public string Name { get; set; }
-        public int Strength { get; set; }
-        public int Intelligence { get; set; }
+        public int Strength 
+        {
+            get
+            {
+                return  3;
+            }
+        }
+        public int Intelligence 
+        {
+            get
+            {
+                return 2;
+            }
+        }
         private int HealthPoint;
-        private int Resistance;
+        public int Resistance
+        {
+            get
+            {
+                return 10;
+            }
+        }
 
 /*
         Como los Enanos tienen una gran resistencia, creamos el atributo Resistance para que pueda influir en su defensa y a su vez en la 
         recuperación.
 */
-        public Dwarf(string name, int healthPoint,int strength, int intelligence, int resistance)
+        public Dwarf(string name, int healthPoint)
         {
             this.Name = name;
-            this.Strength = strength;
-            this.Intelligence = intelligence;
             this.HealthPoint = healthPoint;
-            this.Resistance = resistance;
         }
     
-        public void setHealthPoint(int healthPointValue)
+        public void SetHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
         }
-        public int getHealthPoint()
+        public int GetHealthPoint()
         {
-            return HealthPoint;
+            return this.HealthPoint;
         }
 
-        public void setResistance(int resistanceValue)
+        public int GetStrength()
         {
-            if ((resistanceValue <= 10) && (resistanceValue >= 0))
-            {
-                this.Resistance = resistanceValue;
-            }
-            else
-            {
-                this.Resistance = 0;
-            }
+            return Strength;
         }
-        public int getResistance()
+
+        public int GetIntelligence()
         {
-            return this.Resistance;
+            return Intelligence;
+        }
+
+        //RESISTANCE
+        public int GetResistance()
+        {
+            return Resistance;
         }
         public void Attack(IAttackItem item, ICharacter target)
         {
-            int attackLevel = item.getAttackValue() + this.Strength + this.Intelligence;
-            int lasthealthpoint = target.getHealthPoint();
-            int newhealthpoint = lasthealthpoint - attackLevel;
+            int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence();
+            int lastHealthPoint = target.GetHealthPoint();
+            int currentHealthPoint = lastHealthPoint - attackLevel;
 
-            if (attackLevel > target.getHealthPoint())
+            if (attackLevel > target.GetHealthPoint())
             {
-                target.setHealthPoint(0);
+                target.SetHealthPoint(0);
             }
             else
             {
-                target.setHealthPoint(newhealthpoint);
+                target.SetHealthPoint(currentHealthPoint);
             };
         }
         public void Defend(IDefenseItem item, ICharacter target)
         {
-            if (this.getHealthPoint() <= 100)
+            if (this.GetHealthPoint() <= 100)
             {
-                int defenseLevel = item.getDefenseValue() + this.Strength + this.Intelligence;
-                int lasthealthpoint = this.getHealthPoint();
-                int newhealthpoint = lasthealthpoint + defenseLevel + this.Resistance;
-                this.setHealthPoint(newhealthpoint);
+                int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
+                int lastHealthPoint = this.GetHealthPoint();
+                int currentHealthPoint = lastHealthPoint + defenseLevel + GetResistance();
+                this.SetHealthPoint(currentHealthPoint);
             }
-            if (this.getHealthPoint() > 100)
+            if (this.GetHealthPoint() > 100)
             {
-                this.setHealthPoint(100);
+                this.SetHealthPoint(100);
             }
 
         }
         public void Heal(IHealingItem item, ICharacter target)
         {
-            if (this.getHealthPoint() <= 100)
+            if (this.GetHealthPoint() <= 100)
             {
 
-                int healingLevel = item.getHealingValue() + this.Strength + this.Intelligence;
-                int lasthealingpoint = this.getHealthPoint();
-                int newhealingpoint = lasthealingpoint + healingLevel + this.Resistance;
-                this.setHealthPoint(newhealingpoint);
+                int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
+                int lastHealingPoint = this.GetHealthPoint();
+                int currentHealingPoint = lastHealingPoint + healingLevel + GetResistance();
+                this.SetHealthPoint(currentHealingPoint);
 
             }
-            if (this.getHealthPoint() > 100)
+            if (this.GetHealthPoint() > 100)
             {
-                this.setHealthPoint(100);
+                this.SetHealthPoint(100);
             }
         }
     }
