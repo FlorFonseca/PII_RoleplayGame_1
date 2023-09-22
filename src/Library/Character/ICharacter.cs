@@ -11,7 +11,6 @@ namespace RPG
         public int Intelligence { get; set; }
 
         public void setHealthPoint(int healthPointValue);
-
         public int getHealthPoint();
     }
 }
