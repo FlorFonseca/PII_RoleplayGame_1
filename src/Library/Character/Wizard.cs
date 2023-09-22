@@ -15,9 +15,11 @@ namespace RPG
         public int Strength { get; set; }
         public int Intelligence { get; set; }
         private int HealthPoint;
+        public MagicHat magicHat {get;set;}
+        public Staff staff {get;set;}
+        public SpellsBook spellsBook {get;set;}
 
 
-    //  CONSTRUCTOR
         public Wizard(string name, int healthPoint, int strength, int intelligence)
         {
             this.Name = name;
@@ -26,78 +28,28 @@ namespace RPG
             this.Intelligence = intelligence;
             
         }
-
-    //  MÉTODOS
-
         public void setHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
         }
-
         public int getHealthPoint()
         {
             return this.HealthPoint;
         }
 
-        public void Attack(IAttackItem item, Spell spell,IMagicCharacter target)
+        public void Attack(IAttackItem item, Spell spell, ICharacter target)
         {
-            /*if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
-                return;
-            }*/
-            int attackLevel = item.attackValue + spell.AttackPower + this.Strength + this.Intelligence;
-            int lastHealthPoint = target.getHealthPoint();
-            int newHealthPoint = lastHealthPoint - attackLevel;
-
-            if (attackLevel > target.getHealthPoint())
-            {
-                target.setHealthPoint(0);
-            }
-            else
-            {
-                target.setHealthPoint(newHealthPoint);
-            }
+            throw new NotImplementedException();
         }
 
-        public void Defend(Inventory inventory, Item item,Spell spell, IMagicCharacter target)
+        public void Defend(IDefendItem item, Spell spell, ICharacter target)
         {
-            if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para defenderte.");
-                return;
-            }
-            if (this.getHealthPoint() <= 100)
-            {
-                int defenseLevel = item.DefenseValue + spell.DefensePower + this.Strength + this.Intelligence;
-                int lastHealingPoint = this.getHealthPoint();
-                int newHealingPoint = lastHealingPoint + defenseLevel;
-                this.setHealthPoint(newHealingPoint);
-            }
-            if (this.getHealthPoint() > 100)
-            {
-                this.setHealthPoint(100);
-            }
+            throw new NotImplementedException();
         }
 
-        public void Heal(Inventory inventory, Item item,Spell spell, IMagicCharacter target)
+        public void Heal(IHealItem item, Spell spell, ICharacter target)
         {
-            if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para curar.");
-                return;
-            }
-            if (target.getHealthPoint() <= 100)
-            {
-                int healingLevel = item.HealingValue + spell.HealingPower + this.Strength + this.Intelligence;
-                int lastHealthValue = target.getHealthPoint();
-                int newHealthValue = lastHealthValue + healingLevel;
-                target.setHealthPoint(newHealthValue);
-            }
-            if (target.getHealthPoint() > 100)
-            {
-                target.setHealthPoint(100);
-            }
+            throw new NotImplementedException();
         }
     }
 }

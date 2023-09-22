@@ -67,14 +67,9 @@ namespace RPG
             return HealthPoint;
         }
 
-        public void Attack(Inventory inventory, IAttackItem item, INoMagicCharacter target)
+        public void Attack(IAttackItem item, ICharacter target)
         {
-            if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para realizar este ataque.");
-                return;
-            }
-            int attackLevel = item.AttackValue + this.Strength + this.Intelligence;
+            int attackLevel = item.getAttackValue() + this.Strength + this.Intelligence;
             int lasthealthpoint = target.getHealthPoint();
             int newhealthpoint = lasthealthpoint - (attackLevel + this.NatureKnowledge);
 
@@ -88,16 +83,11 @@ namespace RPG
             };
         }
 
-        public void Defend(Inventory inventory, Item item, INoMagicCharacter target)
+        public void Defend(IDefendItem item, ICharacter target)
         {
-            if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para defenderte.");
-                return;
-            }
             if (this.getHealthPoint() <= 100)
             {
-                int defenseLevel = item.DefenseValue + this.Strength + this.Intelligence;
+                int defenseLevel = item.getDefenseValue() + this.Strength + this.Intelligence;
                 int lasthealingpoint = target.getHealthPoint();
                 int newhealingpoint = lasthealingpoint + defenseLevel + this.getNatureKnowledge();
                 this.setHealthPoint(newhealingpoint);
@@ -108,16 +98,11 @@ namespace RPG
             }
         }
 
-        public void Heal(Inventory inventory, Item item, INoMagicCharacter target)
+        public void Heal(IHealItem item, ICharacter target)
         {
-            if (!inventory.Contains(item))
-            {
-                Console.WriteLine("No tienes el item necesario en tu inventario para curar.");
-                return;
-            }
             if (target.getHealthPoint() <= 100)
             {
-                int healingLevel = item.HealingValue + this.Strength + this.Intelligence;
+                int healingLevel = item.getHealValue() + this.Strength + this.Intelligence;
                 int lastheathvalue = target.getHealthPoint();
                 int newhealthvalue = lastheathvalue + healingLevel + this.getHealingPower();
                 this.setHealthPoint(newhealthvalue);
