@@ -13,8 +13,8 @@ namespace RPG
         int GetHealthPoint();
 
         int GetStrength();
-
-        int GetIntelligence ();
+          
+        int GetIntelligence();
     }
 }
 /*

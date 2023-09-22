@@ -5,26 +5,26 @@ namespace RPG
     public class PrintGame
     {
     //  ATTACK VALUE
-        public void PrintAttackValue(Character attacker,Character target, Item item)
+        public void PrintAttackValue(ICharacter attacker, ICharacter target, IAttackItem item)
         {
             string attackValue_toString = "";
 
 
             if (attacker is Wizard wizardAttacker)
             {
-                int attackValue= item.AttackValue + wizardAttacker.getStrength() + wizardAttacker.getIntelligence() + wizardAttacker.Spell.AttackPower;
+                int attackValue= item.getAttackValue() + wizardAttacker.getStrength() + wizardAttacker.getIntelligence() + wizardAttacker.spellsBook.AttackPower;
                 attackValue_toString = Convert.ToString(attackValue);
             }
 
             if (attacker is Elf elfAttacker)
             {
-                int attackValue= item.AttackValue + elfAttacker.getStrength() + elfAttacker.getIntelligence() + elfAttacker.getNatureKnowledge();
+                int attackValue= item.getAttackValue() + elfAttacker.getStrength() + elfAttacker.getIntelligence() + elfAttacker.getNatureKnowledge();
                 attackValue_toString = Convert.ToString(attackValue);
             }
 
             if (attacker is Dwarf dwarfAttacker)
             {
-                int attackValue= item.AttackValue + dwarfAttacker.getStrength() + dwarfAttacker.getIntelligence();
+                int attackValue= item.getAttackValue() + dwarfAttacker.getStrength() + dwarfAttacker.getIntelligence();
                 attackValue_toString = Convert.ToString(attackValue);
             }
             Console.WriteLine($"El personaje {attacker.Name} ataco a {target.Name} con un valor de ataque de {attackValue_toString}");
@@ -32,7 +32,7 @@ namespace RPG
         }
 
     //  DEFENSE VALUE
-        public void PrintDefenseValue(Character defender,Character target, Item item)
+        public void PrintDefenseValue(ICharacter defender, ICharacter target, IDefenseItem item)
         {
 
             string defenseValue_toString = "";
@@ -40,19 +40,19 @@ namespace RPG
             if (defender is Wizard wizardDefender)
 
             {
-                int defenseValue= item.DefenseValue + wizardDefender.getStrength() + wizardDefender.getIntelligence() + wizardDefender.Spell.DefensePower;
+                int defenseValue= item.getDefenseValue() + wizardDefender.getStrength() + wizardDefender.getIntelligence() + wizardDefender.Spell.DefensePower;
                 defenseValue_toString = Convert.ToString(defenseValue);
             }
 
             if (defender is Elf elfDefender)
             {
-                int defenseValue= item.DefenseValue + elfDefender.getStrength() + elfDefender.getIntelligence() + elfDefender.getNatureKnowledge();
+                int defenseValue= item.getDefenseValue() + elfDefender.getStrength() + elfDefender.getIntelligence() + elfDefender.getNatureKnowledge();
                 defenseValue_toString = Convert.ToString(defenseValue);
             }
 
             if (defender is Dwarf dwarfDefender)
             {
-                int defenseValue= item.DefenseValue + dwarfDefender.getStrength() + dwarfDefender.getIntelligence();
+                int defenseValue= item.getDefenseValue() + dwarfDefender.getStrength() + dwarfDefender.getIntelligence();
                 defenseValue_toString = Convert.ToString(defenseValue);
             }
 
@@ -61,7 +61,7 @@ namespace RPG
         }
 
     //  HELING VALUE
-        public void PrintHealingValue(Character healer, Item item)
+        public void PrintHealingValue(ICharacter healer, IHealingItem item)
         {
             string healingValue_toString = "";
 
@@ -69,19 +69,19 @@ namespace RPG
             if (healer is Wizard wizardHealer)
 
             {
-                int healingValue= item.HealingValue + wizardHealer.getStrength() + wizardHealer.getIntelligence() + wizardHealer.Spell.HealingPower;
+                int healingValue= item.getHealingValue() + wizardHealer.getStrength() + wizardHealer.getIntelligence() + wizardHealer.Spell.HealingPower;
                 healingValue_toString = Convert.ToString(healingValue);
             }
 
             if (healer is Elf elfHealer)
             {
-                int healingValue= item.HealingValue + elfHealer.getStrength() + elfHealer.getIntelligence() + elfHealer.getNatureKnowledge();
+                int healingValue= item.getHealingValue() + elfHealer.getStrength() + elfHealer.getIntelligence() + elfHealer.getNatureKnowledge();
                 healingValue_toString = Convert.ToString(healingValue);
             }
 
             if (healer is Dwarf dwarfHealer)
             {
-                int healingValue= item.HealingValue + dwarfHealer.getStrength() + dwarfHealer.getIntelligence();
+                int healingValue= item.getHealingValue() + dwarfHealer.getStrength() + dwarfHealer.getIntelligence();
                 healingValue_toString = Convert.ToString(healingValue);
             }
 
