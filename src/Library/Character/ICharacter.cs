@@ -6,12 +6,15 @@ namespace RPG
 {
     public interface ICharacter
     {
-        public string Name {get; set;}
-        public int Strength { get; set; }
-        public int Intelligence { get; set; }
+        string Name {get; set;}
 
-        public void setHealthPoint(int healthPointValue);
-        public int getHealthPoint();
+        void SetHealthPoint(int healthPointValue);
+
+        int GetHealthPoint();
+
+        int GetStrength();
+          
+        int GetIntelligence();
     }
 }
 /*
