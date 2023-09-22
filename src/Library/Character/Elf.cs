@@ -7,6 +7,9 @@ namespace RPG
     public class Elf : INoMagicCharacter
     {
         public string Name { get; set; }
+        public BowAndArrow ArcoYFlecha {get;set;}
+        public BulletProofVest CapaAntiAtaque {get; set;}
+        public HealingHerbs HierbasCurativas {get;set;}
         public int Strength 
         {
             get
@@ -94,7 +97,7 @@ namespace RPG
 
         public void Defend(IDefenseItem item, ICharacter target)
         {
-            if (this.getHealthPoint() <= 100)
+            if (this.GetHealthPoint() <= 100)
             {
                 int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
                 int lastHealingPoint = target.GetHealthPoint();
@@ -109,9 +112,9 @@ namespace RPG
 
         public void Heal(IHealingItem item, ICharacter target)
         {
-            if (target.getHealthPoint() <= 100)
+            if (target.GetHealthPoint() <= 100)
             {
-                int healingLevel = item.GetHealingValue() + GetStrength() + GetIntelligence();
+                int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
                 int lastHeathValue = target.GetHealthPoint();
                 int currentHealthValue = lastHeathValue + healingLevel + GetHealingPower();
                 this.SetHealthPoint(currentHealthValue);
