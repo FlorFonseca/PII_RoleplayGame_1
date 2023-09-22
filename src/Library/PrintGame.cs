@@ -12,23 +12,23 @@ namespace RPG
 
             if (attacker is Wizard wizardAttacker)
             {
-                int attackValue= item.getAttackValue() + wizardAttacker.getStrength() + wizardAttacker.getIntelligence() + wizardAttacker.spellsBook.AttackPower;
+                int attackValue= item.getAttackValue() + wizardAttacker.GetStrength() + wizardAttacker.GetIntelligence() + wizardAttacker.Spell.getAttackValue();
                 attackValue_toString = Convert.ToString(attackValue);
             }
 
             if (attacker is Elf elfAttacker)
             {
-                int attackValue= item.getAttackValue() + elfAttacker.getStrength() + elfAttacker.getIntelligence() + elfAttacker.getNatureKnowledge();
+                int attackValue= item.getAttackValue() + elfAttacker.GetStrength() + elfAttacker.GetIntelligence() + elfAttacker.GetNatureKnowledge();
                 attackValue_toString = Convert.ToString(attackValue);
             }
 
             if (attacker is Dwarf dwarfAttacker)
             {
-                int attackValue= item.getAttackValue() + dwarfAttacker.getStrength() + dwarfAttacker.getIntelligence();
+                int attackValue= item.getAttackValue() + dwarfAttacker.GetStrength() + dwarfAttacker.GetIntelligence();
                 attackValue_toString = Convert.ToString(attackValue);
             }
-            Console.WriteLine($"El personaje {attacker.Name} ataco a {target.Name} con un valor de ataque de {attackValue_toString}");
-            Console.WriteLine($"El personaje {target.Name} tiene {target.getHealthPoint()} puntos de vida restante\n");
+            Console.WriteLine($"El personaje {attacker.Name} atacó a {target.Name} con un valor de ataque de {attackValue_toString}");
+            Console.WriteLine($"El personaje {target.Name} tiene {target.GetHealthPoint()} puntos de vida restante\n");
         }
 
     //  DEFENSE VALUE
@@ -40,27 +40,27 @@ namespace RPG
             if (defender is Wizard wizardDefender)
 
             {
-                int defenseValue= item.getDefenseValue() + wizardDefender.getStrength() + wizardDefender.getIntelligence() + wizardDefender.Spell.DefensePower;
+                int defenseValue= item.getDefenseValue() + wizardDefender.GetStrength() + wizardDefender.GetIntelligence() + wizardDefender.Spell.getDefenseValue();
                 defenseValue_toString = Convert.ToString(defenseValue);
             }
 
             if (defender is Elf elfDefender)
             {
-                int defenseValue= item.getDefenseValue() + elfDefender.getStrength() + elfDefender.getIntelligence() + elfDefender.getNatureKnowledge();
+                int defenseValue= item.getDefenseValue() + elfDefender.GetStrength() + elfDefender.GetIntelligence() + elfDefender.GetNatureKnowledge();
                 defenseValue_toString = Convert.ToString(defenseValue);
             }
 
             if (defender is Dwarf dwarfDefender)
             {
-                int defenseValue= item.getDefenseValue() + dwarfDefender.getStrength() + dwarfDefender.getIntelligence();
+                int defenseValue= item.getDefenseValue() + dwarfDefender.GetStrength() + dwarfDefender.GetIntelligence();
                 defenseValue_toString = Convert.ToString(defenseValue);
             }
 
             Console.WriteLine($"El personaje {defender.Name} se defendio de {target.Name} tiene un valor de defensa de {defenseValue_toString}");
-            Console.WriteLine($"El personaje {defender.Name} tiene {defender.getHealthPoint()} puntos de vida restante\n");
+            Console.WriteLine($"El personaje {defender.Name} tiene {defender.GetHealthPoint()} puntos de vida restante\n");
         }
 
-    //  HELING VALUE
+    //  HEALING VALUE
         public void PrintHealingValue(ICharacter healer, IHealingItem item)
         {
             string healingValue_toString = "";
@@ -69,24 +69,24 @@ namespace RPG
             if (healer is Wizard wizardHealer)
 
             {
-                int healingValue= item.getHealingValue() + wizardHealer.getStrength() + wizardHealer.getIntelligence() + wizardHealer.Spell.HealingPower;
+                int healingValue= item.getHealingValue() + wizardHealer.GetStrength() + wizardHealer.GetIntelligence() + wizardHealer.Spell.getHealingValue();
                 healingValue_toString = Convert.ToString(healingValue);
             }
 
             if (healer is Elf elfHealer)
             {
-                int healingValue= item.getHealingValue() + elfHealer.getStrength() + elfHealer.getIntelligence() + elfHealer.getNatureKnowledge();
+                int healingValue= item.getHealingValue() + elfHealer.GetStrength() + elfHealer.GetIntelligence() + elfHealer.GetNatureKnowledge();
                 healingValue_toString = Convert.ToString(healingValue);
             }
 
             if (healer is Dwarf dwarfHealer)
             {
-                int healingValue= item.getHealingValue() + dwarfHealer.getStrength() + dwarfHealer.getIntelligence();
+                int healingValue= item.getHealingValue() + dwarfHealer.GetStrength() + dwarfHealer.GetIntelligence();
                 healingValue_toString = Convert.ToString(healingValue);
             }
 
             Console.WriteLine($"El personaje {healer.Name} se curo con un valor de curación de {healingValue_toString}.");
-            Console.WriteLine($"El personaje {healer.Name} tiene {healer.getHealthPoint()} puntos de vida restante\n");
+            Console.WriteLine($"El personaje {healer.Name} tiene {healer.GetHealthPoint()} puntos de vida restante\n");
         }
 
     }

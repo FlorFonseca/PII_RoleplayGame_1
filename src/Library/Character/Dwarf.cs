@@ -6,6 +6,9 @@ namespace RPG
     public class Dwarf : INoMagicCharacter
     {
         public string Name { get; set; }
+        public Shotgun Escopeta {get;set;}
+        public BandAid BanditaCurativa {get;set;}
+        public Shield Escudo {get;set;}
         public int Strength 
         {
             get

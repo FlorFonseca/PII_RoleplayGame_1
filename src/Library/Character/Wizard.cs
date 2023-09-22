@@ -7,8 +7,8 @@ namespace RPG
     public class Wizard : IMagicCharacter
     {
 
-        //public  Spell Spell {get; set;}
-        //public SpellsBook Spells {get; set;}
+        public  Spell Spell {get; set;}
+        public SpellsBook Spells {get; set;}
         //public Inventory WizardInventory {get; set;}
         public string Name {get; set;}
         public int Strength 
@@ -26,10 +26,9 @@ namespace RPG
             }
         }
         private int HealthPoint;
-        public MagicHat magicHat {get;set;}
-        public Staff staff {get;set;}
-        public SpellsBook spellsBook {get;set;}
-
+        public MagicHat MagicHat {get;set;}
+        public Staff Staff {get;set;}
+        public Ragweed Ambrosia {get;set;}
 
         public Wizard(string name, int healthPoint)
         {
@@ -58,7 +57,7 @@ namespace RPG
 
         public void Attack(IAttackItem item, Spell spell, ICharacter target)
         {
-            spellsBook.AddSpell(spell);
+            
             int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence() + spell.AttackPower;
             int lastHealthPoint = target.GetHealthPoint();
             int currentHealthPoint = lastHealthPoint - attackLevel;
@@ -75,7 +74,7 @@ namespace RPG
 
         public void Defend(IDefenseItem item, Spell spell, ICharacter target)
         {
-            spellsBook.AddSpell(spell);
+            
             if (this.GetHealthPoint() <= 100)
             {
                 int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence() + spell.DefensePower;
@@ -91,7 +90,7 @@ namespace RPG
 
         public void Heal(IHealingItem item, Spell spell, ICharacter target)
         {
-            spellsBook.AddSpell(spell);
+            
             if (target.GetHealthPoint() <= 100)
             {
                 int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence() + spell.HealingPower;
