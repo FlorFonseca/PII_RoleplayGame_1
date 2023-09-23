@@ -34,6 +34,7 @@ namespace RPG
         {
             this.Name = name;
             this.HealthPoint = healthPoint;
+            this.Spell = new Spell("");
             
         }
         public void SetHealthPoint(int healthPointValue)
@@ -56,8 +57,7 @@ namespace RPG
         }
 
         public void Attack(IAttackItem item, Spell spell, ICharacter target)
-        {
-            
+        {         
             int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence() + spell.AttackPower;
             int lastHealthPoint = target.GetHealthPoint();
             int currentHealthPoint = lastHealthPoint - attackLevel;

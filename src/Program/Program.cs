@@ -12,15 +12,15 @@ namespace Program
             PrintGame valoresdejuego= new PrintGame();
 
         //  ITEMS: Creamos los items necesarios que vamos a utilizar. Como vemos ponemos sus valores de ataque, etc. (los requeridos en la clase Item)
-            Staff baston = new Staff("Bastón de luz");
-            BowAndArrow ArcoYFlecha = new BowAndArrow ("Arco de Legolas");
-            Shotgun escopeta = new Shotgun("Valquiria de plomo");
-            HealingHerbs manzanilla = new HealingHerbs("Manzanilla curativa");
-            BandAid bandita = new BandAid("Bandita curativa");
-            MagicHat sombreromagico= new MagicHat ("Sombrero Alquimico");
-            Shield escudo = new Shield("Escudo del Dragón");
-            Ragweed ambrosia = new Ragweed ("Ambrosia");
-
+            IAttackItem baston = new Staff("Bastón de luz");
+            IAttackItem ArcoYFlecha = new BowAndArrow ("Arco de Legolas");
+            IAttackItem escopeta = new Shotgun("Valquiria de plomo");
+            IHealingItem manzanilla = new HealingHerbs("Manzanilla curativa");
+            IHealingItem bandita = new BandAid("Bandita curativa");
+            IHealingItem ambrosia = new Ragweed ("Ambrosia");
+            IDefenseItem sombreromagico= new MagicHat ("Sombrero Alquimico");
+            IDefenseItem escudo = new Shield("Escudo del Dragón");
+            
         // SPELLSBOOK: Aquí creamos nuestro spellsbook, el hechizo "congelar" y lo agregamos a nuestro libro
             SpellsBook spellsBook= new SpellsBook();
             Spell HieloPerpetuo = new Spell("Hielo Perpetuo");
@@ -30,12 +30,11 @@ namespace Program
 
         // CREANDO NUESTROS PERSONAJES!!: aquí creamos cada personaje, indicamos su especie y rellenamos con los datos que nos pide 
         //                                según la especie que elegimos
+            IMagicCharacter maguito = new Wizard("Gandalf",100);
 
-            Wizard maguito = new Wizard("Gandalf",100);
+            INoMagicCharacter elfito = new Elf("Legolas",100);
 
-            Elf elfito = new Elf("Legolas",100);
-
-            Dwarf enanito = new Dwarf("Pippin",100);
+            INoMagicCharacter enanito = new Dwarf("Pippin",100);
 
         // JUGANDO: Aquí llamamos a los métodos que queramos para hacer los confrontamientos que deseamos o las defensas necesarias.
 
