@@ -15,6 +15,7 @@ namespace RPG
         int GetStrength();
           
         int GetIntelligence();
+
     }
 }
 /*
