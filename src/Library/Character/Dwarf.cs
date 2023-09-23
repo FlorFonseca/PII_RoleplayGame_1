@@ -66,7 +66,7 @@ namespace RPG
         {
             return Resistance;
         }
-        public void Attack(IAttackItem item, ICharacter target)
+        public int Attack(IAttackItem item, ICharacter target)
         {
             int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence();
             int lastHealthPoint = target.GetHealthPoint();
@@ -79,31 +79,32 @@ namespace RPG
             else
             {
                 target.SetHealthPoint(currentHealthPoint);
-            };
+            }
+            return attackLevel;
         }
-        public void Defend(IDefenseItem item, ICharacter target)
+        public int Defend(IDefenseItem item, ICharacter target)
         {
-            if (this.GetHealthPoint() <= 100)
-            {
                 int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
                 int lastHealthPoint = this.GetHealthPoint();
                 int currentHealthPoint = lastHealthPoint + defenseLevel + GetResistance();
+            if (this.GetHealthPoint() <= 100)
+            {
                 this.SetHealthPoint(currentHealthPoint);
             }
             if (this.GetHealthPoint() > 100)
             {
                 this.SetHealthPoint(100);
             }
+            return defenseLevel;
 
         }
-        public void Heal(IHealingItem item, ICharacter target)
+        public int Heal(IHealingItem item, ICharacter target)
         {
+            int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
+            int lastHealingPoint = this.GetHealthPoint();
+            int currentHealingPoint = lastHealingPoint + healingLevel + GetResistance();
             if (this.GetHealthPoint() <= 100)
             {
-
-                int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
-                int lastHealingPoint = this.GetHealthPoint();
-                int currentHealingPoint = lastHealingPoint + healingLevel + GetResistance();
                 this.SetHealthPoint(currentHealingPoint);
 
             }
@@ -111,6 +112,7 @@ namespace RPG
             {
                 this.SetHealthPoint(100);
             }
+            return healingLevel;
         }
     }
 }

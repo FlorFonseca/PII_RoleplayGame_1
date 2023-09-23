@@ -6,11 +6,11 @@ namespace RPG
 {
     public interface IMagicCharacter : ICharacter
     {
-        public void Attack(IAttackItem item, Spell spell, ICharacter target);
+        public int Attack(IAttackItem item, ICharacter target);
 
-        public void Defend(IDefenseItem item, Spell spell, ICharacter target);
+        public int Defend(IDefenseItem item, ICharacter target);
 
-        public void Heal (IHealingItem item, Spell spell,ICharacter target);
+        public int Heal (IHealingItem item, ICharacter target);
     }
 }
 /*
