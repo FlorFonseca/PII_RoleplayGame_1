@@ -38,12 +38,12 @@ namespace Program
 
         // JUGANDO: Aquí llamamos a los métodos que queramos para hacer los confrontamientos que deseamos o las defensas necesarias.
 
-            maguito.Attack(baston,enanito);
-            enanito.Defend(escudo, maguito);
-            enanito.Attack(escopeta, maguito); 
-            elfito.Attack(ArcoYFlecha,maguito);
-            maguito.Heal(Resplandor,maguito);
-            enanito.Heal(bandita,enanito);
+        //    maguito.Attack(baston,enanito);
+        //    enanito.Defend(escudo, maguito);
+        //    enanito.Attack(escopeta, maguito); 
+        //    elfito.Attack(ArcoYFlecha,maguito);
+        //    maguito.Heal(Resplandor,maguito);
+        //    enanito.Heal(bandita,enanito);
 
         // VALOR DE ATAQUE: Imprimimos el valor de ataque del personaje especificado, con el item que utiliza
         
@@ -51,8 +51,9 @@ namespace Program
             valoresdejuego.PrintDefenseValue(enanito,maguito,escudo);
             valoresdejuego.PrintAttackValue(enanito,maguito,escopeta);
             valoresdejuego.PrintAttackValue(elfito,maguito,ArcoYFlecha);
-
-            valoresdejuego.PrintHealingValue(maguito,ambrosia);
+            valoresdejuego.PrintAttackValue(enanito,maguito,baston);
+            valoresdejuego.PrintAttackValue(elfito,maguito,escopeta);
+        //    valoresdejuego.PrintHealingValue(maguito,ambrosia);
 
             
         

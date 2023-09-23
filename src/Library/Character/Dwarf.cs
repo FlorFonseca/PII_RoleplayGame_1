@@ -72,6 +72,7 @@ namespace RPG
             int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence();
             int lastHealthPoint = target.GetHealthPoint();
             int currentHealthPoint = lastHealthPoint - attackLevel;
+
             if (attackLevel > target.GetHealthPoint())
             {
                 target.SetHealthPoint(0);
