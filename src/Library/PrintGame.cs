@@ -7,8 +7,7 @@ namespace RPG
     //  ATTACK VALUE
         public void PrintAttackValue(ICharacter attacker, ICharacter target, IAttackItem item)
         {
-            string attackValue_toString = "";
-
+            string attackValue_toString = "";            
 
             if (attacker is Wizard wizardAttacker)
             {

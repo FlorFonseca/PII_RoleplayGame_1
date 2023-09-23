@@ -7,7 +7,7 @@ namespace RPG
         {
             get
             {
-                return 25;
+                return 10;
             }
         }
         public Staff (string name)
