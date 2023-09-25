@@ -15,7 +15,7 @@ namespace RPG.Tests
             int expected = 100 ;
 
             //Assert
-            Assert.Equals(input, expected);
+            Assert.AreEqual(input, expected);
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace RPG.Tests
             BandAid exampleItem = new BandAid("Example Item "); 
 
             // Act
-            testCharacter.Heal(exampleItem);
+            testCharacter.Heal(exampleItem,testCharacter);
 
             int output = testCharacter.GetHealthPoint() ;
 
@@ -42,7 +42,7 @@ namespace RPG.Tests
             BandAid exampleItem = new BandAid("Example Item "); 
 
             // Act
-            testCharacter.Heal(exampleItem);
+            testCharacter.Heal(exampleItem,testCharacter);
 
             int output = testCharacter.GetHealthPoint() ;
 
@@ -54,8 +54,8 @@ namespace RPG.Tests
         public void Attack_ShouldNotReduceHealthBelowZero()
         {
             // Arrange
-            Character testCharacter = new Character("Test Attacker", 100);
-            Character exampleTarget = new Character("example Target", 5);
+            Elf testCharacter = new Elf("Test Attacker", 100);
+            Dwarf exampleTarget = new Dwarf("example Target", 5);
             Staff exampleItem = new Staff("Example Item "); 
 
             // Act
@@ -73,9 +73,9 @@ namespace RPG.Tests
         [Test]
         public void ResistanceIsValid()
         {
-            Dwarf = new Dwarf("ExampleCharacter",100)
+            Dwarf testCharacter = new Dwarf("ExampleCharacter",100);
 
-            int output = Dwarf.GetResistance();
+            int output = testCharacter.GetResistance();
             int expected = 10;
 
             Assert.AreEqual(expected, output);
