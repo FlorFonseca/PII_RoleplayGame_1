@@ -3,13 +3,13 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Dwarf : INoMagicCharacter
+    public class Dwarf : NoMagicCharacter
     {
         public string Name { get; set; }
         public Shotgun Escopeta {get;set;}
         public BandAid BanditaCurativa {get;set;}
         public Shield Escudo {get;set;}
-        public int Strength 
+        public int Strength  
         {
             get
             {
@@ -83,7 +83,7 @@ namespace RPG
             }
             return attackLevel;
         }
-        public int Defend(IDefenseItem item, ICharacter target)
+        public override int Defend(IDefenseItem item, ICharacter target)
         {
                 int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
                 int lastHealthPoint = this.GetHealthPoint();
@@ -99,7 +99,7 @@ namespace RPG
             return defenseLevel;
 
         }
-        public int Heal(IHealingItem item, ICharacter target)
+        public override int Heal(IHealingItem item, ICharacter target)
         {
             int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
             int lastHealingPoint = this.GetHealthPoint();
