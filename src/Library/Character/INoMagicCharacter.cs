@@ -12,7 +12,6 @@ namespace RPG
     }
 }
 /*
-INoMagicCharacter es una interfaz para Dwarf y Elf, estos no tienen un parámetro en sus métodos que los diferencie,
-así que decidimos ponerlos juntos.
+INoMagicCharacter es una interfaz para Dwarf y Elf, estos no tienen un parámetro en sus métodos que los diferencie,así que decidimos ponerlos juntos.
 Los tipos de Item, pueden verse explicados en las interfases correspondientes.
 */
