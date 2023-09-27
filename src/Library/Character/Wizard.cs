@@ -4,20 +4,14 @@ using System;
 
 namespace RPG
 {
-    public class Wizard : IMagicCharacter
+    public class Wizard : MagicCharacter
     {
 
         public  Spell Spell {get; set;}
         public SpellsBook Spells {get; set;}
         //public Inventory WizardInventory {get; set;}
         public string Name {get; set;}
-        public int Strength 
-        {
-            get
-            {
-                return 1;
-            }
-        }
+        public int Strenght = 1;
         public int Intelligence 
         {
             get
@@ -46,31 +40,14 @@ namespace RPG
             return this.HealthPoint;
         }
 
-        public int GetStrength ()
+        public override int GetStrength ()
         {
-            return Strength;
+            return Strenght;
         }
 
         public int GetIntelligence ()
         {
             return Intelligence;
-        }
-
-        public int Attack(IAttackItem item, ICharacter target)
-        {         
-            int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence();
-            int lastHealthPoint = target.GetHealthPoint();
-            int currentHealthPoint = lastHealthPoint - attackLevel;
-
-            if (attackLevel > target.GetHealthPoint())
-            {
-                target.SetHealthPoint(0);
-            }
-            else
-            {
-                target.SetHealthPoint(currentHealthPoint);
-            }
-            return attackLevel;
         }
 
         public int Defend(IDefenseItem item, ICharacter target)
