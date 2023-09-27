@@ -4,7 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Elf : INoMagicCharacter
+    public class Elf : NoMagicCharacter
     {
         public string Name { get; set; }
         public BowAndArrow ArcoYFlecha {get;set;}
@@ -79,7 +79,7 @@ namespace RPG
             return this.HealthPoint;
         }
 
-        public int Attack(IAttackItem item, ICharacter target)
+        public override int Attack(IAttackItem item, ICharacter target)
         {
             int attackLevel = item.getAttackValue() + GetStrength()+ GetIntelligence();
             int lastHealthPoint = target.GetHealthPoint();
@@ -96,7 +96,7 @@ namespace RPG
             return attackLevel;
         }
 
-        public int Defend(IDefenseItem item, ICharacter target)
+        public override int Defend(IDefenseItem item, ICharacter target)
         {
             int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
             int lastHealingPoint = target.GetHealthPoint();
@@ -113,7 +113,7 @@ namespace RPG
             return defenseLevel;
         }
 
-        public int Heal(IHealingItem item, ICharacter target)
+        public override int Heal(IHealingItem item, ICharacter target)
         {
             int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
             int lastHeathValue = target.GetHealthPoint();
