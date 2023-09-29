@@ -8,6 +8,8 @@ namespace RPG
     public abstract class MagicCharacter : ICharacter
     {//Magic character tiene el método, me obliga a implementarlo 
         public abstract int GetStrength();
+        public abstract int GetIntelligence();
+        public abstract int GetHealthPoint();
         public int Attack(IAttackItem item, ICharacter target)
         {
             int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence();
@@ -26,9 +28,38 @@ namespace RPG
         }
 
 
-        public int Defend(IDefenseItem item, ICharacter target);
+        public int Defend(IDefenseItem item, ICharacter target)
+        {
+            int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
+            int lastHealthPoint = this.GetHealthPoint();
+            int currentHealthPoint = lastHealthPoint + defenseLevel;
+            
+            if (this.GetHealthPoint() <= 100)
+            {
+                this.SetHealthPoint(currentHealthPoint);
+            }
+            if (this.GetHealthPoint() > 100)
+            {
+                this.SetHealthPoint(100);
+            }
+            return defenseLevel;
+        }
+        public int Heal (IHealingItem item, ICharacter target)
+        {
+            int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
+            int lastHeathValue = target.GetHealthPoint();
+            int currentHealthValue = lastHeathValue + healingLevel;    
 
-        public int Heal (IHealingItem item, ICharacter target);
+            if (target.GetHealthPoint() <= 100)
+            {
+                this.SetHealthPoint(currentHealthValue);
+            }
+            if (target.GetHealthPoint() > 100)
+            {
+                target.SetHealthPoint(100);
+            }
+            return healingLevel;
+        }
     }
 }
 /*
