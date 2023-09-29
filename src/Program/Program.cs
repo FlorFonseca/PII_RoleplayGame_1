@@ -47,7 +47,7 @@ namespace Program
 
         // VALOR DE ATAQUE: Imprimimos el valor de ataque del personaje especificado, con el item que utiliza
         
-            valoresdejuego.PrintAttackValue(maguito,enanito,Resplandor);
+            valoresdejuego.PrintAttackValue(maguito,enanito,baston);
             valoresdejuego.PrintDefenseValue(enanito,maguito,escudo);
             valoresdejuego.PrintAttackValue(enanito,maguito,escopeta);
             valoresdejuego.PrintAttackValue(elfito,maguito,ArcoYFlecha);
