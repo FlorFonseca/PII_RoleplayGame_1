@@ -7,8 +7,10 @@ namespace RPG
 {
     public abstract class MagicCharacter : ICharacter
     {//Magic character tiene el método, me obliga a implementarlo 
+        public abstract string Name { get; set; }
         public abstract int GetStrength();
         public abstract int GetIntelligence();
+        public abstract void SetHealthPoint(int healthPointValue);
         public abstract int GetHealthPoint();
         public int Attack(IAttackItem item, ICharacter target)
         {
