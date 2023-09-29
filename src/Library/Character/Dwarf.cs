@@ -67,22 +67,7 @@ namespace RPG
         {
             return Resistance;
         }
-        public int Attack(IAttackItem item, ICharacter target)
-        {
-            int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence();
-            int lastHealthPoint = target.GetHealthPoint();
-            int currentHealthPoint = lastHealthPoint - attackLevel;
 
-            if (attackLevel > target.GetHealthPoint())
-            {
-                target.SetHealthPoint(0);
-            }
-            else
-            {
-                target.SetHealthPoint(currentHealthPoint);
-            }
-            return attackLevel;
-        }
         public override int Defend(IDefenseItem item, ICharacter target)
         {
                 int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
