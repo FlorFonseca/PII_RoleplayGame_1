@@ -6,46 +6,22 @@ namespace RPG
 {
     public class Elf : NoMagicCharacter
     {
-        public string Name { get; set; }
         public BowAndArrow ArcoYFlecha {get;set;}
         public BulletProofVest CapaAntiAtaque {get; set;}
         public HealingHerbs HierbasCurativas {get;set;}
-        public int Strength 
-        {
-            get
-            {
-                return 2;
-            }
-        }
-        public int Intelligence 
-        {
-            get
-            {
-                return 2;
-            }
-        }
+        public int Strength = 2;
+        public int Intelligence = 2;
         private int HealthPoint;
-        public int HealingPower
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public int NatureKnowledge
-        {
-            get
-            {
-                return 10;
-            }
-        }
+        public int HealingPower = 10;
+        public int NatureKnowledge = 10;
+        public override string Name { get; set; }
 
-        public int GetIntelligence()
+        public override int GetIntelligence()
         {
             return Intelligence;
         }
 
-        public int GetStrength()
+        public override int GetStrength()
         {
             return Strength;
         }
@@ -70,11 +46,11 @@ namespace RPG
         }
 
 
-        public void SetHealthPoint(int healthPointValue)
+        public override void SetHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
         }
-        public int GetHealthPoint()
+        public override int GetHealthPoint()
         {
             return this.HealthPoint;
         }
@@ -129,6 +105,8 @@ namespace RPG
             }
             return healingLevel;
         }
+
+        
     }
     
 }
