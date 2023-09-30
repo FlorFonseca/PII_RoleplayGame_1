@@ -6,9 +6,6 @@ namespace RPG
 {
     public class Elf : NoMagicCharacter
     {
-        public BowAndArrow ArcoYFlecha {get;set;}
-        public BulletProofVest CapaAntiAtaque {get; set;}
-        public HealingHerbs HierbasCurativas {get;set;}
         public int Strength = 2;
         public int Intelligence = 2;
         private int HealthPoint;
