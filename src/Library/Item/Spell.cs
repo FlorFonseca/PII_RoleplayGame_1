@@ -1,35 +1,14 @@
 using System.Collections.Generic;
 namespace RPG
 {
-    public class Spell : IAttackItem , IHealingItem , IDefenseItem
+    public class Spell : Item, IAttackItem , IHealingItem , IDefenseItem
     {
-        public string Name {get; set; }
+        public int AttackPower=70;
+        public int DefensePower=70;
 
-        public int AttackPower
+        public int HealingPower=70;
+        public Spell (string name): base (name)//constructor method
         {
-            get
-            {
-                return 70;
-            }
-        }
-        public int DefensePower
-        {
-            get
-            {
-                return 70;
-            }
-        }
-
-        public int HealingPower
-        {
-            get
-            {
-                return 70;
-            }
-        }
-        public Spell (string name) //constructor method
-        {
-            this.Name = name ;
         }
 
         public int getHealingValue ()

@@ -12,9 +12,6 @@ namespace RPG
         public int Strenght = 1;
         public int Intelligence =3;
         private int HealthPoint;
-        public MagicHat MagicHat {get;set;}
-        public Staff Staff {get;set;}
-        public Ragweed Ambrosia {get;set;}
         public override string Name { get; set; }
 
         public Wizard(string name, int healthPoint)

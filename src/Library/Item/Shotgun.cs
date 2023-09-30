@@ -3,25 +3,16 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class Shotgun: IAttackItem
+    public class Shotgun: Item,IAttackItem
     {
-        public string Name {get;set;}
-        public int AttackValue 
-        {
-            get
-            {
-                return 25;
-            }
-        }
+        public int AttackValue=25;
 
-        public Shotgun (string name)
+        public Shotgun (string name): base(name)
         {
-            this.Name = name;
         }
         public int getAttackValue()
         {
             return AttackValue;
         }
-
     }
 }

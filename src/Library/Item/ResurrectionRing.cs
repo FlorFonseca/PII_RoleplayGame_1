@@ -1,22 +1,12 @@
 namespace RPG
 {
-    public class ResurrectionRing : IHealingItem
+    public class ResurrectionRing : Item,IHealingItem
     {
-        public string Name {get; set;}
+        public int HealingValue=100;
 
-        public int HealingValue
+        public ResurrectionRing (string name) :base (name)
         {
-            get
-            {
-                return 100;
-            }
         }
-
-        public ResurrectionRing (string name)
-        {
-            this.Name = name ;
-        }
-
         public int getHealingValue ()
         {
             return HealingValue ;

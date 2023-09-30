@@ -1,18 +1,10 @@
 namespace RPG
 {
-    public class Staff : IAttackItem
+    public class Staff : Item, IAttackItem
     {
-        public string Name {get; set;}
-        public int AttackValue 
+        public int AttackValue=10;
+        public Staff (string name): base (name)
         {
-            get
-            {
-                return 10;
-            }
-        }
-        public Staff (string name)
-        {
-            this.Name = name ;
         }
 
         public int getAttackValue ()
