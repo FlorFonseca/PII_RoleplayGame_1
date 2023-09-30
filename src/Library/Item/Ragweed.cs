@@ -1,22 +1,12 @@
 namespace RPG
 {
-    public class Ragweed: IHealingItem
+    public class Ragweed: Item, IHealingItem
         {
-        public string Name {get; set;}
+        public int HealingValue=25;
 
-        public int HealingValue
+        public Ragweed (string name): base (name)
         {
-            get
-            {
-                return 25;
-            }
         }
-
-        public Ragweed (string name)
-        {
-            this.Name = name ;
-        }
-
         public int getHealingValue ()
         {
             return HealingValue ;

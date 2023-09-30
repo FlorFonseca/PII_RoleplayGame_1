@@ -3,19 +3,11 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class BulletProofVest : IDefenseItem
+    public class BulletProofVest : Item, IDefenseItem
     {
-        public string Name {get; set;}
-        public int DefenseValue
+        public int DefenseValue=25;
+        public BulletProofVest (string name): base (name)
         {
-            get
-            {
-                return 25;
-            }
-        }
-        public BulletProofVest (string name)
-        {
-            this.Name = name;
         }
         public int getDefenseValue()
         {

@@ -3,21 +3,12 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class Shield: IDefenseItem
+    public class Shield: Item,IDefenseItem
     {
-        public string Name {get;set;}
-        public int DefenseValue
+        public int DefenseValue=25;
+        public Shield(string name):base(name)
         {
-            get
-            {
-                return 25;
-            }
         }
-        public Shield(string name)
-        {
-            this.Name=name;
-        }
-
         public int getDefenseValue()
         {
             return DefenseValue;

@@ -1,18 +1,10 @@
 namespace RPG
 {
-    public class Helmet : IDefenseItem
+    public class Helmet : Item, IDefenseItem
     {
-        public string Name {get; set;}
-        public int DefenseValue
+        public int DefenseValue=25;
+        public Helmet (string name): base (name)
         {
-            get
-            {
-                return 25;
-            }
-        }
-        public Helmet (string name)
-        {
-            this.Name = name;
         }
         public int getDefenseValue()
         {

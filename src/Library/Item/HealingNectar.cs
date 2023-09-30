@@ -3,23 +3,13 @@ using System.Runtime.CompilerServices;
 
 namespace RPG
 {
-    public class HealingNectar: IHealingItem
+    public class HealingNectar: Item, IHealingItem
         {
-        public string Name {get; set;}
+        public int HealingValue= 25;
 
-        public int HealingValue
+        public HealingNectar (string name) :base (name)
         {
-            get
-            {
-                return 25;
-            }
         }
-
-        public HealingNectar (string name)
-        {
-            this.Name = name;
-        }
-
         public int getHealingValue ()
         {
             return HealingValue ;
