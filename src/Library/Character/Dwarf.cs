@@ -5,33 +5,13 @@ namespace RPG
 {
     public class Dwarf : NoMagicCharacter
     {
-        public string Name { get; set; }
-        public Shotgun Escopeta {get;set;}
-        public BandAid BanditaCurativa {get;set;}
-        public Shield Escudo {get;set;}
-        public int Strength  
-        {
-            get
-            {
-                return  3;
-            }
-        }
-        public int Intelligence 
-        {
-            get
-            {
-                return 2;
-            }
-        }
+        public override string Name { get; set; }
+        public int Strength = 3;
+        public int Intelligence = 2;
         private int HealthPoint;
-        public int Resistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-
+        public int Resistance = 10;
+    
+       
 /*
         Como los Enanos tienen una gran resistencia, creamos el atributo Resistance para que pueda influir en su defensa y a su vez en la 
         recuperación.
@@ -42,22 +22,22 @@ namespace RPG
             this.HealthPoint = healthPoint;
         }
     
-        public void SetHealthPoint(int healthPointValue)
+        public override void SetHealthPoint(int healthPointValue)
         {
             this.HealthPoint = healthPointValue;
         }
-        public int GetHealthPoint()
+        public override int GetHealthPoint()
         {
             return this.HealthPoint;
         }
         
 
-        public int GetStrength()
+        public override int GetStrength()
         {
             return Strength;
         }
 
-        public int GetIntelligence()
+        public override int GetIntelligence()
         {
             return Intelligence;
         }
