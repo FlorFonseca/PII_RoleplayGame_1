@@ -4,7 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Elf : NoMagicCharacter
+    public class Elf : Heroes
     {
         public int Strength = 2;
         public int Intelligence = 2;
@@ -54,13 +54,18 @@ namespace RPG
 
         public override int Attack(IAttackItem item, ICharacter target)
         {
-            int attackLevel = item.getAttackValue() + GetStrength()+ GetIntelligence();
+            int attackLevel = item.getAttackValue() + GetStrength()+ GetIntelligence()+ GetNatureKnowledge();
             int lastHealthPoint = target.GetHealthPoint();
-            int currentHealthPoint = lastHealthPoint - (attackLevel + GetNatureKnowledge());
+            int currentHealthPoint = lastHealthPoint - attackLevel;
 
-            if (attackLevel > target.GetHealthPoint())
+
+            if (attackLevel >= target.GetHealthPoint())
             {
                 target.SetHealthPoint(0);
+                if(target is BadGuys)
+                {
+                    this.SetHeroVictoryPoints(target);
+                }
             }
             else
             {
@@ -102,10 +107,7 @@ namespace RPG
             }
             return healingLevel;
         }
-
-        
-    }
-    
+    } 
 }
 /*
     Los Elfos al ser criaturas mágicas también manejan la magia, sinembargo buscamos que fuera diferente a la
