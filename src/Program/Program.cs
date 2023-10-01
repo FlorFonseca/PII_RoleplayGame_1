@@ -30,11 +30,11 @@ namespace Program
 
         // CREANDO NUESTROS PERSONAJES!!: aquí creamos cada personaje, indicamos su especie y rellenamos con los datos que nos pide 
         //                                según la especie que elegimos
-            MagicCharacter maguito = new Wizard("Gandalf",100);
+            Heroes maguito = new Wizard("Gandalf",100);
 
-            NoMagicCharacter elfito = new Elf("Legolas",100);
+            Heroes elfito = new Elf("Legolas",100);
 
-            NoMagicCharacter enanito = new Dwarf("Pippin",100);
+            Heroes enanito = new Dwarf("Pippin",100);
 
         // JUGANDO: Aquí llamamos a los métodos que queramos para hacer los confrontamientos que deseamos o las defensas necesarias.
 

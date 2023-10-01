@@ -3,7 +3,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Dwarf : NoMagicCharacter
+    public class Dwarf : Heroes
     {
         public override string Name { get; set; }
         public int Strength = 3;

@@ -4,9 +4,8 @@ using System;
 
 namespace RPG
 {
-    public class Wizard : MagicCharacter
+    public class Wizard : Heroes 
     {
-
         public  Spell Spell {get; set;}
         public SpellsBook Spells {get; set;}
         public int Strenght = 1;
@@ -19,7 +18,6 @@ namespace RPG
             this.Name = name;
             this.HealthPoint = healthPoint;
             this.Spell = new Spell("");
-            
         }
         public override void SetHealthPoint(int healthPointValue)
         {

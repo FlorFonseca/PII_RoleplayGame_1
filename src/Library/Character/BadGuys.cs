@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Reflection.PortableExecutable;
 
 namespace RPG
 {
-    public abstract class MagicCharacter : ICharacter
-    {//Magic character tiene el método, me obliga a implementarlo 
+    public abstract class BadGuys : ICharacter
+    {
         public abstract string Name { get; set; }
+        public abstract int GetVictoryPoints();
         public abstract int GetStrength();
         public abstract int GetIntelligence();
         public abstract void SetHealthPoint(int healthPointValue);
         public abstract int GetHealthPoint();
-        public int Attack(IAttackItem item, ICharacter target)
+        public virtual int Attack(IAttackItem item, ICharacter target)
         {
             int attackLevel = item.getAttackValue() + GetStrength() + GetIntelligence();
             int lastHealthPoint = target.GetHealthPoint();
@@ -29,13 +29,11 @@ namespace RPG
             return attackLevel;
         }
 
-
-        public int Defend(IDefenseItem item, ICharacter target)
+        public virtual int Defend(IDefenseItem item, ICharacter target)
         {
-            int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
-            int lastHealthPoint = this.GetHealthPoint();
-            int currentHealthPoint = lastHealthPoint + defenseLevel;
-            
+                int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
+                int lastHealthPoint = this.GetHealthPoint();
+                int currentHealthPoint = lastHealthPoint + defenseLevel;
             if (this.GetHealthPoint() <= 100)
             {
                 this.SetHealthPoint(currentHealthPoint);
@@ -45,29 +43,29 @@ namespace RPG
                 this.SetHealthPoint(100);
             }
             return defenseLevel;
+
         }
-        public int Heal (IHealingItem item, ICharacter target)
+
+        public virtual int Heal(IHealingItem item, ICharacter target)
         {
             int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
-            int lastHeathValue = target.GetHealthPoint();
-            int currentHealthValue = lastHeathValue + healingLevel;    
+            int lastHealingPoint = this.GetHealthPoint();
+            int currentHealingPoint = lastHealingPoint + healingLevel;
+            if (this.GetHealthPoint() <= 100)
+            {
+                this.SetHealthPoint(currentHealingPoint);
 
-            if (target.GetHealthPoint() <= 100)
-            {
-                this.SetHealthPoint(currentHealthValue);
             }
-            if (target.GetHealthPoint() > 100)
+            if (this.GetHealthPoint() > 100)
             {
-                target.SetHealthPoint(100);
+                this.SetHealthPoint(100);
             }
             return healingLevel;
         }
     }
 }
 /*
-IMagicCharacter es una interfaz creada especialemente para el mago (Wizard).
-Hicimos una interfaz diferente a la del Dwarf y Elf ya que a este le agregamos el Spell (hechizo)
-de otra forma nos encontramos con problemas cuando queríamos poner los parámetros de los diferentes métodos.
-El target (personaje objetivo) es del tipo ICharacter ya que, como se explicó en ICharacter, de esta manera
-es posible atacar a cualquier personaje. 
+INoMagicCharacter es una interfaz para Dwarf y Elf, estos no tienen un parámetro en sus métodos que los diferencie,
+así que decidimos ponerlos juntos.
+Los tipos de Item, pueden verse explicados en las interfases correspondientes.
 */

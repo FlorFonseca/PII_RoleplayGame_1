@@ -8,6 +8,8 @@ namespace RPG
     {
         string Name {get; set;}
 
+        int GetVictoryPoints();
+
         void SetHealthPoint(int healthPointValue);
 
         int GetHealthPoint();

@@ -1,3 +1,5 @@
+using RPG;
+
 namespace RPG
 {
     public class HealingHerbs: Item, IHealingItem
