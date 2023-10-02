@@ -35,6 +35,8 @@ namespace Program
             Heroes elfito = new Elf("Legolas",100);
 
             Heroes enanito = new Dwarf("Pippin",100);
+            BadGuys elpipi= new ElPipi ("Pipi", 100);
+            BadGuys sullivan = new Sullivan ("Sullivan", 100);
 
         // JUGANDO: Aquí llamamos a los métodos que queramos para hacer los confrontamientos que deseamos o las defensas necesarias.
 
@@ -47,16 +49,12 @@ namespace Program
 
         // VALOR DE ATAQUE: Imprimimos el valor de ataque del personaje especificado, con el item que utiliza
         
-            valoresdejuego.PrintAttackValue(maguito,enanito,baston);
-            valoresdejuego.PrintDefenseValue(enanito,maguito,escudo);
-            valoresdejuego.PrintAttackValue(enanito,maguito,escopeta);
-            valoresdejuego.PrintAttackValue(elfito,maguito,ArcoYFlecha);
-            valoresdejuego.PrintAttackValue(enanito,maguito,baston);
-            valoresdejuego.PrintAttackValue(elfito,maguito,escopeta);
-        //    valoresdejuego.PrintHealingValue(maguito,ambrosia);
+            valoresdejuego.PrintAttackValue(maguito,elpipi,baston);
+            valoresdejuego.PrintAttackValue(enanito,elpipi,escopeta);
+            valoresdejuego.PrintAttackValue(elfito,elpipi,ArcoYFlecha);
+            valoresdejuego.PrintAttackValue(enanito,elpipi,baston);
+            valoresdejuego.PrintAttackValue(elfito,elpipi,escopeta);
 
-            
-        
         }
     }
 }

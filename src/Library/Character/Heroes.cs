@@ -16,7 +16,7 @@ namespace RPG
 
         public void SetHeroVictoryPoints(ICharacter target)
         {
-            this.victoryPoint=target.GetVictoryPoints();
+            this.victoryPoint+=target.GetVictoryPoints();
         }
         public int GetVictoryPoints()
         {
