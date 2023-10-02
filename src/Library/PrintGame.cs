@@ -35,6 +35,10 @@ namespace RPG
             if (target.GetHealthPoint()==0)
             {
                 Console.WriteLine($"El personaje {target.Name} ha caido en batalla\n");
+                if (target is BadGuys enemigo)
+                {
+                    Console.WriteLine($"{attacker.Name} tiene {attacker.GetVictoryPoints()} puntos de victoria. ¡Está destrozando a las lineas enemigas!\n");
+                }
             }
         }
 
@@ -101,7 +105,6 @@ namespace RPG
             Console.WriteLine($"{healer.Name} se curó con un valor de curación de {healingValue_toString}.");
             Console.WriteLine($"Actualmente {healer.Name} tiene {healer.GetHealthPoint()} puntos de vida restante\n");
         }
-
     }
 }
 /*
