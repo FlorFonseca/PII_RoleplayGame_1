@@ -7,6 +7,7 @@ namespace RPG
     public abstract class BadGuys : ICharacter
     {
         public abstract string Name { get; set; }
+        public IAttackItem ItemAtaque {get; set;}
         public abstract int GetVictoryPoints();
         public abstract int GetStrength();
         public abstract int GetIntelligence();

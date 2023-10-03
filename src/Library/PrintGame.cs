@@ -1,72 +1,76 @@
 using System;
+using System.Collections.Generic;
 
 namespace RPG
 {
-    public class PrintGame 
+    public class PrintGame
     {
-    //  ATTACK VALUE
-        public void PrintAttackValue(ICharacter attacker, ICharacter target, IAttackItem item)
+        //  ATTACK VALUE
+        public void PrintAttackValue(ICharacter attacker, ICharacter target)
         {
-            string attackValue_toString = "";            
+            string attackValue_toString = "";
 
-            if (attacker is Wizard wizardAttacker)
+            if (attacker is Heroes heroattacker)
             {
-                int attackValue= wizardAttacker.Attack(item, target);
-                    /*item.getAttackValue() + wizardAttacker.GetStrength() + wizardAttacker.GetIntelligence() + wizardAttacker.Spell.getAttackValue();*/
-                attackValue_toString = Convert.ToString(attackValue);
-            }
-
-            if (attacker is Elf elfAttacker)
-            {
-                int attackValue= elfAttacker.Attack(item, target);
-                //item.getAttackValue() + elfAttacker.GetStrength() + elfAttacker.GetIntelligence() + elfAttacker.GetNatureKnowledge();
-                attackValue_toString = Convert.ToString(attackValue);
-            }
-
-            if (attacker is Dwarf dwarfAttacker)
-            {
-                int attackValue= dwarfAttacker.Attack(item, target);
-                //item.getAttackValue() + dwarfAttacker.GetStrength() + dwarfAttacker.GetIntelligence();
-                attackValue_toString = Convert.ToString(attackValue);
-            }
-            Console.WriteLine($"¡Oh no! {attacker.Name} atacó a {target.Name} con un valor de ataque de {attackValue_toString}");
-            Console.WriteLine($"¡Que desastre! Ahora {target.Name} tiene {target.GetHealthPoint()} puntos de vida restante\n");
-            
-            if (target.GetHealthPoint()==0)
-            {
-                Console.WriteLine($"El personaje {target.Name} ha caido en batalla\n");
-                if (target is BadGuys enemigo)
+                if (heroattacker is Wizard wizardattacker)
                 {
-                    Console.WriteLine($"{attacker.Name} tiene {attacker.GetVictoryPoints()} puntos de victoria. ¡Está destrozando a las lineas enemigas!\n");
+                    int attackValue = wizardattacker.Attack(wizardattacker.ItemAtaque, target);
+                    attackValue_toString = Convert.ToString(attackValue);
+                }
+
+                if (heroattacker is Elf elfattacker)
+                {
+                    int attackValue = elfattacker.Attack(elfattacker.ItemAtaque, target);
+                    attackValue_toString = Convert.ToString(attackValue);
+                }
+
+                if (heroattacker is Dwarf dwarfattacker)
+                {
+                    int attackValue = dwarfattacker.Attack(dwarfattacker.ItemAtaque, target);
+                    attackValue_toString = Convert.ToString(attackValue);
                 }
             }
+
+            if (attacker is BadGuys badguyattacker)
+            {
+                int attackValue = badguyattacker.Attack(badguyattacker.ItemAtaque, target);
+                attackValue_toString = Convert.ToString(attackValue);
+            }
+
+            Console.WriteLine($"¡Oh no! {attacker.Name} atacó a {target.Name} con un valor de ataque de {attackValue_toString}");
+            Console.WriteLine($"¡Que desastre! Ahora {target.Name} tiene {target.GetHealthPoint()} puntos de vida restante\n");
         }
 
-    //  DEFENSE VALUE
+        //      DEFENSE
         public void PrintDefenseValue(ICharacter defender, ICharacter target, IDefenseItem item)
         {
-
             string defenseValue_toString = "";
 
-            if (defender is Wizard wizardDefender)
-
+            if (defender is Heroes herodefender)
             {
-                int defenseValue= wizardDefender.Defend(item,target);
-                //item.getDefenseValue() + wizardDefender.GetStrength() + wizardDefender.GetIntelligence() + wizardDefender.Spell.getDefenseValue();
-                defenseValue_toString = Convert.ToString(defenseValue);
+                if (herodefender is Wizard wizardDefender)
+
+                {
+                    int defenseValue = wizardDefender.Defend(item, target);
+                    defenseValue_toString = Convert.ToString(defenseValue);
+                }
+
+                if (herodefender is Elf elfDefender)
+                {
+                    int defenseValue = elfDefender.Defend(item, target);
+                    defenseValue_toString = Convert.ToString(defenseValue);
+                }
+
+                if (herodefender is Dwarf dwarfDefender)
+                {
+                    int defenseValue = dwarfDefender.Defend(item, target);
+                    defenseValue_toString = Convert.ToString(defenseValue);
+                }
             }
 
-            if (defender is Elf elfDefender)
+            if (defender is BadGuys badguydefender)
             {
-                int defenseValue= elfDefender.Defend(item,target);
-                // item.getDefenseValue() + elfDefender.GetStrength() + elfDefender.GetIntelligence() + elfDefender.GetNatureKnowledge();
-                defenseValue_toString = Convert.ToString(defenseValue);
-            }
-
-            if (defender is Dwarf dwarfDefender)
-            {
-                int defenseValue= dwarfDefender.Defend(item,target);
-                //item.getDefenseValue() + dwarfDefender.GetStrength() + dwarfDefender.GetIntelligence();
+                int defenseValue = badguydefender.Defend(item, target);
                 defenseValue_toString = Convert.ToString(defenseValue);
             }
 
@@ -74,36 +78,52 @@ namespace RPG
             Console.WriteLine($"{defender.Name} ahora tiene {defender.GetHealthPoint()} puntos de vida restante\n");
         }
 
-    //  HEALING VALUE
+        // HEAL
         public void PrintHealingValue(ICharacter healer, IHealingItem item)
         {
             string healingValue_toString = "";
 
-
-            if (healer is Wizard wizardHealer)
-
+            if (healer is Heroes herohealer)
             {
-                int healingValue= wizardHealer.Heal(item,healer);
-                //item.getHealingValue() + wizardHealer.GetStrength() + wizardHealer.GetIntelligence() + wizardHealer.Spell.getHealingValue();
-                healingValue_toString = Convert.ToString(healingValue);
+                if (herohealer is Wizard wizardHealer)
+
+                {
+                    int healingValue = wizardHealer.Heal(item, healer);
+                    healingValue_toString = Convert.ToString(healingValue);
+                }
+
+                if (herohealer is Elf elfHealer)
+                {
+                    int healingValue = elfHealer.Heal(item, healer);
+                    healingValue_toString = Convert.ToString(healingValue);
+                }
+
+                if (herohealer is Dwarf dwarfHealer)
+                {
+                    int healingValue = dwarfHealer.Heal(item, healer);
+                    healingValue_toString = Convert.ToString(healingValue);
+                }
             }
 
-            if (healer is Elf elfHealer)
+            if (healer is BadGuys badguyhealer)
             {
-                int healingValue= elfHealer.Heal(item,healer);
-                //item.getHealingValue() + elfHealer.GetStrength() + elfHealer.GetIntelligence() + elfHealer.GetNatureKnowledge();
-                healingValue_toString = Convert.ToString(healingValue);
+                int defenseValue = badguyhealer.Heal(item, healer);
+                healingValue_toString = Convert.ToString(defenseValue);
             }
-
-            if (healer is Dwarf dwarfHealer)
-            {
-                int healingValue= dwarfHealer.Heal(item,healer);
-                //item.getHealingValue() + dwarfHealer.GetStrength() + dwarfHealer.GetIntelligence();
-                healingValue_toString = Convert.ToString(healingValue);
-            }
-
             Console.WriteLine($"{healer.Name} se curó con un valor de curación de {healingValue_toString}.");
             Console.WriteLine($"Actualmente {healer.Name} tiene {healer.GetHealthPoint()} puntos de vida restante\n");
+
+        }
+        public void PrintEncounterResult(List<Heroes> heroes, List<BadGuys> badguys)
+        {
+            if (heroes.Count > 0)
+            {
+                Console.WriteLine($"¡Los Heroes han ganado!");
+            }
+            else
+            {
+                Console.WriteLine($"Los enemigos han ganado...");
+            }
         }
     }
 }

@@ -13,10 +13,11 @@ namespace RPG
         private int HealthPoint;
         public override string Name { get; set; }
 
-        public Wizard(string name, int healthPoint)
+        public Wizard(string name, int healthPoint, IAttackItem itemAtaque)
         {
             this.Name = name;
             this.HealthPoint = healthPoint;
+            this.ItemAtaque = itemAtaque;
             this.Spell = new Spell("");
         }
         public override void SetHealthPoint(int healthPointValue)
