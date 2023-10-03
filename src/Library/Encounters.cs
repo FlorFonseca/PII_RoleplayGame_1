@@ -9,14 +9,14 @@ namespace RPG
         public List<Heroes> HeroesList = new List<Heroes>();
         public List<BadGuys> BadGuysList = new List<BadGuys>();
 
-        public void AddHero ( Heroes Hero)
+        public void AddHero(Heroes Hero)
         {
             if (!HeroesList.Contains(Hero))
             {
                 this.HeroesList.Add(Hero);
             }
         }
-        public void AddBadGuy ( BadGuys BadGuy)
+        public void AddBadGuy(BadGuys BadGuy)
         {
             if (!BadGuysList.Contains(BadGuy))
             {
@@ -24,91 +24,80 @@ namespace RPG
             }
         }
 
-        public Encounters (List<Heroes> HeroesList, List<BadGuys> BadGuysList)
+        public Encounters(List<Heroes> HeroesList, List<BadGuys> BadGuysList)
         {
-            this.HeroesList= HeroesList;
-            this.BadGuysList= BadGuysList;
+            this.HeroesList = HeroesList;
+            this.BadGuysList = BadGuysList;
         }
 
-        public void DoEncounters(List<Heroes> heroesList,List<BadGuys> badguysList)
+        public void DoEncounters(List<Heroes> heroesList, List<BadGuys> badguysList)
         {
+
             PrintGame printGame = new PrintGame();
+            //int heroIndex = 0;
+            //int enemyIndex = 0;
 
             while (heroesList.Count > 0 && badguysList.Count > 0)
             {
-                if (heroesList.Count >= badguysList.Count)
+                // Villanos atacan primero
+                for (int i = 0; i < badguysList.Count; i++)
                 {
-                    int indice = 0;
-                    foreach (BadGuys BadGuy in badguysList)
-                    {
-                        Heroes hero = heroesList[indice];
-                        if (BadGuy.GetHealthPoint()>0)
-                        {
-                            printGame.PrintAttackValue(BadGuy,hero);
-                        }
-                        else
-                        {
-                            badguysList.Remove(BadGuy);
-                        }
-                        indice += 1;
-                    }
+                    BadGuys badGuyToAttack = badguysList[i];
+                    Heroes heroToAttack = heroesList[i % heroesList.Count]; // Selección circular de héroes
 
-                    foreach (Heroes Hero in heroesList)
+                    if (heroToAttack.GetHealthPoint() > 0 && badGuyToAttack.GetHealthPoint() > 0)
                     {
-                        if (Hero.GetHealthPoint()>0)
+                        // Villano ataca al héroe
+                        printGame.PrintAttackValue(badGuyToAttack, heroToAttack);
+
+                        if (heroToAttack.GetHealthPoint() <= 0)
                         {
-                            foreach (BadGuys BadGuy in badguysList)
-                            {
-                                printGame.PrintAttackValue(Hero,BadGuy);
-                            }
-                        }
-                        else
-                        {
-                            heroesList.Remove(Hero);
+                            heroesList.Remove(heroToAttack);
                         }
                     }
                 }
 
-                if (heroesList.Count < badguysList.Count)
+                // Héroes atacan a los villanos
+                for (int i = 0; i < heroesList.Count; i++)
                 {
-                    int cantidadHeroes= heroesList.Count;
-                    int indice = 0;
-                    foreach (BadGuys BadGuy in badguysList)
-                    {   
-                        if (indice>cantidadHeroes-1)
-                        {
-                            indice = 0;
-                        }
-                        Heroes hero = heroesList[indice];
-                        if (BadGuy.GetHealthPoint()>0)
-                        {
-                            printGame.PrintAttackValue(BadGuy,hero);
-                        }
-                        else
-                        {
-                            badguysList.Remove(BadGuy);
-                        }
-                        indice += 1;
-                        
-                    }
+                    Heroes heroToAttack = heroesList[i];
+                    BadGuys badGuyToAttack = badguysList[i % badguysList.Count]; // Selección circular de villanos
 
-                    foreach (Heroes Hero in heroesList)
+                    if (badGuyToAttack.GetHealthPoint() > 0 && heroToAttack.GetHealthPoint() > 0)
                     {
-                        if (Hero.GetHealthPoint()>0)
+                        // Héroe ataca al villano
+                        printGame.PrintAttackValue(heroToAttack, badGuyToAttack);
+
+                        if (badGuyToAttack.GetHealthPoint() <= 0)
                         {
-                            foreach (BadGuys BadGuy in badguysList)
-                            {
-                                printGame.PrintAttackValue(Hero,BadGuy);
-                            }
-                        }
-                        else 
-                        {
-                            heroesList.Remove(Hero);
+                            heroToAttack.SetHeroVictoryPoints(badGuyToAttack);
                         }
                     }
                 }
-            } 
-            printGame.PrintEncounterResult(heroesList,badguysList);
+
+                // Eliminar villanos derrotados
+                badguysList.RemoveAll(BadGuy => BadGuy.GetHealthPoint() <= 0);
+
+                // Verificar si algún héroe ha conseguido 5+ VP y curarlo
+                foreach (Heroes Hero in heroesList)
+                {
+                    if (Hero.GetVictoryPoints() >= 5)
+                    {
+                        BandAid curita = new BandAid("curita");
+                        Hero.Heal(curita, Hero);
+                    }
+                }
+            }
+
+                // Verificar si algún héroe ha conseguido 5+ VP y curarlo
+                foreach (Heroes Hero in heroesList)
+                {
+                    if (Hero.GetVictoryPoints() >= 5)
+                    {
+                        BandAid curita = new BandAid("curita");
+                        Hero.Heal(curita, Hero);
+                    }
+            }
         }
     }
 }

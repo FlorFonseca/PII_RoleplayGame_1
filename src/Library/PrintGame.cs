@@ -39,6 +39,11 @@ namespace RPG
 
             Console.WriteLine($"¡Oh no! {attacker.Name} atacó a {target.Name} con un valor de ataque de {attackValue_toString}");
             Console.WriteLine($"¡Que desastre! Ahora {target.Name} tiene {target.GetHealthPoint()} puntos de vida restante\n");
+            
+            if (target.GetHealthPoint()<=0)
+            {
+                Console.WriteLine($"{target.Name} ha caído en batalla\n");
+            }
         }
 
         //      DEFENSE
