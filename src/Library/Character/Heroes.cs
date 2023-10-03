@@ -8,6 +8,7 @@ namespace RPG
     public abstract class Heroes : ICharacter
     {
         public abstract string Name { get; set; }
+        public IAttackItem ItemAtaque {get; set;}
         public abstract int GetStrength();
         public abstract int GetIntelligence();
         public abstract void SetHealthPoint(int healthPointValue);

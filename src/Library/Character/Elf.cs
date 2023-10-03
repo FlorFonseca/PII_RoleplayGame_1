@@ -36,10 +36,11 @@ namespace RPG
             return NatureKnowledge;
         }
 
-        public Elf(string name, int healthPoint)
+        public Elf (string name, int healthPoint, IAttackItem itemAtaque)
         {
-            this.Name=name;
-            this.HealthPoint=healthPoint;
+            this.Name = name;
+            this.HealthPoint = healthPoint;
+            this.ItemAtaque = itemAtaque;
         }
 
 

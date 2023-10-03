@@ -5,7 +5,7 @@ namespace RPG
 {
     public class TheCook : BadGuys
     {
-        public int victoryPoint=85;
+        public int victoryPoint=5;
         public int Strength = 5;
         public int Intelligence = 5;
         private int HealthPoint;
@@ -21,10 +21,11 @@ namespace RPG
             return Strength;
         }
 
-        public TheCook(string name, int healthPoint)
+        public TheCook(string name, int healthPoint, IAttackItem itemAtaque)
         {
             this.Name=name;
             this.HealthPoint=healthPoint;
+            this.ItemAtaque = itemAtaque;
         }
         
         public override void SetHealthPoint(int healthPointValue)

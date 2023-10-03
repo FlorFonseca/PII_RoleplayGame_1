@@ -16,10 +16,11 @@ namespace RPG
         Como los Enanos tienen una gran resistencia, creamos el atributo Resistance para que pueda influir en su defensa y a su vez en la 
         recuperación.
 */
-        public Dwarf(string name, int healthPoint)
+        public Dwarf (string name, int healthPoint, IAttackItem itemAtaque)
         {
             this.Name = name;
             this.HealthPoint = healthPoint;
+            this.ItemAtaque = itemAtaque;
         }
     
         public override void SetHealthPoint(int healthPointValue)
