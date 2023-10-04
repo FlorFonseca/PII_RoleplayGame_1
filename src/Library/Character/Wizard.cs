@@ -11,7 +11,14 @@ namespace RPG
         public SpellsBook Spells {get; set;}
         //public Inventory WizardInventory {get; set;}
         public string Name {get; set;}
-        public int Strenght = 1;
+        public int Strenght
+        {
+            get
+            {
+                return 1;
+            }
+            
+        }
         public int Intelligence 
         {
             get
@@ -50,39 +57,6 @@ namespace RPG
             return Intelligence;
         }
 
-        public int Defend(IDefenseItem item, ICharacter target)
-        {
-            int defenseLevel = item.getDefenseValue() + GetStrength() + GetIntelligence();
-            int lastHealthPoint = this.GetHealthPoint();
-            int currentHealthPoint = lastHealthPoint + defenseLevel;
-            
-            if (this.GetHealthPoint() <= 100)
-            {
-                this.SetHealthPoint(currentHealthPoint);
-            }
-            if (this.GetHealthPoint() > 100)
-            {
-                this.SetHealthPoint(100);
-            }
-            return defenseLevel;
-        }
-
-        public int Heal(IHealingItem item, ICharacter target)
-        {
-            int healingLevel = item.getHealingValue() + GetStrength() + GetIntelligence();
-            int lastHeathValue = target.GetHealthPoint();
-            int currentHealthValue = lastHeathValue + healingLevel;    
-
-            if (target.GetHealthPoint() <= 100)
-            {
-                this.SetHealthPoint(currentHealthValue);
-            }
-            if (target.GetHealthPoint() > 100)
-            {
-                target.SetHealthPoint(100);
-            }
-            return healingLevel;
-        }
     }
 }
 /*
