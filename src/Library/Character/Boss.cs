@@ -20,7 +20,7 @@ namespace RPG
             return Strength;
         }
 
-        public ElPipi(string name, int healthPoint, IAttackItem itemToAttack)
+        public Boss(string name, int healthPoint, IAttackItem itemToAttack)
         {
             this.Name = name;
             this.HealthPoint = healthPoint;
