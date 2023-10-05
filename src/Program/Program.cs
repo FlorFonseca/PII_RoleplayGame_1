@@ -57,7 +57,7 @@ namespace Program
             HeroesList.Add(maguito);
             BadGuysList.Add(elpipi);
             BadGuysList.Add(magnus);
-        //    BadGuysList.Add(sullivan);
+            BadGuysList.Add(sullivan);
 
         // ENFRENTAMIENTOS
 
