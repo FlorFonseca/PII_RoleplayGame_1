@@ -9,7 +9,8 @@ namespace RPG.Tests
         public void ValidHealthPoint()
         {
             //Arrange
-            Wizard testCharacter = new Wizard ("Test Character", 100);
+            IAttackItem espada = new Sword ("Test item");
+            Wizard testCharacter = new Wizard ("Test Character", 100, espada);
             
             int input = testCharacter.GetHealthPoint() ;
             int expected = 100 ;
@@ -22,7 +23,8 @@ namespace RPG.Tests
         public void Heal_WhenHealthIsLessThan100_ShouldIncreaseHealth()
         {
             // Arrange
-            Dwarf testCharacter = new Dwarf("Test Character", 80);
+            IAttackItem espada = new Sword ("Test item");
+            Dwarf testCharacter = new Dwarf("Test Character", 80,espada);
             BandAid exampleItem = new BandAid("Example Item "); 
 
             // Act
@@ -38,7 +40,8 @@ namespace RPG.Tests
         public void Heal_WhenHealthIs100_ShouldNotIncreaseHealth()
         {
              // Arrange
-            Dwarf testCharacter = new Dwarf("Test Character", 80);
+            IAttackItem espada = new Sword ("Test item");
+            Dwarf testCharacter = new Dwarf("Test Character", 80, espada);
             BandAid exampleItem = new BandAid("Example Item "); 
 
             // Act
@@ -54,8 +57,9 @@ namespace RPG.Tests
         public void Attack_ShouldNotReduceHealthBelowZero()
         {
             // Arrange
-            Elf testCharacter = new Elf("Test Attacker", 100);
-            Dwarf exampleTarget = new Dwarf("example Target", 5);
+            IAttackItem espada = new Sword ("Test item");
+            Elf testCharacter = new Elf("Test Attacker", 100, espada);
+            Dwarf exampleTarget = new Dwarf("example Target", 5, espada);
             Staff exampleItem = new Staff("Example Item "); 
 
             // Act
@@ -73,7 +77,8 @@ namespace RPG.Tests
         [Test]
         public void ResistanceIsValid()
         {
-            Dwarf testCharacter = new Dwarf("ExampleCharacter",100);
+            IAttackItem espada = new Sword ("Test item");
+            Dwarf testCharacter = new Dwarf("ExampleCharacter",100, espada);
 
             int output = testCharacter.GetResistance();
             int expected = 10;
