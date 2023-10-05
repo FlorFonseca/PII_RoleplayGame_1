@@ -121,11 +121,11 @@ namespace RPG
         }
         public void PrintEncounterResult(List<Heroes> heroes, List<BadGuys> badguys)
         {
-            if (heroes.Count > 0)
+            if (badguys.Count == 0)
             {
                 Console.WriteLine($"¡Los Heroes han ganado!");
             }
-            else
+            if (heroes.Count == 0)
             {
                 Console.WriteLine($"Los enemigos han ganado...");
             }
