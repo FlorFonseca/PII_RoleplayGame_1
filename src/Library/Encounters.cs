@@ -65,7 +65,7 @@ namespace RPG
 
                                 if (heroToAttack.GetHealthPoint() <= 0)
                                 {
-                                    heroesList.Remove(heroToAttack);
+                                    heroToAttack.SetHealthPoint(0);
                                 }
                             }
 
@@ -76,12 +76,12 @@ namespace RPG
 
                                 if (heroToAttack.GetHealthPoint() <= 0)
                                 {
-                                    heroesList.Remove(heroToAttack);
+                                    heroToAttack.SetHealthPoint(0);
                                 }
-                            }
-                            
+                            }                            
                         }
                     }
+                    heroesList.RemoveAll(hero => hero.GetHealthPoint() <= 0);
                     
                     for (int i = 0; i < heroesList.Count; i++)
                     {
