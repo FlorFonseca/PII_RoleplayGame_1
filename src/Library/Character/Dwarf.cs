@@ -84,6 +84,7 @@ namespace RPG
     }
 }
 /*
-Dwarf es una clase para crear un tipo de personaje (enano), utiliza la interfaz de INoMagicCharacter ya que no es
-un personaje mágico (no es un mago). 
+Dwarf es una clase para crear un tipo de personaje (enano), es una clase hija de Heroes (tipo:Heroe).
+Podemos ver cómo definimos otra vez el método Defend y Heal debido a la influencia del valor del 
+atributo especial del personaje "Strength". 
 */

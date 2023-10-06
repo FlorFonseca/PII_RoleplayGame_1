@@ -41,7 +41,9 @@ namespace RPG
             return this.victoryPoint;
         }
     }
-
-
-
 }
+/*
+Este es un BadGuy, vemos cómo la clase del personaje Boss es hija de BadGuys, 
+heredando sus atributos y métodos.
+Pasará lo mismo en el resto de los BadGuys.
+*/
