@@ -66,7 +66,6 @@ namespace RPG
     }
 }
 /*
-INoMagicCharacter es una interfaz para Dwarf y Elf, estos no tienen un parámetro en sus métodos que los diferencie,
-así que decidimos ponerlos juntos.
-Los tipos de Item, pueden verse explicados en las interfases correspondientes.
+La clase BadGuys reune todos los atributos y metodos que utilizarán los personajes que sean 
+del tipo BadGuys. Como se puede ver, mostramos cómo son sus métodos de atáque, defensa y curación, etc.
 */

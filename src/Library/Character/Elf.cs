@@ -111,11 +111,11 @@ namespace RPG
     } 
 }
 /*
-    Los Elfos al ser criaturas mágicas también manejan la magia, sinembargo buscamos que fuera diferente a la
+    Los Elfos al ser criaturas mágicas también manejan la magia, sin embargo buscamos que fuera diferente a la
     de los magos. La de los elfos se vincula con la magia de la naturaleza, con su Natural Knowledge, como se ve 
     en los métodos anteriores, su nivel de natural knowledge influye en su ataque y defensa.
     Por otro lado, como son grandes curadores, su magia de Helaling Power influirá en su curación, así como la de otro 
     personaje aliado.
-    Funciona similar al Dwarf, como no es un mago, colabora con la interfaz de INoMagicCharacter.
+    Funciona similar al Dwarf, es hija de Heroes.
 */
 

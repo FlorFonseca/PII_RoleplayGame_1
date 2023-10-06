@@ -159,5 +159,27 @@ namespace RPG
         }
     }
 }
+/*
+En Encounters lo que queremos es hacer los enfrentamientos, dividimos en dos partes el código 
+para poder tratar mejor los casos.
+En el primer caso evaluaremos cuando los heroes son distintos de los enemigos (bad guys).
+    Partiendo de la letra, sabemos que cuando los heroes son menos que los enemigos, los enemigos atacan
+    en grupos de a dos a los heroes.
+    Lo primero que hicimos fue definir la agrupación de dos bad guys (linea 53 y 54. Definimos quien es el BG1 y BG2)
+    A partir de la linea 57, definimos el orden de ataque de los badguys dentro del "paquetito".
+    Si el badguy2 (como es el indice del badguy + 1) no es válido (ya sea porque se haya acabado la lista de enemigos o que se hayan muerto)
+    directamente no se agrega al paquete.
+    Cuando un heroe muere, se quita de la lista de heroes y lo mismo pasa para cuando un enemigo muere.
 
+El segundo caso es cundo la cantidad de heroes es igual a la de los enemigos.
+    Aquí evaluamos si los indices son iguales, para poder hacer un enfrentamiento "en paralelo" 
+    entre el primer heroe y el primer enemigo de la lista, el segundo con el segundo y así sucesivamente.
+
+Lo encerramos todo dentro de un while que evalua que todo se cumpla si las listas no son vacias, poner todo 
+dentro del while permite evaluar constantemente el estado de las listas, para saber cómo realizar los 
+enfrentamientos. 
+
+Por ultimo, verificamos los Puntos de victoria que obtiene cada heroe, recordemos que cada heroe obtiene
+puntos de victoria cuando logra matar a algún villano.
+*/
 

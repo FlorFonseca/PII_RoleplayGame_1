@@ -29,8 +29,9 @@ namespace RPG
                     int attackValue = dwarfattacker.Attack(dwarfattacker.ItemAtaque, target);
                     attackValue_toString = Convert.ToString(attackValue);
                 }
+                Console.WriteLine($"{heroattacker.GetVictoryPoints()} VP");
             }
-
+            
             if (attacker is BadGuys badguyattacker)
             {
                 int attackValue = badguyattacker.Attack(badguyattacker.ItemAtaque, target);
@@ -39,7 +40,6 @@ namespace RPG
 
             Console.WriteLine($"¡Oh no! {attacker.Name} atacó a {target.Name} con un valor de ataque de {attackValue_toString}");
             Console.WriteLine($"¡Que desastre! Ahora {target.Name} tiene {target.GetHealthPoint()} puntos de vida restante\n");
-            
             if (target.GetHealthPoint()<=0)
             {
                 Console.WriteLine($"{target.Name} ha caído en batalla\n");
@@ -133,8 +133,7 @@ namespace RPG
     }
 }
 /*
-    En esta clase nos encargamos de imprimir tanto el valor de ataque y defensa de un personaje, como su valor de curación.
-    Aquí tomamos un personaje x y evaluamos a qué especie de personaje pertenece (Wizard, Dwarf or Elf), esto debemos hacerlo
-    ya que para cada especie deterinadas propiedades que son particulares de la especie.
-    Los hechizos infuyen en los magos, el conocimiento de la naturaleza en los elfos y la resistencia en los enanos (por ejemplo)
+En esta clase nos encargamos de darle vida al juego, imprimimos valores de ataque, curación, defensa, 
+resultado de los encuentros y tambien la vida del personaje.
+Agregamos que se llevara un registro de los puntos de victoria del heroe.
 */

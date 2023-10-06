@@ -43,15 +43,6 @@ namespace Program
             BadGuys sullivan = new Sullivan ("Sullivan", 100, espada);
             BadGuys magnus = new Magnus ("Magnus",100,arcoYFlecha);
 
-
-        // VALOR DE ATAQUE: Imprimimos el valor de ataque del personaje especificado, con el item que utiliza
-        /*
-            valoresdejuego.PrintAttackValue(maguito,elpipi);
-            valoresdejuego.PrintAttackValue(enanito,elpipi);
-            valoresdejuego.PrintAttackValue(elfito,elpipi);
-            valoresdejuego.PrintAttackValue(enanito,elpipi);
-            valoresdejuego.PrintAttackValue(elfito,elpipi);
-        */
         // AGREGANDO HEROES Y ENEMIGOS
             HeroesList.Add(elfito);
             HeroesList.Add(maguito);
@@ -60,10 +51,8 @@ namespace Program
             BadGuysList.Add(sullivan);
 
         // ENFRENTAMIENTOS
-
             encounter.DoEncounters(HeroesList, BadGuysList);
             valoresdejuego.PrintEncounterResult(HeroesList, BadGuysList);
-
         }
     }
 }
